@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pin &amp; Tally — For the League</title>
+    <meta name="description" content="A tiny, no-fuss golf scorecard for Apple Watch. Tap. Tally. Share. Made by Jaime — built for friends, family, and league players who just want to count their shots.">
     <style>
         :root {
             --coral: #FF7061;
@@ -11,49 +12,38 @@
             --teal-deep: #1F7A6F;
             --ink: #1c1c1e;
             --ink2: #555;
+            --ink3: #888;
             --bg: #fafaf7;
         }
         * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Helvetica Neue", Arial, sans-serif;
             background: var(--bg);
             color: var(--ink);
-            line-height: 1.55;
+            line-height: 1.6;
             margin: 0;
             padding: 32px 16px;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 0%, rgba(255, 112, 97, 0.08), transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(41, 157, 143, 0.10), transparent 50%);
+            z-index: -1;
+            pointer-events: none;
         }
         .wrap {
             max-width: 680px;
             margin: 0 auto;
             background: white;
-            padding: 40px 32px;
-            border-radius: 16px;
-            box-shadow: 0 6px 30px rgba(0,0,0,0.06);
+            padding: 44px 36px;
+            border-radius: 18px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.06);
         }
-        h1 {
-            color: var(--coral);
-            font-weight: 800;
-            margin: 0 0 4px;
-            font-size: 32px;
-        }
-        h1 .pin   { color: var(--coral); }
-        h1 .amp   { color: var(--teal); margin: 0 4px; }
-        h1 .tally { color: var(--coral); }
-        .greeting {
-            color: var(--teal);
-            font-weight: 700;
-            font-size: 22px;
-            margin: 0 0 4px;
-        }
-        .sub {
-            color: var(--teal);
-            font-weight: 600;
-            font-size: 14px;
-            margin: 0 0 4px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .platform-badge {
+        .badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -66,105 +56,161 @@
             font-weight: 700;
             letter-spacing: 1.2px;
             text-transform: uppercase;
-        }
-        .platform-badge .pri {
             color: var(--teal-deep);
         }
-        .platform-badge .sep {
-            color: var(--teal);
-            opacity: 0.5;
+        h1 {
+            font-weight: 900;
+            margin: 0 0 6px;
+            font-size: 40px;
+            letter-spacing: -1px;
         }
-        .platform-badge .sec {
-            color: var(--teal);
-            opacity: 0.85;
-            text-transform: none;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            font-size: 12px;
+        h1 .pin   { color: var(--coral); }
+        h1 .amp   { color: var(--ink2); margin: 0 4px; font-weight: 700; }
+        h1 .tally { color: var(--teal); }
+        .greeting {
+            color: var(--teal-deep);
+            font-weight: 700;
+            font-size: 22px;
+            margin: 0 0 4px;
         }
         .byline {
             color: var(--ink2);
             font-size: 14px;
-            font-weight: 500;
-            margin: 6px 0 24px;
+            margin: 6px 0 28px;
         }
-        .byline a {
-            color: var(--teal);
-            font-weight: 700;
-        }
+        .byline a { color: var(--teal); font-weight: 700; }
+
         h2 {
             color: var(--teal-deep);
-            font-size: 22px;
-            margin-top: 36px;
-            margin-bottom: 8px;
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
         }
         h3 {
             color: var(--coral);
-            font-size: 17px;
-            margin-top: 20px;
-            margin-bottom: 4px;
-            font-weight: 700;
+            font-size: 18px;
+            margin-top: 24px;
+            margin-bottom: 6px;
+            font-weight: 800;
         }
-        p { margin: 8px 0 16px; color: var(--ink); }
-        ol, ul { padding-left: 24px; }
-        li { margin: 6px 0; }
+        p { margin: 10px 0 18px; color: var(--ink); }
+        ul { padding-left: 24px; }
+        li { margin: 8px 0; }
         a { color: var(--coral); text-decoration: none; font-weight: 600; }
         a:hover { text-decoration: underline; }
-        .phase {
-            background: rgba(41, 157, 143, 0.08);
-            border-left: 4px solid var(--teal);
-            padding: 18px 22px;
-            border-radius: 8px;
-            margin: 16px 0 8px;
-        }
-        .phase.coral {
-            background: rgba(255, 112, 97, 0.08);
-            border-left-color: var(--coral);
-        }
-        .phase-tag {
-            display: inline-block;
-            background: var(--teal);
-            color: white;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            padding: 3px 10px;
-            border-radius: 999px;
-            margin-bottom: 8px;
-        }
-        .phase.coral .phase-tag {
-            background: var(--coral);
-        }
-        .phase h2 {
-            margin-top: 4px;
-        }
-        .callout {
-            background: white;
-            border: 2px dashed var(--coral);
-            padding: 16px 20px;
-            border-radius: 10px;
-            margin: 16px 0;
-        }
-        .callout strong {
-            color: var(--coral);
-        }
-        .placeholder {
-            color: var(--ink2);
-            font-style: italic;
-            background: rgba(255, 200, 0, 0.15);
-            padding: 1px 6px;
-            border-radius: 4px;
-            font-size: 0.95em;
-        }
-        .footer {
-            margin-top: 48px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: var(--ink2);
-            font-size: 13px;
+        strong { color: var(--ink); }
+
+        /* Hero image at top */
+        .hero {
+            margin: 24px 0 28px;
             text-align: center;
         }
-        .flag { font-size: 28px; }
+        .hero img {
+            width: 100%;
+            max-width: 360px;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.10);
+        }
+
+        /* Get it CTA */
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 112, 97, 0.10), rgba(41, 157, 143, 0.10));
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin: 32px 0;
+        }
+        .cta h2 {
+            margin-top: 0;
+            margin-bottom: 4px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--ink);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            margin-top: 16px;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            transition: transform 0.15s ease;
+        }
+        .cta-button:hover {
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+        .cta-button.coming-soon {
+            background: rgba(0,0,0,0.45);
+            cursor: default;
+        }
+        .cta-note {
+            color: var(--ink2);
+            font-size: 13px;
+            margin: 12px 0 0;
+            font-style: italic;
+        }
+
+        /* Two-up image strip */
+        .image-strip {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 22px 0;
+        }
+        .image-strip img {
+            width: 100%;
+            border-radius: 14px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            display: block;
+        }
+        @media (max-width: 520px) {
+            .image-strip {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Privacy banner */
+        .privacy-banner {
+            background: white;
+            border: 2px solid rgba(41, 157, 143, 0.35);
+            border-radius: 14px;
+            padding: 22px 26px;
+            margin: 32px 0;
+        }
+        .privacy-banner h3 {
+            color: var(--teal-deep);
+            margin-top: 0;
+            font-size: 18px;
+        }
+        .privacy-banner p {
+            margin: 8px 0;
+            color: var(--ink);
+        }
+
+        /* Feedback callout — the most important section */
+        .feedback {
+            background: rgba(255, 112, 97, 0.08);
+            border-left: 5px solid var(--coral);
+            border-radius: 10px;
+            padding: 26px 28px;
+            margin: 32px 0;
+        }
+        .feedback h2 {
+            color: var(--coral);
+            margin-top: 0;
+        }
+        .feedback p {
+            margin: 10px 0;
+        }
+        .feedback strong {
+            color: var(--coral);
+        }
+
         .nav-links {
             margin: 0 0 24px;
             font-size: 14px;
@@ -173,156 +219,164 @@
             color: var(--teal);
             font-weight: 600;
         }
-        .step {
-            counter-increment: step;
-            padding: 4px 0;
+
+        .placeholder {
+            color: var(--ink2);
+            font-style: italic;
+            background: rgba(255, 200, 0, 0.18);
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.95em;
         }
-        ol.steps {
-            list-style: none;
-            padding-left: 0;
-            counter-reset: step;
+
+        .footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #eee;
+            color: var(--ink3);
+            font-size: 13px;
+            text-align: center;
         }
-        ol.steps > li {
-            position: relative;
-            padding-left: 44px;
-            min-height: 32px;
-            margin: 14px 0;
+        .footer a {
+            color: var(--teal);
+            font-weight: 600;
         }
-        ol.steps > li::before {
-            content: counter(step);
-            counter-increment: step;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 30px;
-            height: 30px;
-            background: var(--coral);
-            color: white;
+
+        .signoff {
+            text-align: center;
+            font-size: 22px;
+            color: var(--coral);
             font-weight: 800;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-        .phase.coral ol.steps > li::before {
-            background: var(--teal);
+            margin: 36px 0 8px;
+            letter-spacing: -0.3px;
         }
     </style>
 </head>
 <body>
     <div class="wrap">
-        <div class="platform-badge">
-            <span class="pri">⌚ Apple Watch App</span>
-            <span class="sep">·</span>
-            <span class="sec">Android coming soon</span>
-        </div>
-        <p class="sub">For the League</p>
-        <h1><span class="pin">Pin</span><span class="amp">&amp;</span><span class="tally">Tally</span> <span class="flag">⛳</span></h1>
+        <div class="badge">⌚ Apple Watch · For the League</div>
+
+        <h1><span class="pin">Pin</span><span class="amp">&amp;</span><span class="tally">Tally</span> ⛳</h1>
         <p class="greeting">Hey, Birdies 👋</p>
-        <p class="byline">By <a href="https://bytecraftco.ai">ByteCraftCo</a></p>
+        <p class="byline">A tiny app I made — by <a href="https://bytecraftco.ai">ByteCraftCo</a></p>
 
-        <p class="nav-links"><a href="./">Privacy Policy</a> &middot; <a href="./support.html">Support</a> &middot; <a href="mailto:hello@bytecraftco.ai">Email Us</a></p>
+        <p class="nav-links">
+            <a href="./">Privacy</a> &middot;
+            <a href="./support.html">Support</a> &middot;
+            <a href="mailto:hello@bytecraftco.ai">Email me</a>
+        </p>
 
-        <p>Welcome! You&rsquo;re here because you&rsquo;re part of the league (or a very lucky friend) and you&rsquo;re about to be one of the very first humans on Earth with <strong>Pin &amp; Tally</strong> on your wrist. ⛳</p>
+        <p>I&rsquo;ve been quietly building a small thing on the side, and it&rsquo;s finally close to ready. <strong>Pin &amp; Tally</strong> is a tiny, no-fuss golf scorecard for Apple Watch. The whole pitch fits in three words: <strong>tap, tally, share</strong>.</p>
 
-        <p>Pin &amp; Tally is a tiny, cute, no-fuss golf scorecard for Apple Watch. Tap once for each shot, advance to the next hole, share the scorecard. That&rsquo;s the whole pitch.</p>
+        <p>I made it for our league — for casual rounders, for beginners, for anyone (👋 me) who just wants to count shots without wrestling with a full GPS golf app. No subscriptions. No signup. No tracking. Just tap your watch every time you swing.</p>
 
-        <p>Here&rsquo;s how this is going to work — in two phases:</p>
-
-        <!-- ============================================================== -->
-
-        <div class="phase">
-            <span class="phase-tag">Phase 1 · Now</span>
-            <h2>The Beta 🧪</h2>
-            <p>For the next <strong>two weeks</strong>, you and a small handful of friends will be the only people in the world with Pin &amp; Tally. Use it for your rounds, abuse it for science, and tell us when something feels weird.</p>
-
-            <h3>What you&rsquo;ll need</h3>
-            <ul>
-                <li>An Apple Watch (Series 7 or later) paired to your iPhone</li>
-                <li>The <strong>TestFlight</strong> app (free, made by Apple) — <a href="https://apps.apple.com/app/testflight/id899247664">install it from the App Store</a> if you don&rsquo;t have it</li>
-                <li>About 90 seconds and a sense of humor</li>
-            </ul>
-
-            <h3>How to install</h3>
-            <ol class="steps">
-                <li>Open <strong>TestFlight</strong> on your iPhone (after installing it from the App Store).</li>
-                <li>Tap the link Jaime sends you — something like <span class="placeholder">testflight.apple.com/join/XXXXXXXX</span></li>
-                <li>Tap <strong>Accept</strong>, then <strong>Install</strong>. Pin &amp; Tally appears on your watch within a minute or two.</li>
-                <li>Open Pin &amp; Tally on your watch from your app grid. Tap a couple buttons. Try not to scream with joy.</li>
-            </ol>
-
-            <h3>What to do during the beta</h3>
-            <ul>
-                <li><strong>Use it for at least one real round.</strong> Anything weird? Tell us.</li>
-                <li><strong>Try the &ldquo;Text Myself&rdquo; feature</strong> after finishing a round (Settings → enter your phone number first, then tap Text Myself on the scorecard).</li>
-                <li><strong>Share a scorecard</strong> with a friend at least once.</li>
-                <li><strong>Save &amp; Exit mid-round</strong> and resume later — make sure it actually picks up where you left off.</li>
-            </ul>
-
-            <div class="callout">
-                <strong>Bugs? Weird vibes? Wishlist items?</strong><br>
-                Email <a href="mailto:hello@bytecraftco.ai">hello@bytecraftco.ai</a> with anything — even &ldquo;the pink could be slightly more peach.&rdquo; All feedback genuinely helps. Include your watch model and what you were doing when it happened, if you remember.
-            </div>
-
-            <h3>Beta heads-up</h3>
-            <ul>
-                <li><strong>It&rsquo;s a beta.</strong> Things may occasionally crash, look funny, or behave oddly. That&rsquo;s the whole point.</li>
-                <li><strong>Updates roll out fast.</strong> When Jaime ships a fix, TestFlight will show a little badge — tap to grab the latest.</li>
-                <li><strong>Your data stays on your watch.</strong> Same as the live app — no servers, no tracking. (See the <a href="./">Privacy Policy</a>.)</li>
-                <li><strong>The beta auto-expires.</strong> TestFlight builds stop working after 90 days unless we ship a new one. By then, the App Store version will be live.</li>
-            </ul>
+        <div class="hero">
+            <img src="/pinandtally/assets/home.png" alt="Pin &amp; Tally on Apple Watch — start a round in one tap">
         </div>
 
         <!-- ============================================================== -->
 
-        <div class="phase coral">
-            <span class="phase-tag">Phase 2 · ~Two Weeks From Now</span>
-            <h2>The App Store 🎉</h2>
-            <p>Once we&rsquo;ve had ~2 weeks of you all kicking the tires and we&rsquo;ve fixed any bugs that turned up, Pin &amp; Tally goes live on the public App Store. From then on, anyone with an Apple Watch can grab it.</p>
+        <div class="cta">
+            <h2>Get it on your watch</h2>
+            <p style="margin: 4px 0 0;">Free. Apple Watch only (Series 7 or later).</p>
 
-            <h3>How to download once it&rsquo;s live</h3>
-            <ol class="steps">
-                <li>Open the <strong>App Store</strong> on your iPhone.</li>
-                <li>Search <strong>Pin &amp; Tally</strong>. (Or tap the direct link Jaime will share — <span class="placeholder">apps.apple.com/... — coming soon</span>)</li>
-                <li>Tap <strong>Get</strong>. The app installs on your watch automatically.</li>
-                <li>Already have the beta? You can delete the TestFlight version once the App Store version is on your watch — the App Store version replaces it cleanly.</li>
-            </ol>
+            <a href="#" class="cta-button coming-soon" aria-disabled="true">App Store link coming soon</a>
 
-            <h3>What changes vs. the beta?</h3>
-            <ul>
-                <li>The same Pin &amp; Tally you tested, plus any fixes/tweaks from your feedback during the beta.</li>
-                <li>Permanent — won&rsquo;t expire after 90 days.</li>
-                <li>You&rsquo;ll get future updates automatically.</li>
-                <li>Show your friends! ⛳</li>
-            </ul>
-
-            <h3>Help spread the word</h3>
-            <p>Once we&rsquo;re live, the single biggest thing you can do is leave a quick App Store review (even one sentence!). Reviews help other golfers find the app. We&rsquo;ll send a friendly reminder when the time comes.</p>
+            <p class="cta-note">Heads up: as of right now I&rsquo;m still finishing the Apple Developer enrollment, so the App Store link isn&rsquo;t live yet. The moment it is, I&rsquo;ll text you the link directly. Save this page — it&rsquo;ll have the live link too.</p>
         </div>
 
         <!-- ============================================================== -->
 
-        <h2>Quick FAQ</h2>
+        <h2>What it actually does</h2>
 
-        <h3>Wait, do I need to pay anything?</h3>
-        <p>Nope. The beta is free. The App Store version is planned to be free at launch.</p>
+        <p>You open the app, tap <strong>Start a New Round</strong>, pick 9 or 18, dictate (or type) your course name if you want, and start tapping. One tap = one shot. There&rsquo;s a giant pink button you can hit without looking. That&rsquo;s really it.</p>
 
-        <h3>Can I share the TestFlight link with friends not in the league?</h3>
-        <p>Yes! The more testers, the better. Send them this page or just the TestFlight invite link.</p>
+        <div class="image-strip">
+            <img src="/pinandtally/assets/counter.png" alt="The big pink tap counter mid-round">
+            <img src="/pinandtally/assets/share-hero.png" alt="A finished scorecard showing all 9 holes plus the total">
+        </div>
 
-        <h3>I lost my round! Why?</h3>
-        <p>It shouldn&rsquo;t happen, but if it does, please email <a href="mailto:hello@bytecraftco.ai">hello@bytecraftco.ai</a> with what happened — that&rsquo;s exactly the kind of bug a beta is for.</p>
+        <p>When you finish a hole, swipe to the next. When you finish the round, the watch renders a little illustrated scorecard — your course, the date, every hole, the total — and you can text it to yourself or share it with a friend in one tap.</p>
 
-        <h3>I have a feature idea.</h3>
-        <p>Send it our way! Pin &amp; Tally is intentionally tiny and we don&rsquo;t want to bloat it, but we want to know what you&rsquo;d love to see. Beta feedback shapes what ships at launch.</p>
+        <h3>Things it does well</h3>
+        <ul>
+            <li>Big, satisfying counter button. Custom haptics. Soft pop sound.</li>
+            <li>9 or 18 hole rounds. Save &amp; exit mid-round, resume right where you left off.</li>
+            <li>Auto-resume — close the app, do something else, come back, you&rsquo;re right back in your round.</li>
+            <li>A new greeting every time you open it. (You&rsquo;ll see.)</li>
+            <li>Beautiful illustrated scorecards rendered fresh for each round.</li>
+            <li>Full round history on your wrist.</li>
+        </ul>
 
-        <h3>How do I get help?</h3>
-        <p>Email <a href="mailto:hello@bytecraftco.ai">hello@bytecraftco.ai</a> or peek at the <a href="./support.html">Support page</a>.</p>
+        <h3>Things it intentionally doesn&rsquo;t do</h3>
+        <ul>
+            <li>No GPS course-finder. No yardage. No swing analysis.</li>
+            <li>No accounts. No login. No email needed.</li>
+            <li>No notifications begging for your attention.</li>
+            <li>No ads. No upsells. No premium tier.</li>
+        </ul>
 
-        <p style="margin-top: 32px; text-align: center; font-size: 18px; color: var(--coral); font-weight: 700;">Tap. Tally. Share. ⛳</p>
+        <!-- ============================================================== -->
 
-        <p class="footer">Made with ⛳ by <a href="https://bytecraftco.ai">ByteCraftCo</a> &middot; for the leagues of women who just want to tap, tally, and share</p>
+        <div class="privacy-banner">
+            <h3>🔒 Private by design</h3>
+            <p><strong>Pin &amp; Tally collects nothing.</strong> Every round stays on your wrist. No servers, no analytics, no third-party SDKs, no ads. I literally couldn&rsquo;t see your scores if I tried — they don&rsquo;t leave the device.</p>
+            <p>Read the full <a href="./">privacy policy</a> — it&rsquo;s short.</p>
+        </div>
+
+        <!-- ============================================================== -->
+
+        <div class="feedback">
+            <h2>I really, really want your feedback. ⛳</h2>
+
+            <p>This is genuinely why I&rsquo;m sending this to you and not just dropping it on the App Store and hoping for the best. I made this for <em>you</em> — for the league, for friends and family who play, for anyone like me who just wants to count shots without thinking about it.</p>
+
+            <p><strong>Tell me what works, what doesn&rsquo;t, and what you wish was different.</strong> Use it for a real round (or three). Then come back and tell me:</p>
+
+            <ul>
+                <li>Anything that confused you on first open?</li>
+                <li>Anything that broke or felt weird?</li>
+                <li>A feature you wish was there? (Or a feature you&rsquo;re glad isn&rsquo;t?)</li>
+                <li>Did the share scorecard feel good to send?</li>
+                <li>What would make you tell a friend about it — or what made you think &ldquo;eh, never mind&rdquo;?</li>
+            </ul>
+
+            <p>Even small stuff like &ldquo;the pink could be slightly more peach&rdquo; helps. <strong>I plan to iterate on real feedback from real golfers</strong> — meaning the version you see at launch is not the final one. v1.1 and v1.2 are going to be shaped by what y&rsquo;all tell me.</p>
+
+            <p>Just text me, or email <a href="mailto:hello@bytecraftco.ai">hello@bytecraftco.ai</a>. Brutally honest is what I&rsquo;m looking for. ⛳</p>
+        </div>
+
+        <!-- ============================================================== -->
+
+        <h2>FAQ</h2>
+
+        <h3>How much does it cost?</h3>
+        <p>Free at launch. No premium tier planned. If that ever changes I&rsquo;ll be very loud about it.</p>
+
+        <h3>Which watches is it for?</h3>
+        <p>Apple Watch Series 7 or later (running watchOS 10+). Sorry to anyone on a Series 6 or earlier — Apple&rsquo;s SDK doesn&rsquo;t support older watches for new apps anymore.</p>
+
+        <h3>Will it work without my phone nearby?</h3>
+        <p>Yes — once installed, the app runs entirely on the watch. You don&rsquo;t need cell signal, you don&rsquo;t need your phone in range, you don&rsquo;t need anything other than the watch on your wrist.</p>
+
+        <h3>Can I share it with non-golfer friends?</h3>
+        <p>Of course! It also works as a generic counter if you just want to tap a button a lot. (No judgment.)</p>
+
+        <h3>What if I find a bug?</h3>
+        <p>Tell me — <a href="mailto:hello@bytecraftco.ai">hello@bytecraftco.ai</a> or text. The fastest way to fix something is to know about it.</p>
+
+        <h3>Is there an Android version?</h3>
+        <p>Not yet. Apple Watch only for now. If enough people ask, I&rsquo;ll think about Wear OS down the road.</p>
+
+        <h3>Is this your real job?</h3>
+        <p>No, this is a side project. ByteCraftCo is a tiny independent studio I run after hours. The day job pays the rent; Pin &amp; Tally is for fun and for our league. Which is also why feedback matters so much — I want to spend my limited evening hours building stuff people actually like.</p>
+
+        <p class="signoff">Tap. Tally. Share. ⛳</p>
+
+        <p class="footer">
+            Made with care by <a href="https://bytecraftco.ai">ByteCraftCo</a><br>
+            For the leagues of golfers everywhere who just want to tap, tally, and share
+        </p>
     </div>
 </body>
 </html>
