@@ -201,37 +201,10 @@
             color: var(--ink2);
             font-size: 14px;
         }
-        .project-preview {
-            flex-shrink: 0;
-            width: 160px;
-            align-self: stretch;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.10);
-            background: var(--bg);
-        }
-        .project-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .project-tentative {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--ink3);
-            margin-left: 6px;
-        }
         @media (max-width: 600px) {
             .project-card {
                 flex-direction: column;
                 text-align: center;
-            }
-            .project-preview {
-                width: 100%;
-                max-width: 220px;
-                margin: 0 auto;
-                aspect-ratio: 422 / 514;
             }
         }
 
@@ -327,25 +300,13 @@
                 <div class="project-icon">⛳</div>
                 <div class="project-info">
                     <p class="project-status">Coming to the App Store</p>
-                    <h3>Pin &amp; Tally</h3>
+                    <h3>AllTaps</h3>
                     <p>The simplest golf scorecard for Apple Watch. Tap. Tally. Share. Made for league players, beginners, and anyone who&rsquo;d rather count their shots than wrestle with GPS.</p>
                     <p style="margin-top: 12px; font-size: 14px;">
-                        <a href="/pinandtally/">Privacy</a> &middot;
-                        <a href="/pinandtally/support.html">Support</a> &middot;
-                        <a href="/pinandtally/league.html">For the League</a>
+                        <a href="/alltaps/">Privacy</a> &middot;
+                        <a href="/alltaps/support.html">Support</a> &middot;
+                        <a href="/alltaps/league.html">For your league</a>
                     </p>
-                </div>
-                <div class="project-preview">
-                    <img src="/pinandtally/assets/share-hero.png" alt="Pin &amp; Tally on Apple Watch — text yourself the round">
-                </div>
-            </div>
-
-            <div class="project-card" style="margin-top: 20px;">
-                <div class="project-icon" style="background: linear-gradient(135deg, #FFB07A, #FF7061);">🍳</div>
-                <div class="project-info">
-                    <p class="project-status">In planning</p>
-                    <h3>MealMorph<span class="project-tentative">(working title)</span></h3>
-                    <p>Our next small, sharp thing. Kicking off as soon as Pin &amp; Tally ships. The name will probably evolve.</p>
                 </div>
             </div>
         </section>
