@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllTaps — FAQ</title>
+    <style>
+        :root {
+            --coral: #FF7061;
+            --teal: #299D8F;
+            --teal-deep: #1F7A6F;
+            --ink: #1c1c1e;
+            --ink2: #555;
+            --bg: #fafaf7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.55;
+            margin: 0;
+            padding: 32px 16px;
+        }
+        .wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px 32px;
+            border-radius: 16px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.06);
+        }
+        h1 {
+            color: var(--coral);
+            font-weight: 800;
+            margin: 0 0 4px;
+            font-size: 32px;
+        }
+        h1 .all  { color: var(--teal); }
+        h1 .taps { color: var(--coral); }
+        .greeting {
+            color: var(--teal);
+            font-weight: 700;
+            font-size: 22px;
+            margin: 0 0 4px;
+        }
+        .sub {
+            color: var(--teal);
+            font-weight: 600;
+            font-size: 14px;
+            margin: 0 0 4px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(41, 157, 143, 0.12);
+            border: 1px solid rgba(41, 157, 143, 0.30);
+            border-radius: 999px;
+            padding: 6px 14px;
+            margin-bottom: 18px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+        .platform-badge .pri { color: var(--teal-deep); }
+        .platform-badge .sep { color: var(--teal); opacity: 0.5; }
+        .platform-badge .sec {
+            color: var(--teal);
+            opacity: 0.85;
+            text-transform: none;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        .byline {
+            color: var(--ink2);
+            font-size: 14px;
+            font-weight: 500;
+            margin: 6px 0 24px;
+        }
+        .byline a {
+            color: var(--teal);
+            font-weight: 700;
+        }
+        h2 {
+            color: var(--teal-deep);
+            font-size: 22px;
+            margin-top: 36px;
+            margin-bottom: 8px;
+        }
+        h3 {
+            color: var(--coral);
+            font-size: 17px;
+            margin-top: 20px;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+        p { margin: 8px 0 16px; color: var(--ink); }
+        ol, ul { padding-left: 24px; }
+        li { margin: 6px 0; }
+        a { color: var(--coral); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+        .hero {
+            background: linear-gradient(135deg, rgba(255,112,97,0.08), rgba(41,157,143,0.10));
+            border-radius: 14px;
+            padding: 22px 24px;
+            margin: 16px 0 8px;
+            text-align: center;
+        }
+        .hero p { margin: 4px 0; }
+        .hero .big {
+            color: var(--coral);
+            font-weight: 800;
+            font-size: 22px;
+        }
+        .hero .when {
+            color: var(--teal-deep);
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+        .placeholder {
+            color: var(--ink2);
+            font-style: italic;
+            background: rgba(255, 200, 0, 0.18);
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+        .callout {
+            background: white;
+            border: 2px dashed var(--coral);
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin: 16px 0;
+        }
+        .callout strong { color: var(--coral); }
+        .footer {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: var(--ink2);
+            font-size: 13px;
+            text-align: center;
+        }
+        .flag { font-size: 28px; }
+        .nav-links {
+            margin: 0 0 24px;
+            font-size: 14px;
+        }
+        .nav-links a {
+            color: var(--teal);
+            font-weight: 600;
+        }
+        ol.steps {
+            list-style: none;
+            padding-left: 0;
+            counter-reset: step;
+        }
+        ol.steps > li {
+            position: relative;
+            padding-left: 44px;
+            min-height: 32px;
+            margin: 14px 0;
+        }
+        ol.steps > li::before {
+            content: counter(step);
+            counter-increment: step;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--coral);
+            color: white;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="platform-badge">
+            <span class="pri">⌚ Apple Watch App</span>
+            <span class="sep">·</span>
+            <span class="sec">Android coming soon</span>
+        </div>
+        <p class="sub">Frequently Asked Questions</p>
+        <h1><span class="all">All</span><span class="taps">Taps</span> <span class="flag">⛳</span></h1>
+
+        <p>Everything you need to know about AllTaps — what it is, how to get it, and how to use it. ⛳</p>
+
+        <div class="hero">
+            <p class="big">Coming to the App Store</p>
+            <p class="when">Launching soon</p>
+        </div>
+
+        <!-- ============================================================== -->
+
+        <h2>What is AllTaps?</h2>
+        <p>A tiny, cute, no-fuss golf scorecard for Apple Watch. Tap once for each shot, advance to the next hole, and at the end of your round get a beautifully designed scorecard ready to text to yourself or share with friends. That&rsquo;s the whole pitch.</p>
+
+        <ul>
+            <li>9 or 18 hole rounds</li>
+            <li>Big tappable counter — no fumbling between swings</li>
+            <li>Speak the course name, or type it</li>
+            <li>Save &amp; resume — your watch dies, your round doesn&rsquo;t</li>
+            <li>Cute illustrated scorecards generated for each round</li>
+            <li>Share your scorecard image with a tap</li>
+            <li>Browse your full round history</li>
+        </ul>
+
+        <!-- ============================================================== -->
+
+        <h2>How to get it once it&rsquo;s live</h2>
+
+        <ol class="steps">
+            <li>Open the <strong>App Store</strong> on your iPhone (the blue &ldquo;A&rdquo; icon).</li>
+            <li>Search <strong>AllTaps</strong>. Or tap the direct App Store link once it&rsquo;s live: <span class="placeholder">apps.apple.com/... — coming soon</span></li>
+            <li>Tap <strong>Get</strong>. It&rsquo;s free. The app installs on your watch automatically — no extra steps on the watch itself.</li>
+            <li>On your Apple Watch, find the AllTaps icon (coral flag on a teal background) and tap it open. ⛳</li>
+        </ol>
+
+        <p>That&rsquo;s it. No accounts to create, no settings to configure, no email signup. Tap. Tally. Share.</p>
+
+        <!-- ============================================================== -->
+
+        <h2>How to use it</h2>
+
+        <h3>Starting a round</h3>
+        <ol>
+            <li>Open AllTaps on your watch.</li>
+            <li>Tap <strong>Start a New Round</strong>.</li>
+            <li>Choose <strong>9 Holes</strong> or <strong>18 Holes</strong>.</li>
+            <li>(Optional) Tap the course name field and dictate it (mic icon) or type it. Or just hit <strong>Skip &amp; Start</strong>.</li>
+        </ol>
+
+        <h3>During the round</h3>
+        <ul>
+            <li><strong>Tap the big number</strong> in the middle each time you take a shot.</li>
+            <li>Hit the <strong>−</strong> button if you mis-tap and need to remove a shot.</li>
+            <li>Use the <strong>&lsaquo;</strong> and <strong>&rsaquo;</strong> chevrons to move between holes.</li>
+            <li>On the final hole, tap the <strong>checkered flag</strong> to finish.</li>
+            <li>Need to step away mid-round? Tap <strong>Save &amp; Exit</strong>. When you reopen the app, &ldquo;Resume Round&rdquo; will be waiting at the top.</li>
+        </ul>
+
+        <h3>Sharing your scorecard</h3>
+        <ol>
+            <li>After you finish a round, tap <strong>Share Scorecard</strong>. AllTaps generates a cute illustrated scorecard image.</li>
+            <li>Pick where it goes from the share sheet — text it to yourself or a friend via <strong>Messages</strong>, or send it by <strong>Mail</strong>.</li>
+        </ol>
+
+        <!-- ============================================================== -->
+
+        <h2>Wait, that&rsquo;s it?</h2>
+        <p style="font-size: 17px; font-weight: 600; color: var(--coral); margin-top: 0;">Yep. On purpose.</p>
+        <p>AllTaps is small, fast, and stays out of your way. It lives on your wrist — not on a dashboard you&rsquo;ll never look at, not in a CRM of your shots, not in a feed asking how you felt about hole 7.</p>
+
+        <h3>What we deliberately left out</h3>
+        <ul>
+            <li><strong>No GPS, yardage, or hole maps.</strong> Other apps do that beautifully. This isn&rsquo;t that.</li>
+            <li><strong>No swing analysis.</strong> We don&rsquo;t have an opinion about your swing.</li>
+            <li><strong>No subscriptions or signup.</strong> The app you download is the app you get.</li>
+            <li><strong>No leaderboards or social feed.</strong> Your group chat works fine. Use that.</li>
+            <li><strong>No notifications.</strong> You&rsquo;ll never get a push from AllTaps telling you to &ldquo;come back.&rdquo;</li>
+            <li><strong>No tracking.</strong> Every round stays on your wrist. We have no servers.</li>
+        </ul>
+
+        <p>If you want a Swiss Army knife, the App Store is full of them. We made a tee. ⛳</p>
+
+        <!-- ============================================================== -->
+
+        <h2>Quick FAQ</h2>
+
+        <h3>How much does it cost?</h3>
+        <p>Free at launch.</p>
+
+        <h3>What Apple Watch do I need?</h3>
+        <p>AllTaps works on Apple Watch Series 7 or later, running watchOS 10 or later. Most watches from 2021 onward.</p>
+
+        <h3>Does it work without my iPhone nearby?</h3>
+        <p>The app itself works offline anywhere your watch is. The only feature that needs your iPhone nearby is <strong>Share Scorecard</strong> — it hands the scorecard image to your phone&rsquo;s share sheet.</p>
+
+        <h3>Will it drain my watch battery?</h3>
+        <p>Nope. AllTaps only does anything when you have it open. No background activity, no sensors, no tracking.</p>
+
+        <h3>What if I find a bug or have a feature idea?</h3>
+        <p>Email <a href="mailto:hello@bytecraftco.ai">hello@bytecraftco.ai</a>. Real humans read every message.</p>
+
+        <h3>Will AllTaps come to Android Wear?</h3>
+        <p>Maybe! It&rsquo;s on the wishlist. Email us if you&rsquo;d use it on Android — that&rsquo;s the kind of feedback that pushes it up the priority list.</p>
+
+        <h3>Can I see all my old rounds?</h3>
+        <p>Yes — tap <strong>Previous Rounds</strong> on the home screen. (It only appears once you&rsquo;ve finished at least one round.)</p>
+
+        <h3>Help spread the word</h3>
+        <p>Once AllTaps is live, the single biggest thing you can do is leave a quick App Store review (even one sentence!). Reviews help other golfers find the app.</p>
+
+        <p style="margin-top: 32px; text-align: center; font-size: 18px; color: var(--coral); font-weight: 700;">Tap. Tally. Share. ⛳</p>
+
+        <div class="footer">
+            <p style="margin: 0 0 6px;">By <a href="https://bytecraftco.ai">ByteCraftCo</a></p>
+            <p style="margin: 0 0 12px;"><a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="support.html">Support</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="mailto:hello@bytecraftco.ai">Email Us</a></p>
+            <p style="margin: 0; font-size: 12px;">For golfers who just want to keep score and share it</p>
+            <p style="margin: 8px 0 0; font-size: 11px;">&copy; 2026 ByteCraftCo LLC</p>
+        </div>
+    </div>
+</body>
+</html>

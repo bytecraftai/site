@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AllTaps — Privacy Policy</title>
+    <title>AllTaps — Golf scorecard for Apple Watch</title>
+    <meta name="description" content="AllTaps is the simplest golf scorecard for Apple Watch. Tap each shot, advance each hole, and share a beautiful scorecard with yourself or your friends.">
     <style>
         :root {
             --coral: #FF7061;
@@ -29,119 +30,142 @@
             padding: 40px 32px;
             border-radius: 16px;
             box-shadow: 0 6px 30px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(41, 157, 143, 0.12);
+            border: 1px solid rgba(41, 157, 143, 0.30);
+            border-radius: 999px;
+            padding: 6px 14px;
+            margin-bottom: 18px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--teal-deep);
         }
         h1 {
-            color: var(--coral);
             font-weight: 800;
-            margin: 0 0 4px;
-            font-size: 32px;
+            margin: 0 0 6px;
+            font-size: 44px;
         }
         h1 .all  { color: var(--teal); }
         h1 .taps { color: var(--coral); }
-        .sub {
-            color: var(--teal);
-            font-weight: 600;
-            font-size: 16px;
-            margin: 0 0 4px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .byline {
-            color: var(--ink2);
-            font-size: 14px;
-            font-weight: 500;
-            margin: 6px 0 0;
-        }
-        .byline a {
+        h1 .flag { font-size: 36px; }
+        .tagline {
             color: var(--teal);
             font-weight: 700;
+            font-size: 20px;
+            margin: 0 0 10px;
         }
-        .updated {
+        .pitch {
             color: var(--ink2);
-            font-size: 13px;
-            margin: 4px 0 32px;
+            font-size: 16px;
+            max-width: 520px;
+            margin: 0 auto 24px;
         }
+        .cta {
+            display: inline-block;
+            background: var(--ink);
+            color: white;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 12px 22px;
+            border-radius: 12px;
+            text-decoration: none;
+        }
+        .cta.soon { background: #d8d8d4; color: #777; cursor: default; }
+        .cta-note { color: var(--ink2); font-size: 13px; margin: 8px 0 0; }
+        .shots {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin: 30px 0 8px;
+        }
+        .shots figure { margin: 0; text-align: center; max-width: 205px; }
+        .shots img {
+            height: 250px;
+            width: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.16);
+            background: #000;
+        }
+        .shots figcaption { margin-top: 8px; font-size: 13px; color: var(--ink2); font-weight: 600; }
         h2 {
             color: var(--teal-deep);
-            font-size: 18px;
-            margin-top: 32px;
+            font-size: 20px;
+            margin-top: 36px;
             margin-bottom: 8px;
         }
-        p { margin: 8px 0 16px; color: var(--ink); }
-        ul { padding-left: 20px; }
-        li { margin: 4px 0; }
-        a { color: var(--coral); text-decoration: none; font-weight: 600; }
-        a:hover { text-decoration: underline; }
-        code {
-            background: rgba(41, 157, 143, 0.12);
-            padding: 1px 6px;
-            border-radius: 4px;
-            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-            font-size: 0.9em;
+        .features {
+            list-style: none;
+            padding: 0;
+            max-width: 460px;
+            margin: 0 auto;
+            text-align: left;
         }
-        .tldr {
+        .features li { margin: 8px 0; padding-left: 28px; position: relative; }
+        .features li::before { content: "⛳"; position: absolute; left: 0; }
+        .private {
             background: rgba(41, 157, 143, 0.10);
             border-left: 4px solid var(--teal);
             padding: 16px 20px;
             border-radius: 8px;
-            margin: 16px 0 24px;
+            margin: 30px auto 0;
+            max-width: 520px;
+            text-align: left;
         }
+        .private strong { color: var(--teal-deep); }
         .footer {
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid #eee;
             color: var(--ink2);
             font-size: 13px;
-            text-align: center;
         }
-        .flag { font-size: 24px; }
+        .footer a { color: var(--teal); font-weight: 600; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <div class="wrap">
-        <p class="sub">Privacy Policy</p>
+        <div class="platform-badge">⌚ Apple Watch App</div>
         <h1><span class="all">All</span><span class="taps">Taps</span> <span class="flag">⛳</span></h1>
-        <p class="byline">By <a href="https://bytecraftco.ai">Bytecraft&nbsp;Co.</a></p>
-        <p class="updated">Last updated: May 6, 2026</p>
+        <p class="tagline">Tap. Score. Share.</p>
+        <p class="pitch">The simplest golf scorecard for Apple Watch. Tap each shot, advance each hole, and finish with a beautiful scorecard you can share with yourself or your friends.</p>
 
-        <div class="tldr">
-            <strong>The short version:</strong> AllTaps collects nothing about you. Everything stays on your Apple Watch. We have no servers, no analytics, no third parties. We can't see your scores even if we wanted to.
+        <a class="cta soon" aria-disabled="true">Coming soon to the App Store</a>
+        <p class="cta-note">Free · Apple Watch Series 7 or later (watchOS 10+)</p>
+
+        <div class="shots">
+            <figure><img src="screenshots/01-home.png" alt="AllTaps home screen on Apple Watch" loading="lazy"><figcaption>Start a round</figcaption></figure>
+            <figure><img src="screenshots/02-counter.png" alt="AllTaps shot counter on Apple Watch" loading="lazy"><figcaption>Tap every shot</figcaption></figure>
+            <figure><img src="screenshots/03-scorecard.png" alt="AllTaps shareable scorecard" loading="lazy"><figcaption>Share your scorecard</figcaption></figure>
         </div>
 
-        <h2>What information we collect</h2>
-        <p><strong>None.</strong> We do not collect, transmit, store on any server, or share any personal information.</p>
-
-        <h2>What stays on your Apple Watch</h2>
-        <p>The following is stored locally on your watch (in <code>UserDefaults</code>) and never leaves your device:</p>
-        <ul>
-            <li>Your golf rounds (course names, hole counts, shot totals, and dates)</li>
-            <li>App preferences (the rotating tagline counter)</li>
-        </ul>
-        <p>Uninstalling the app erases all of this. We have no copy.</p>
-
-        <h2>Sharing scorecards</h2>
-        <p>When you tap &ldquo;Share Scorecard,&rdquo; AllTaps hands a scorecard image to Apple&rsquo;s system share sheet. You choose where it goes (Messages or Mail). AllTaps has no involvement after that.</p>
-
-        <h2>What we do not do</h2>
-        <ul>
-            <li>No analytics or telemetry</li>
-            <li>No advertising or ad tracking identifiers</li>
-            <li>No third-party SDKs</li>
-            <li>No location, health, contacts, microphone, or camera access</li>
-            <li>No accounts, sign-ins, or passwords</li>
-            <li>No background data collection</li>
+        <h2>What it does</h2>
+        <ul class="features">
+            <li>Tap once per shot — big counter with custom haptics</li>
+            <li>9 or 18 hole rounds</li>
+            <li>Speak the course name with dictation, or type it</li>
+            <li>Save &amp; exit mid-round, resume right where you left off</li>
+            <li>A beautiful illustrated scorecard for every round</li>
+            <li>Share it via Messages or Mail in a tap</li>
         </ul>
 
-        <h2>Children</h2>
-        <p>AllTaps is suitable for all ages and does not knowingly collect data from anyone, including children under 13.</p>
+        <div class="private">
+            <strong>Private by design.</strong> AllTaps collects nothing, sends nothing, tracks nothing. Every round stays on your wrist — no servers, no analytics, no ads, no third-party SDKs.
+        </div>
 
-        <h2>Changes to this policy</h2>
-        <p>If this policy ever changes, the &ldquo;Last updated&rdquo; date at the top will change too. The current version always lives at this URL.</p>
-
-        <h2>Contact</h2>
-        <p>Questions? Email <a href="mailto:hello@bytecraftco.ai">hello@bytecraftco.ai</a>.</p>
-
-        <p class="footer">Made with ⛳ by <a href="https://bytecraftco.ai">ByteCraftCo</a> &middot; <a href="#top">back to top</a><br><span style="font-size: 12px;">&copy; 2026 ByteCraftCo LLC</span></p>
+        <div class="footer">
+            <p style="margin: 0 0 8px;"><a href="privacy.html">Privacy Policy</a> &middot; <a href="support.html">Support</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="league.html">For the League</a> &middot; <a href="mailto:hello@bytecraftco.ai">Email Us</a></p>
+            <p style="margin: 0;">Made with ⛳ by <a href="https://bytecraftco.ai">ByteCraftCo</a></p>
+            <p style="margin: 8px 0 0; font-size: 11px;">&copy; 2026 ByteCraftCo LLC</p>
+        </div>
     </div>
 </body>
 </html>
