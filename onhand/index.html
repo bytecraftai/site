@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onhand — What can you make tonight?</title>
+    <meta name="description" content="Onhand is the simplest meal-idea app for iPhone. Tell it what's in your fridge and get a handful of meals you can actually make tonight. No accounts, no subscriptions, no surveillance.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:        #FAF6EC;
+            --card:      #FFFFFF;
+            --ink:       #1F2A1F;
+            --ink2:      #6B5C45;
+            --olive:     #6B7F4A;
+            --olive-bg:  #E6EBD7;
+            --olive-deep:#54652F;
+            --gold:      #C9A340;
+            --hairline:  rgba(31, 42, 31, 0.10);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.55;
+            margin: 0;
+            padding: 32px 16px;
+        }
+        .serif {
+            font-family: "Cormorant Garamond", "Hoefler Text", Georgia, serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        .wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--card);
+            padding: 44px 32px 36px;
+            border-radius: 18px;
+            box-shadow: 0 6px 30px rgba(31, 42, 31, 0.06);
+            text-align: center;
+        }
+
+        /* Platform badge */
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--olive-bg);
+            border: 1px solid rgba(107, 127, 74, 0.30);
+            border-radius: 999px;
+            padding: 6px 14px;
+            margin-bottom: 22px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--olive-deep);
+        }
+
+        /* Hero */
+        h1.hero {
+            font-family: "Cormorant Garamond", "Hoefler Text", Georgia, serif;
+            font-weight: 700;
+            margin: 0 0 6px;
+            font-size: 64px;
+            line-height: 1;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+        .tagline {
+            font-family: "Cormorant Garamond", "Hoefler Text", Georgia, serif;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--olive-deep);
+            font-size: 22px;
+            margin: 4px 0 18px;
+        }
+        .pitch {
+            color: var(--ink2);
+            font-size: 16px;
+            max-width: 520px;
+            margin: 0 auto 28px;
+        }
+
+        /* CTA */
+        .cta {
+            display: inline-block;
+            background: var(--ink);
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 22px;
+            border-radius: 12px;
+            text-decoration: none;
+            letter-spacing: 0.4px;
+        }
+        .cta.soon { background: #C0BBA8; color: #FFFFFF; cursor: default; }
+        .cta:hover:not(.soon) { background: #2D3A2C; }
+        .cta-note { color: var(--ink2); font-size: 13px; margin: 10px 0 0; }
+
+        /* The mock meal card — the centerpiece */
+        .card-preview-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: var(--ink2);
+            margin: 44px 0 14px;
+            text-align: center;
+        }
+        .meal-card {
+            background: var(--card);
+            border: 1px solid var(--hairline);
+            border-radius: 16px;
+            padding: 24px 24px 20px;
+            max-width: 520px;
+            margin: 0 auto;
+            text-align: left;
+            box-shadow: 0 4px 18px rgba(31, 42, 31, 0.05);
+            position: relative;
+        }
+        .mc-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .mc-match-line {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex: 1;
+        }
+        .mc-badge {
+            background: var(--olive-bg);
+            color: var(--olive-deep);
+            font-weight: 700;
+            font-size: 13px;
+            padding: 5px 12px;
+            border-radius: 13px;
+        }
+        .mc-missing {
+            font-size: 13px;
+            color: var(--ink2);
+        }
+        .mc-staff {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            color: var(--gold);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .mc-staff svg { width: 18px; height: 18px; fill: var(--gold); }
+        .mc-title {
+            font-family: "Cormorant Garamond", "Hoefler Text", Georgia, serif;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 1.05;
+            color: var(--ink);
+            margin: 0 0 14px;
+            letter-spacing: -0.01em;
+        }
+        .mc-how {
+            font-size: 14.5px;
+            color: var(--ink);
+            margin: 0 0 16px;
+            line-height: 1.5;
+        }
+        .mc-divider {
+            border: 0;
+            border-top: 1px solid var(--hairline);
+            margin: 0 0 14px;
+        }
+        .mc-macros {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+        .mc-macros > div { text-align: center; }
+        .mc-mac-val {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.2;
+        }
+        .mc-mac-lab {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--ink2);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        .mc-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .mc-tags {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--ink2);
+        }
+        .mc-heart svg { width: 22px; height: 22px; fill: var(--olive); }
+        .card-note {
+            color: var(--ink2);
+            font-size: 12px;
+            font-style: italic;
+            margin: 12px auto 0;
+            max-width: 480px;
+        }
+
+        /* Sections */
+        h2 {
+            font-family: "Cormorant Garamond", "Hoefler Text", Georgia, serif;
+            font-weight: 700;
+            color: var(--olive-deep);
+            font-size: 28px;
+            margin: 44px 0 10px;
+            letter-spacing: -0.01em;
+        }
+        .features {
+            list-style: none;
+            padding: 0;
+            max-width: 460px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .features li {
+            margin: 9px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 15.5px;
+        }
+        .features li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 8px;
+            height: 8px;
+            background: var(--olive);
+            border-radius: 50%;
+        }
+
+        /* Private block */
+        .private {
+            background: var(--olive-bg);
+            border-left: 4px solid var(--olive);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 30px auto 0;
+            max-width: 540px;
+            text-align: left;
+            font-size: 15px;
+        }
+        .private strong { color: var(--olive-deep); }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 22px;
+            border-top: 1px solid var(--hairline);
+            color: var(--ink2);
+            font-size: 13px;
+        }
+        .footer a { color: var(--olive-deep); font-weight: 600; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        /* Mobile tweaks */
+        @media (max-width: 520px) {
+            .wrap { padding: 32px 22px 28px; }
+            h1.hero { font-size: 52px; }
+            .mc-title { font-size: 26px; }
+            .meal-card { padding: 20px 18px 16px; }
+            .mc-macros { gap: 2px; }
+            .mc-mac-val { font-size: 12px; }
+            .mc-mac-lab { font-size: 9px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="platform-badge">📱 iPhone app · Coming soon</div>
+
+        <h1 class="hero">Onhand</h1>
+        <p class="tagline">What can you make tonight?</p>
+        <p class="pitch">The simplest meal-idea app for iPhone. Type what&rsquo;s in your fridge, get a handful of meals you can actually make &mdash; ranked by match, honest about what you&rsquo;re missing.</p>
+
+        <a class="cta soon">Coming to the App Store</a>
+        <p class="cta-note">No accounts &middot; no subscriptions &middot; no surveillance</p>
+
+        <p class="card-preview-label">A meal card</p>
+        <div class="meal-card">
+            <div class="mc-top">
+                <div class="mc-match-line">
+                    <span class="mc-badge">84% match</span>
+                    <span class="mc-missing">missing oregano, olive oil</span>
+                </div>
+                <div class="mc-staff">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 14.85 8.8 21.8 9.6 16.6 14.35 18 21.2 12 17.65 6 21.2 7.4 14.35 2.2 9.6 9.15 8.8z"/></svg>
+                    <span>Staff Pick</span>
+                </div>
+            </div>
+
+            <h3 class="mc-title">Lemon-oregano<br>chicken thighs</h3>
+
+            <p class="mc-how">Sear the thighs skin-down 7 min, flip 5 more, off heat squeeze lemon and crumble oregano over.</p>
+
+            <hr class="mc-divider">
+
+            <div class="mc-macros">
+                <div><div class="mc-mac-val">25</div><div class="mc-mac-lab">min</div></div>
+                <div><div class="mc-mac-val">~420</div><div class="mc-mac-lab">cal</div></div>
+                <div><div class="mc-mac-val">38g</div><div class="mc-mac-lab">protein</div></div>
+                <div><div class="mc-mac-val">6g</div><div class="mc-mac-lab">carbs</div></div>
+                <div><div class="mc-mac-val">28g</div><div class="mc-mac-lab">fat</div></div>
+                <div><div class="mc-mac-val">1g</div><div class="mc-mac-lab">fiber</div></div>
+            </div>
+
+            <div class="mc-bottom">
+                <div class="mc-tags">Dinner &middot; Quick &middot; High-protein</div>
+                <div class="mc-heart" aria-label="Favorite">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9.4C.7 7.4 3.6 3.5 7.5 3.5c1.9 0 3.5 1 4.5 2.4 1-1.4 2.6-2.4 4.5-2.4 3.9 0 6.8 3.9 5.1 8.1C19.5 16.3 12 21 12 21z"/></svg>
+                </div>
+            </div>
+        </div>
+        <p class="card-note">Match percentages are exact, not vibes &mdash; ranked by what you actually have on hand.</p>
+
+        <h2>What it does</h2>
+        <ul class="features">
+            <li>Type what&rsquo;s in your fridge, see meals ranked by match</li>
+            <li>An honest match percentage and a list of what you&rsquo;re missing</li>
+            <li>One-line how-to on every card &mdash; no blog stories, no scrolling for the recipe</li>
+            <li>Macros visible: calories, protein, carbs, fat, fiber</li>
+            <li>Filter by course, time, method, or preference (high-protein, vegetarian, etc.)</li>
+            <li>Heart your favorites for one-tap access later</li>
+            <li>Recipe library grows quietly in the background &mdash; no app updates needed</li>
+        </ul>
+
+        <div class="private">
+            <strong>Private by design.</strong> Onhand collects nothing, sends nothing, tracks nothing. Your ingredients, your favorites, your history &mdash; all stay on your phone. No servers, no analytics, no ads, no third-party SDKs.
+        </div>
+
+        <div class="footer">
+            <p style="margin: 0 0 8px;"><a href="mailto:hello@bytecraftco.ai?subject=Onhand%20launch%20notification">Email us to be notified at launch</a></p>
+            <p style="margin: 0 0 8px;"><a href="privacy.html">Privacy Policy</a> &middot; <a href="support.html">Support</a> &middot; <a href="faq.html">FAQ</a></p>
+            <p style="margin: 0;">Made with care by <a href="https://bytecraftco.ai">ByteCraftCo</a></p>
+            <p style="margin: 8px 0 0; font-size: 11px;">&copy; 2026 ByteCraftCo LLC</p>
+        </div>
+    </div>
+</body>
+</html>

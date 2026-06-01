@@ -1,0 +1,11 @@
+# macOS noise
+.DS_Store
+**/.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Local previews / temp
+/tmp/
