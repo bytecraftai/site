@@ -415,15 +415,6 @@
   .founder p { color: #c9ccce; margin: 0 0 16px; }
 
   /* Contact routing */
-  .contact { position: relative; border-radius: 36px; overflow: hidden; margin: 0 clamp(8px, 1.5vw, 20px); padding: clamp(72px, 10vw, 128px) 0; background: radial-gradient(70% 90% at 15% 100%, rgba(255,112,97,0.42), transparent 60%), radial-gradient(70% 90% at 85% 0%, rgba(43,217,196,0.34), transparent 60%), var(--panel); }
-  .contact h2 { font-size: clamp(36px, 6vw, 88px); margin-bottom: 20px; }
-  .contact .lede { color: #d6d8da; margin: 0 0 48px; }
-  .routes { border-top: 1px solid rgba(242,243,239,.25); }
-  .route { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 32px; align-items: center; padding: 26px 0; border-bottom: 1px solid rgba(242,243,239,.25); text-decoration: none; }
-  .route b { display: block; font: 600 clamp(18px, 1.8vw, 22px)/1.25 var(--display); text-transform: uppercase; margin-bottom: 4px; }
-  .route span { color: #cfd2d4; font-size: 15px; }
-  .route em { font: 500 clamp(15px, 1.6vw, 20px)/1.2 var(--mono); font-style: normal; color: var(--white); text-decoration: underline; text-decoration-color: rgba(242,243,239,.35); text-underline-offset: 6px; transition: text-decoration-color .2s ease; overflow-wrap: anywhere; }
-  .route:hover em { text-decoration-color: var(--white); }
   .footer { padding: 48px 0 40px; color: var(--dim); font-size: 14px; }
   .footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .footer a { color: var(--white); text-underline-offset: 4px; }
@@ -518,7 +509,6 @@
     .bridge { display: none; }
     .tmr-cards, .apps { grid-template-columns: 1fr; }
     .readouts, .scale { display: none; }
-    .route { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
     .app-card { grid-template-columns: 1fr; }
@@ -555,9 +545,8 @@
       <a href="#how">The lab</a>
       <a href="#modern-recovery">The Modern Recovery</a>
       <a href="#sports">Sports apps</a>
-      <a href="#partner">Partner</a>
       <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-panel"><span class="menu-icon" aria-hidden="true"></span>Menu</button>
-      <a class="btn btn-primary" href="#contact"><span class="btn-label"><span class="bl-in">Contact<span class="bl-copy" aria-hidden="true">Contact</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
+      <a class="btn btn-primary" href="#partner"><span class="btn-label"><span class="bl-in">Partner with us<span class="bl-copy" aria-hidden="true">Partner with us</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
     </nav>
   </div>
   <div class="menu-panel" id="menu-panel" hidden>
@@ -568,7 +557,6 @@
       <a href="#sports">Sports apps</a>
       <a href="#partner">Partner</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -1044,30 +1032,10 @@
         </div>
       </div>
       <p class="pform-note">Sending a product or joining an affiliate programme never changes a rating. Any product sent to us is disclosed on its rating page.</p>
+      <p class="pform-note" id="contact">Prefer email? Recovery gear, brands and press: <a href="mailto:hello@themodernrecovery.com">hello@themodernrecovery.com</a>. App help: <a href="/alltaps/support.html">AllTaps support</a>. Everything else: <a href="mailto:hello@bytecraftco.ai">hello@bytecraftco.ai</a>.</p>
     </div>
   </section>
 
-  <!-- CONTACT ROUTING -->
-  <section class="contact" id="contact" aria-labelledby="contact-title">
-    <div class="wrap">
-      <h2 class="display reveal" id="contact-title">Find the right inbox.</h2>
-      <p class="lede reveal">Prefer email? Send your note to the team that handles it.</p>
-      <div class="routes reveal">
-        <a class="route" href="mailto:hello@themodernrecovery.com">
-          <div><b>Recovery gear, brands, affiliates and press</b><span>Anything about The Modern Recovery, its ratings or partnerships</span></div>
-          <em>hello@themodernrecovery.com</em>
-        </a>
-        <a class="route" href="/alltaps/support.html">
-          <div><b>Apps</b><span>Help and feedback for AllTaps</span></div>
-          <em>AllTaps support</em>
-        </a>
-        <a class="route" href="mailto:hello@bytecraftco.ai">
-          <div><b>Everything else</b><span>General questions about ByteCraftCo</span></div>
-          <em>hello@bytecraftco.ai</em>
-        </a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="footer">
@@ -1334,8 +1302,9 @@
     gsap.to(tr, { x: i ? 160 : -160, ease: 'none', scrollTrigger: { trigger: '.marquee', start: 'top bottom', end: 'bottom top', scrub: true } });
   });
   gsap.fromTo('.tmr', { scale: 0.94 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.tmr', start: 'top bottom', end: 'top 30%', scrub: true } });
-  gsap.fromTo('.contact', { scale: 0.94 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.contact', start: 'top bottom', end: 'top 35%', scrub: true } });
-  gsap.from('.app-stage .watch', { rotate: -8, y: 40, ease: 'none', scrollTrigger: { trigger: '#sports', start: 'top bottom', end: 'center center', scrub: true } });
+  gsap.utils.toArray('.app-stage .watch').forEach(function (w) {
+    gsap.from(w, { rotate: -8, y: 40, ease: 'none', scrollTrigger: { trigger: w.parentElement, start: 'top bottom', end: 'top 55%', scrub: true } });
+  });
 })();
 </script>
 </body>

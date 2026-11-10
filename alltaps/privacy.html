@@ -1,106 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AllTaps | Privacy Policy</title>
-    <style>
-        :root {
-            --coral: #FF7061;
-            --teal: #299D8F;
-            --teal-deep: #1F7A6F;
-            --ink: #1c1c1e;
-            --ink2: #555;
-            --bg: #fafaf7;
-        }
-        * { box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Helvetica Neue", Arial, sans-serif;
-            background: var(--bg);
-            color: var(--ink);
-            line-height: 1.55;
-            margin: 0;
-            padding: 32px 16px;
-        }
-        .wrap {
-            max-width: 680px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px 32px;
-            border-radius: 16px;
-            box-shadow: 0 6px 30px rgba(0,0,0,0.06);
-        }
-        h1 {
-            color: var(--coral);
-            font-weight: 800;
-            margin: 0 0 4px;
-            font-size: 32px;
-        }
-        h1 .all  { color: var(--teal); }
-        h1 .taps { color: var(--coral); }
-        .sub {
-            color: var(--teal);
-            font-weight: 600;
-            font-size: 16px;
-            margin: 0 0 4px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .byline {
-            color: var(--ink2);
-            font-size: 14px;
-            font-weight: 500;
-            margin: 6px 0 0;
-        }
-        .byline a {
-            color: var(--teal);
-            font-weight: 700;
-        }
-        .updated {
-            color: var(--ink2);
-            font-size: 13px;
-            margin: 4px 0 32px;
-        }
-        h2 {
-            color: var(--teal-deep);
-            font-size: 18px;
-            margin-top: 32px;
-            margin-bottom: 8px;
-        }
-        p { margin: 8px 0 16px; color: var(--ink); }
-        ul { padding-left: 20px; }
-        li { margin: 4px 0; }
-        a { color: var(--coral); text-decoration: none; font-weight: 600; }
-        a:hover { text-decoration: underline; }
-        code {
-            background: rgba(41, 157, 143, 0.12);
-            padding: 1px 6px;
-            border-radius: 4px;
-            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-            font-size: 0.9em;
-        }
-        .tldr {
-            background: rgba(41, 157, 143, 0.10);
-            border-left: 4px solid var(--teal);
-            padding: 16px 20px;
-            border-radius: 8px;
-            margin: 16px 0 24px;
-        }
-        .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: var(--ink2);
-            font-size: 13px;
-            text-align: center;
-        }
-        .flag { font-size: 24px; }
-    </style>
-<link rel="canonical" href="https://bytecraftco.ai/alltaps/privacy.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllTaps | Privacy Policy</title>
 <meta name="description" content="Privacy policy for AllTaps, the golf scorecard for Apple Watch. AllTaps collects no personal data.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://bytecraftco.ai/alltaps/privacy.html">
+<meta name="theme-color" content="#000000">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ByteCraftCo">
 <meta property="og:url" content="https://bytecraftco.ai/alltaps/privacy.html">
@@ -108,52 +14,305 @@
 <meta property="og:description" content="Privacy policy for AllTaps, the golf scorecard for Apple Watch. AllTaps collects no personal data.">
 <meta property="og:image" content="https://bytecraftco.ai/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #000000; --panel: #0e0f10; --panel-2: #16181a;
+    --white: #f2f3ef; --dim: #9a9ea3; --faint: #80848a; --ease: cubic-bezier(.165,.84,.44,1); --line: rgba(242,243,239,0.12);
+    --heat: #ff7061; --heat-2: #ffb04d; --cold: #2bd9c4; --cold-2: #299d8f;
+    --display: "Unbounded", "Arial Black", sans-serif;
+    --body: "Geist", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+    --gutter: clamp(16px, 4vw, 48px);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--black); color: var(--white); font: 400 17px/1.65 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--cold); outline-offset: 4px; border-radius: 4px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
+  .display { font-family: var(--display); font-weight: 800; text-transform: uppercase; line-height: 1; letter-spacing: -0.01em; margin: 0; }
+
+  .nav { border-bottom: 1px solid var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, var(--heat), var(--cold-2)); display: grid; place-items: center; font: 800 17px/1 var(--display); color: #fff; }
+  .logo-name { font: 600 16px/1 var(--display); }
+  .subnav { display: flex; gap: 22px; font-size: 14px; font-weight: 500; }
+  .subnav a { text-decoration: none; color: var(--dim); }
+  .subnav a:hover, .subnav a[aria-current] { color: var(--white); }
+
+  .hero { padding: clamp(56px, 9vw, 112px) 0 clamp(56px, 8vw, 96px); position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; width: 60vw; height: 60vw; right: -20vw; top: -30vw; background: radial-gradient(closest-side, rgba(43,217,196,0.18), transparent); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(32px, 6vw, 96px); align-items: center; position: relative; }
+  .kicker { font: 500 15px/1 var(--mono); color: var(--cold); margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(40px, 7vw, 96px); margin-bottom: 24px; }
+  .hero .lede { color: var(--dim); font-size: clamp(17px, 1.6vw, 20px); max-width: 46ch; margin: 0 0 32px; }
+  .contact-card { display: inline-grid; gap: 6px; padding: 22px 26px; border-radius: 20px; background: var(--panel); border: 1px solid var(--line); }
+  .contact-card span { font-size: 14px; color: var(--dim); }
+  .contact-card a { font: 600 clamp(18px, 2vw, 24px)/1.2 var(--display); text-decoration: none; color: var(--white); }
+  .contact-card a:hover { color: var(--cold); }
+
+  .watch { width: 200px; height: 240px; border-radius: 58px; background: #111; padding: 14px; box-shadow: 0 0 0 5px #26282b, 0 30px 80px rgba(43,217,196,.18); position: relative; }
+  .watch::after { content: ""; position: absolute; right: -11px; top: 70px; width: 8px; height: 40px; border-radius: 4px; background: #26282b; }
+  .watch-screen { height: 100%; border-radius: 44px; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+  .w-hole { font: 500 16px/1 var(--mono); color: var(--dim); }
+  .w-strokes { font: 800 76px/1.05 var(--display); }
+  .w-par { font: 600 16px/1 var(--body); color: var(--cold); }
+  .w-row { display: flex; gap: 8px; margin-top: 10px; }
+  .w-btn { height: 34px; border-radius: 17px; border: 0; font: 700 14px/1 var(--body); cursor: pointer; }
+  .w-minus { width: 42px; background: var(--heat); color: #1a0402; }
+  .w-tap { width: 84px; background: var(--cold); color: #00110f; }
+  .w-btn:active { transform: scale(.94); }
+  .try { text-align: center; font: 500 14px/1 var(--mono); color: var(--dim); margin-top: 20px; }
+
+  .section { padding: clamp(64px, 9vw, 120px) 0; border-top: 1px solid var(--line); }
+  .section-head { display: grid; grid-template-columns: 1fr minmax(0, 440px); gap: 40px; align-items: end; margin-bottom: clamp(36px, 5vw, 64px); }
+  .section-head h2 { font-size: clamp(30px, 4.4vw, 60px); }
+  .section-head p { color: var(--dim); margin: 0; }
+  .accent { color: var(--heat); }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .col { border-radius: 24px; background: var(--panel); border: 1px solid var(--line); padding: clamp(24px, 3vw, 40px); }
+  .col h3 { font: 800 clamp(18px, 1.8vw, 24px)/1.1 var(--display); text-transform: uppercase; margin: 0 0 20px; }
+  .col.out h3 { color: var(--heat); }
+  .col.in h3 { color: var(--cold); }
+  .col ul { list-style: none; margin: 0; padding: 0; }
+  .col li { padding: 14px 0; border-top: 1px solid var(--line); color: var(--dim); font-size: 15.5px; }
+  .col li b { color: var(--white); font-weight: 600; }
+  .signoff { margin: 40px 0 0; text-align: center; font: 800 clamp(20px, 2.4vw, 32px)/1.2 var(--display); text-transform: uppercase; }
+
+  .faq { border-top: 1px solid var(--line); }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 24px; align-items: center; padding: 24px 0; font: 600 clamp(17px, 1.6vw, 20px)/1.35 var(--body); }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: ""; flex: none; width: 14px; height: 14px; border-right: 2px solid var(--dim); border-bottom: 2px solid var(--dim); transform: rotate(45deg) translate(-3px, -3px); transition: transform .3s ease; }
+  .faq details[open] summary::after { transform: rotate(225deg) translate(-3px, -3px); border-color: var(--cold); }
+  .faq summary:hover { color: var(--cold); }
+  .faq .answer { color: var(--dim); padding: 0 0 26px; max-width: 70ch; }
+  .faq .answer p { margin: 0 0 12px; }
+  .faq .answer b { color: var(--white); font-weight: 600; }
+  .faq details[open] .answer { animation: open .35s ease; }
+  @keyframes open { from { opacity: 0; transform: translateY(-6px); } }
+
+  .report { border-radius: 28px; padding: clamp(32px, 5vw, 64px); background: radial-gradient(70% 90% at 10% 100%, rgba(255,112,97,0.35), transparent 60%), radial-gradient(70% 90% at 90% 0%, rgba(43,217,196,0.3), transparent 60%), var(--panel); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .report h2 { font-size: clamp(28px, 3.6vw, 48px); margin-bottom: 16px; }
+  .report p { color: #d6d8da; margin: 0 0 24px; }
+  .report ol { margin: 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: 12px; }
+  .report li { counter-increment: s; display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: start; color: #e2e4e5; }
+  .report li::before { content: counter(s); width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(242,243,239,.4); display: grid; place-items: center; font: 500 14px/1 var(--mono); }
+  .report li small { display: block; color: var(--dim); font-size: 14px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 15px; padding: 15px 24px; border-radius: 999px; background: var(--white); color: var(--black); white-space: nowrap; overflow: hidden; transition: background-color .4s var(--ease), color .4s var(--ease), translate .4s var(--ease); }
+  .btn-label { display: inline-block; position: relative; overflow: hidden; height: 1.2em; line-height: 1.2; vertical-align: top; }
+  .btn-label > span { display: block; position: relative; white-space: nowrap; transition: transform .4s var(--ease); }
+  .bl-copy { position: absolute; left: 0; top: 100%; white-space: nowrap; }
+  .btn-icon { position: relative; width: 14px; height: 14px; overflow: hidden; display: inline-block; flex: none; }
+  .btn-icon i { position: absolute; inset: 0; display: grid; place-items: center; font-style: normal; transition: transform .4s var(--ease); }
+  .btn-icon .a2 { transform: translateX(-120%); }
+  .btn:focus-visible { background: var(--cold); color: #00110f; }
+  .btn:focus-visible .btn-label > span { transform: translateY(-100%); }
+  .btn:focus-visible .btn-icon .a1 { transform: translateX(120%); }
+  .btn:focus-visible .btn-icon .a2 { transform: translateX(0); }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover { background: var(--cold); color: #00110f; }
+    .btn:hover .btn-label > span { transform: translateY(-100%); }
+    .btn:hover .btn-icon .a1 { transform: translateX(120%); }
+    .btn:hover .btn-icon .a2 { transform: translateX(0); }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn-label > span, .btn-icon i { transition: none !important; transform: none !important; } .btn-icon .a2 { display: none; } }
+
+  .footer { padding: 48px 0 40px; color: var(--dim); font-size: 14px; }
+  .footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .footer a { color: var(--white); text-underline-offset: 4px; }
+  .footer-tag { color: var(--white); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { display: inline-block; padding: 6px 0; }
+
+  @media (max-width: 860px) {
+    .hero-grid, .section-head, .cols, .report { grid-template-columns: 1fr; }
+    .hero-grid .watch-wrap { justify-self: center; }
+    .subnav { gap: 14px; font-size: 13px; }
+  }
+  @media (max-width: 520px) {
+    .logo-name { display: none; }
+    .contact-card { display: grid; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    html { scroll-behavior: auto; }
+  }
+  .skip { position: absolute; left: 16px; top: -60px; z-index: 100; background: var(--white); color: var(--black); padding: 12px 18px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: top .2s ease; }
+  .skip:focus { top: 12px; }
+
+  .btn-ghost { background: transparent; color: var(--white); border: 1px solid var(--line); }
+  @media (hover: hover) and (pointer: fine) { .btn-ghost:hover { background: transparent; border-color: var(--white); color: var(--cold); } }
+  .btn-ghost:focus-visible { background: transparent; border-color: var(--white); color: var(--cold); }
+  .ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .meta-note { color: var(--dim); font-size: 15px; margin: 14px 0 0; }
+  .eyebrow-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+  .pill { font: 500 14px/1 var(--mono); padding: 8px 12px; border-radius: 999px; background: rgba(43,217,196,.14); color: var(--cold); }
+  .pill.heat { background: rgba(255,112,97,.14); color: var(--heat); }
+  .ctas + .signoff { margin-top: 40px; }
+  .emo { font-size: .5em; display: inline-block; vertical-align: .25em; white-space: nowrap; }
+  .tagline { font: 800 clamp(22px, 2.6vw, 34px)/1.1 var(--display); text-transform: uppercase; margin: 0 0 18px; background: linear-gradient(90deg, var(--heat), #ffb04d 45%, var(--cold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  /* Watch screenshots */
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 3vw, 40px); align-items: end; }
+  .shot { margin: 0; text-align: center; }
+  .shot figcaption { margin-top: 22px; font: 800 clamp(15px, 1.4vw, 18px)/1.2 var(--display); text-transform: uppercase; }
+  .shot figcaption span { display: block; font: 500 14px/1.4 var(--mono); color: var(--dim); text-transform: none; margin-bottom: 6px; }
+  .wframe { position: relative; margin: 0 auto; width: min(100%, 240px); padding: 14px; border-radius: 58px; background: #111; box-shadow: 0 0 0 5px #26282b, 0 30px 80px rgba(0,0,0,.6); }
+  .wframe::after { content: ""; position: absolute; right: -11px; top: 30%; width: 8px; height: 18%; border-radius: 4px; background: #26282b; }
+  .wframe img { display: block; width: 100%; aspect-ratio: 422 / 514; object-fit: cover; height: auto; border-radius: 44px; background: #000; }
+  .shot:nth-child(2) .wframe { transform: translateY(-28px); box-shadow: 0 0 0 5px #26282b, 0 30px 90px rgba(43,217,196,.28); }
+  .card-shot { margin: 0 auto; width: min(100%, 240px); border-radius: 22px; overflow: hidden; box-shadow: 0 0 0 1px var(--line), 0 30px 80px rgba(255,112,97,.22); }
+  .card-shot img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+
+  /* Feature list */
+  .feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .feat { border-radius: 20px; background: var(--panel); border: 1px solid var(--line); padding: 24px; }
+  .feat b { display: block; font: 800 18px/1.2 var(--display); text-transform: uppercase; margin-bottom: 8px; }
+  .feat span { color: var(--dim); font-size: 16px; }
+  .feat i { display: block; width: 34px; height: 34px; border-radius: 10px; margin-bottom: 18px; background: linear-gradient(135deg, var(--heat), var(--cold-2)); }
+
+  .panel { border-radius: 24px; background: var(--panel); border: 1px solid var(--line); padding: clamp(24px, 3.5vw, 44px); }
+  .panel h3 { font: 800 clamp(18px, 1.8vw, 24px)/1.15 var(--display); text-transform: uppercase; margin: 0 0 14px; }
+  .panel p { color: #d6d8da; margin: 0 0 12px; }
+  .panel strong { color: var(--white); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .private { border-radius: 24px; padding: clamp(28px, 4vw, 52px); background: radial-gradient(70% 90% at 10% 100%, rgba(43,217,196,0.28), transparent 60%), var(--panel); border: 1px solid var(--line); }
+  .private h2 { font: 800 clamp(26px, 3.2vw, 44px)/1.05 var(--display); text-transform: uppercase; margin: 0 0 14px; }
+  .private p { color: #d6d8da; margin: 0; max-width: 62ch; font-size: 18px; }
+
+  /* Long-form pages */
+  .doc { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: clamp(32px, 6vw, 88px); padding-bottom: clamp(64px, 9vw, 120px); }
+  .toc { position: sticky; top: 24px; align-self: start; display: grid; gap: 4px; font-size: 15px; }
+  .toc a { color: var(--dim); text-decoration: none; padding: 6px 0; }
+  .toc a:hover { color: var(--white); }
+  .doc section { padding: 32px 0; border-top: 1px solid var(--line); max-width: 70ch; scroll-margin-top: 24px; }
+  .doc section:first-child { border-top: 0; padding-top: 0; }
+  .doc h2 { font: 800 clamp(22px, 2.4vw, 32px)/1.1 var(--display); text-transform: uppercase; margin: 0 0 16px; }
+  .doc h3 { font: 600 18px/1.3 var(--body); margin: 24px 0 10px; color: var(--white); }
+  .doc p, .doc li { color: #d6d8da; }
+  .doc p { margin: 0 0 14px; }
+  .doc strong { color: var(--white); font-weight: 600; }
+  .doc a:not(.btn) { color: var(--white); text-underline-offset: 4px; }
+  .ticks { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 10px; }
+  .ticks li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; }
+  .ticks li::before { content: ""; width: 10px; height: 10px; margin-top: 8px; border-radius: 50%; background: linear-gradient(135deg, var(--heat), var(--cold)); }
+  .ticks.no li::before { background: none; border: 2px solid var(--heat); width: 8px; height: 8px; }
+  .steps { list-style: none; counter-reset: st; padding: 0; margin: 0 0 14px; display: grid; gap: 12px; }
+  .steps li { counter-increment: st; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+  .steps li::before { content: counter(st); width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(242,243,239,.4); display: grid; place-items: center; font: 500 14px/1 var(--mono); color: var(--white); }
+  .callout { border-radius: 18px; padding: 20px 22px; background: rgba(43,217,196,.08); border: 1px solid rgba(43,217,196,.3); color: #e2e4e5; margin: 0 0 16px; }
+  .callout.heat { background: rgba(255,112,97,.08); border-color: rgba(255,112,97,.35); }
+  .updated { color: var(--dim); margin: 0; }
+  .signoff { text-align: left; margin: 24px 0 0; font: 800 clamp(18px, 2vw, 26px)/1.25 var(--display); text-transform: uppercase; }
+  @media (max-width: 860px) {
+    .shots { grid-template-columns: 1fr 1fr; }
+    .shots .shot:last-child { grid-column: 1 / -1; }
+    .shot:nth-child(2) .wframe { transform: none; }
+    .feats, .two { grid-template-columns: 1fr; }
+    .doc { grid-template-columns: 1fr; }
+    .toc { position: static; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+  }
+  @media (max-width: 520px) { .wframe { border-radius: 44px; padding: 10px; } .wframe img { border-radius: 34px; } }
+</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ByteCraftCo home">
+      <span class="logo-mark" aria-hidden="true">B</span>
+      <span class="logo-name">ByteCraftCo</span>
+    </a>
+    <nav class="subnav" aria-label="AllTaps">
+      <a href="index.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section class="hero" aria-labelledby="title" style="padding-bottom:clamp(32px,5vw,56px)">
     <div class="wrap">
-        <p class="sub">Privacy Policy</p>
-        <h1><span class="all">All</span><span class="taps">Taps</span> <span class="flag">⛳</span></h1>
-        <p class="byline">By <a href="https://bytecraftco.ai">Bytecraft&nbsp;Co.</a></p>
-        <p class="updated">Last updated: May 6, 2026</p>
+      <div class="kicker">Privacy policy</div>
+      <h1 class="display" id="title">AllTaps</h1>
+      <p class="lede">By <a href="/" style="color:var(--white)">ByteCraftCo</a></p>
+      <p class="updated">Last updated: May 6, 2026</p>
+    </div>
+  </section>
 
-        <div class="tldr">
-            <strong>The short version:</strong> AllTaps collects nothing about you. Everything stays on your Apple Watch. We have no servers, no analytics, no third parties. We can't see your scores even if we wanted to.
-        </div>
-
+  <div class="wrap doc">
+    <nav class="toc" aria-label="On this page">
+      <a href="#collect">What we collect</a>
+      <a href="#stays">What stays on your watch</a>
+      <a href="#sharing">Sharing scorecards</a>
+      <a href="#dont">What we do not do</a>
+      <a href="#children">Children</a>
+      <a href="#changes">Changes</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div>
+      <section>
+        <p class="callout"><strong>The short version:</strong> AllTaps collects nothing about you. Everything stays on your Apple Watch. We have no servers, no analytics, no third parties. We can't see your scores even if we wanted to.</p>
+      </section>
+      <section id="collect">
         <h2>What information we collect</h2>
         <p><strong>None.</strong> We do not collect, transmit, store on any server, or share any personal information.</p>
-
+      </section>
+      <section id="stays">
         <h2>What stays on your Apple Watch</h2>
-        <p>The following is stored locally on your watch (in <code>UserDefaults</code>) and never leaves your device:</p>
-        <ul>
-            <li>Your golf rounds (course names, hole counts, shot totals, and dates)</li>
-            <li>App preferences (the rotating tagline counter)</li>
+        <p>The following is stored locally on your watch (in UserDefaults) and never leaves your device:</p>
+        <ul class="ticks">
+          <li>Your golf rounds (course names, hole counts, shot totals, and dates)</li>
+          <li>App preferences (the rotating tagline counter)</li>
         </ul>
         <p>Uninstalling the app erases all of this. We have no copy.</p>
-
+      </section>
+      <section id="sharing">
         <h2>Sharing scorecards</h2>
-        <p>When you tap &ldquo;Share Scorecard,&rdquo; AllTaps hands a scorecard image to Apple&rsquo;s system share sheet. You choose where it goes (Messages or Mail). AllTaps has no involvement after that.</p>
-
+        <p>When you tap "Share Scorecard," AllTaps hands a scorecard image to Apple's system share sheet. You choose where it goes (Messages or Mail). AllTaps has no involvement after that.</p>
+      </section>
+      <section id="dont">
         <h2>What we do not do</h2>
-        <ul>
-            <li>No analytics or telemetry</li>
-            <li>No advertising or ad tracking identifiers</li>
-            <li>No third-party SDKs</li>
-            <li>No location, health, contacts, microphone, or camera access</li>
-            <li>No accounts, sign-ins, or passwords</li>
-            <li>No background data collection</li>
+        <ul class="ticks no">
+          <li>No analytics or telemetry</li>
+          <li>No advertising or ad tracking identifiers</li>
+          <li>No third-party SDKs</li>
+          <li>No location, health, contacts, microphone, or camera access</li>
+          <li>No accounts, sign-ins, or passwords</li>
+          <li>No background data collection</li>
         </ul>
-
+      </section>
+      <section id="children">
         <h2>Children</h2>
         <p>AllTaps is suitable for all ages and does not knowingly collect data from anyone, including children under 13.</p>
-
+      </section>
+      <section id="changes">
         <h2>Changes to this policy</h2>
-        <p>If this policy ever changes, the &ldquo;Last updated&rdquo; date at the top will change too. The current version always lives at this URL.</p>
-
+        <p>If this policy ever changes, the "Last updated" date at the top will change too. The current version always lives at this URL.</p>
+      </section>
+      <section id="contact">
         <h2>Contact</h2>
         <p>Questions? Email <a href="mailto:hello@bytecraftco.ai">hello@bytecraftco.ai</a>.</p>
-
-        <p class="footer"><a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="support.html">Support</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="mailto:hello@bytecraftco.ai">Email Us</a><br>Made with ⛳ by <a href="https://bytecraftco.ai">ByteCraftCo</a><br><span style="font-size: 12px;">&copy; 2026 ByteCraftCo LLC</span></p>
+      </section>
     </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <span><span class="footer-tag">ByteCraftCo builds consumer software and independent product standards.</span><br>© 2026 BYTECRAFTCO LLC. The Modern Recovery is a dba of BYTECRAFTCO LLC.</span>
+    <span class="footer-links"><a href="/">ByteCraftCo home</a><a href="/privacy.html">Privacy</a></span>
+  </div>
+</footer>
 </body>
 </html>
