@@ -1,188 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AllTaps — Support</title>
-    <style>
-        :root {
-            --coral: #FF7061;
-            --teal: #299D8F;
-            --teal-deep: #1F7A6F;
-            --ink: #1c1c1e;
-            --ink2: #555;
-            --bg: #fafaf7;
-        }
-        * { box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Helvetica Neue", Arial, sans-serif;
-            background: var(--bg);
-            color: var(--ink);
-            line-height: 1.55;
-            margin: 0;
-            padding: 32px 16px;
-        }
-        .wrap {
-            max-width: 680px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px 32px;
-            border-radius: 16px;
-            box-shadow: 0 6px 30px rgba(0,0,0,0.06);
-        }
-        h1 {
-            color: var(--coral);
-            font-weight: 800;
-            margin: 0 0 4px;
-            font-size: 32px;
-        }
-        h1 .all  { color: var(--teal); }
-        h1 .taps { color: var(--coral); }
-        .sub {
-            color: var(--teal);
-            font-weight: 600;
-            font-size: 16px;
-            margin: 0 0 4px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .byline {
-            color: var(--ink2);
-            font-size: 14px;
-            font-weight: 500;
-            margin: 6px 0 32px;
-        }
-        .byline a {
-            color: var(--teal);
-            font-weight: 700;
-        }
-        h2 {
-            color: var(--teal-deep);
-            font-size: 20px;
-            margin-top: 32px;
-            margin-bottom: 8px;
-        }
-        h3 {
-            color: var(--coral);
-            font-size: 16px;
-            margin-top: 20px;
-            margin-bottom: 4px;
-            font-weight: 700;
-        }
-        p { margin: 8px 0 16px; color: var(--ink); }
-        ul { padding-left: 20px; }
-        li { margin: 4px 0; }
-        a { color: var(--coral); text-decoration: none; font-weight: 600; }
-        a:hover { text-decoration: underline; }
-        .contact-card {
-            background: rgba(41, 157, 143, 0.10);
-            border-left: 4px solid var(--teal);
-            padding: 18px 20px;
-            border-radius: 8px;
-            margin: 24px 0;
-        }
-        .contact-card .email {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--teal-deep);
-        }
-        .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: var(--ink2);
-            font-size: 13px;
-            text-align: center;
-        }
-        .flag { font-size: 24px; }
-        .nav-links {
-            margin: 0 0 24px;
-            font-size: 14px;
-        }
-        .nav-links a {
-            color: var(--teal);
-            font-weight: 600;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AllTaps Support | ByteCraftCo</title>
+<meta name="description" content="Help for AllTaps, the simplest golf scorecard for Apple Watch. Answers to common questions and how to reach us.">
+<link rel="canonical" href="https://bytecraftco.ai/alltaps/support.html">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #000000; --panel: #0e0f10; --panel-2: #16181a;
+    --white: #f2f3ef; --dim: #9a9ea3; --faint: #80848a; --ease: cubic-bezier(.165,.84,.44,1); --line: rgba(242,243,239,0.12);
+    --heat: #ff7061; --heat-2: #ffb04d; --cold: #2bd9c4; --cold-2: #299d8f;
+    --display: "Unbounded", "Arial Black", sans-serif;
+    --body: "Geist", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+    --gutter: clamp(16px, 4vw, 48px);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--black); color: var(--white); font: 400 17px/1.65 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--cold); outline-offset: 4px; border-radius: 4px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
+  .display { font-family: var(--display); font-weight: 800; text-transform: uppercase; line-height: 1; letter-spacing: -0.01em; margin: 0; }
+
+  .nav { border-bottom: 1px solid var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, var(--heat), var(--cold-2)); display: grid; place-items: center; font: 800 17px/1 var(--display); color: #fff; }
+  .logo-name { font: 600 16px/1 var(--display); }
+  .subnav { display: flex; gap: 22px; font-size: 14px; font-weight: 500; }
+  .subnav a { text-decoration: none; color: var(--dim); }
+  .subnav a:hover, .subnav a[aria-current] { color: var(--white); }
+
+  .hero { padding: clamp(56px, 9vw, 112px) 0 clamp(56px, 8vw, 96px); position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; width: 60vw; height: 60vw; right: -20vw; top: -30vw; background: radial-gradient(closest-side, rgba(43,217,196,0.18), transparent); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(32px, 6vw, 96px); align-items: center; position: relative; }
+  .kicker { font: 500 15px/1 var(--mono); color: var(--cold); margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(40px, 7vw, 96px); margin-bottom: 24px; }
+  .hero .lede { color: var(--dim); font-size: clamp(17px, 1.6vw, 20px); max-width: 46ch; margin: 0 0 32px; }
+  .contact-card { display: inline-grid; gap: 6px; padding: 22px 26px; border-radius: 20px; background: var(--panel); border: 1px solid var(--line); }
+  .contact-card span { font-size: 14px; color: var(--dim); }
+  .contact-card a { font: 600 clamp(18px, 2vw, 24px)/1.2 var(--display); text-decoration: none; color: var(--white); }
+  .contact-card a:hover { color: var(--cold); }
+
+  .watch { width: 200px; height: 240px; border-radius: 58px; background: #111; padding: 14px; box-shadow: 0 0 0 5px #26282b, 0 30px 80px rgba(43,217,196,.18); position: relative; }
+  .watch::after { content: ""; position: absolute; right: -11px; top: 70px; width: 8px; height: 40px; border-radius: 4px; background: #26282b; }
+  .watch-screen { height: 100%; border-radius: 44px; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+  .w-hole { font: 500 16px/1 var(--mono); color: var(--dim); }
+  .w-strokes { font: 800 76px/1.05 var(--display); }
+  .w-par { font: 600 16px/1 var(--body); color: var(--cold); }
+  .w-row { display: flex; gap: 8px; margin-top: 10px; }
+  .w-btn { height: 34px; border-radius: 17px; border: 0; font: 700 14px/1 var(--body); cursor: pointer; }
+  .w-minus { width: 42px; background: var(--heat); color: #1a0402; }
+  .w-tap { width: 84px; background: var(--cold); color: #00110f; }
+  .w-btn:active { transform: scale(.94); }
+  .try { text-align: center; font: 500 14px/1 var(--mono); color: var(--dim); margin-top: 20px; }
+
+  .section { padding: clamp(64px, 9vw, 120px) 0; border-top: 1px solid var(--line); }
+  .section-head { display: grid; grid-template-columns: 1fr minmax(0, 440px); gap: 40px; align-items: end; margin-bottom: clamp(36px, 5vw, 64px); }
+  .section-head h2 { font-size: clamp(30px, 4.4vw, 60px); }
+  .section-head p { color: var(--dim); margin: 0; }
+  .accent { color: var(--heat); }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .col { border-radius: 24px; background: var(--panel); border: 1px solid var(--line); padding: clamp(24px, 3vw, 40px); }
+  .col h3 { font: 800 clamp(18px, 1.8vw, 24px)/1.1 var(--display); text-transform: uppercase; margin: 0 0 20px; }
+  .col.out h3 { color: var(--heat); }
+  .col.in h3 { color: var(--cold); }
+  .col ul { list-style: none; margin: 0; padding: 0; }
+  .col li { padding: 14px 0; border-top: 1px solid var(--line); color: var(--dim); font-size: 15.5px; }
+  .col li b { color: var(--white); font-weight: 600; }
+  .signoff { margin: 40px 0 0; text-align: center; font: 800 clamp(20px, 2.4vw, 32px)/1.2 var(--display); text-transform: uppercase; }
+
+  .faq { border-top: 1px solid var(--line); }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 24px; align-items: center; padding: 24px 0; font: 600 clamp(17px, 1.6vw, 20px)/1.35 var(--body); }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: ""; flex: none; width: 14px; height: 14px; border-right: 2px solid var(--dim); border-bottom: 2px solid var(--dim); transform: rotate(45deg) translate(-3px, -3px); transition: transform .3s ease; }
+  .faq details[open] summary::after { transform: rotate(225deg) translate(-3px, -3px); border-color: var(--cold); }
+  .faq summary:hover { color: var(--cold); }
+  .faq .answer { color: var(--dim); padding: 0 0 26px; max-width: 70ch; }
+  .faq .answer p { margin: 0 0 12px; }
+  .faq .answer b { color: var(--white); font-weight: 600; }
+  .faq details[open] .answer { animation: open .35s ease; }
+  @keyframes open { from { opacity: 0; transform: translateY(-6px); } }
+
+  .report { border-radius: 28px; padding: clamp(32px, 5vw, 64px); background: radial-gradient(70% 90% at 10% 100%, rgba(255,112,97,0.35), transparent 60%), radial-gradient(70% 90% at 90% 0%, rgba(43,217,196,0.3), transparent 60%), var(--panel); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .report h2 { font-size: clamp(28px, 3.6vw, 48px); margin-bottom: 16px; }
+  .report p { color: #d6d8da; margin: 0 0 24px; }
+  .report ol { margin: 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: 12px; }
+  .report li { counter-increment: s; display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: start; color: #e2e4e5; }
+  .report li::before { content: counter(s); width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(242,243,239,.4); display: grid; place-items: center; font: 500 14px/1 var(--mono); }
+  .report li small { display: block; color: var(--dim); font-size: 14px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 15px; padding: 15px 24px; border-radius: 999px; background: var(--white); color: var(--black); white-space: nowrap; overflow: hidden; transition: background-color .4s var(--ease), color .4s var(--ease), translate .4s var(--ease); }
+  .btn-label { display: inline-block; position: relative; overflow: hidden; height: 1.2em; line-height: 1.2; vertical-align: top; }
+  .btn-label > span { display: block; position: relative; white-space: nowrap; transition: transform .4s var(--ease); }
+  .btn-label > span::after { content: attr(data-label); position: absolute; left: 0; top: 100%; white-space: nowrap; }
+  .btn-icon { position: relative; width: 14px; height: 14px; overflow: hidden; display: inline-block; flex: none; }
+  .btn-icon i { position: absolute; inset: 0; display: grid; place-items: center; font-style: normal; transition: transform .4s var(--ease); }
+  .btn-icon .a2 { transform: translateX(-120%); }
+  .btn:focus-visible { background: var(--cold); color: #00110f; }
+  .btn:focus-visible .btn-label > span { transform: translateY(-100%); }
+  .btn:focus-visible .btn-icon .a1 { transform: translateX(120%); }
+  .btn:focus-visible .btn-icon .a2 { transform: translateX(0); }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover { background: var(--cold); color: #00110f; }
+    .btn:hover .btn-label > span { transform: translateY(-100%); }
+    .btn:hover .btn-icon .a1 { transform: translateX(120%); }
+    .btn:hover .btn-icon .a2 { transform: translateX(0); }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn-label > span, .btn-icon i { transition: none !important; transform: none !important; } .btn-icon .a2 { display: none; } }
+
+  .footer { padding: 48px 0 40px; color: var(--dim); font-size: 14px; }
+  .footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .footer a { color: var(--white); text-underline-offset: 4px; }
+  .footer-tag { color: var(--white); }
+  .footer-links { display: flex; gap: 20px; }
+
+  @media (max-width: 860px) {
+    .hero-grid, .section-head, .cols, .report { grid-template-columns: 1fr; }
+    .hero-grid .watch-wrap { justify-self: center; }
+    .subnav { gap: 14px; font-size: 13px; }
+  }
+  @media (max-width: 520px) {
+    .logo-name { display: none; }
+    .contact-card { display: grid; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
 </head>
 <body>
-    <div class="wrap">
-        <p class="sub">Support</p>
-        <h1><span class="all">All</span><span class="taps">Taps</span> <span class="flag">⛳</span></h1>
-        <p class="byline">By <a href="https://bytecraftco.ai">ByteCraftCo</a></p>
 
-        <p class="nav-links"><a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="support.html">Support</a> &middot; <a href="faq.html">FAQ</a> &middot; <a href="mailto:hello@bytecraftco.ai">Email Us</a></p>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ByteCraftCo home">
+      <span class="logo-mark" aria-hidden="true">B</span>
+      <span class="logo-name">ByteCraftCo</span>
+    </a>
+    <nav class="subnav" aria-label="AllTaps">
+      <a href="index.html">AllTaps</a>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="support.html" aria-current="page">Support</a>
+    </nav>
+  </div>
+</header>
 
+<main>
+  <section class="hero" aria-labelledby="title">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker">AllTaps support</div>
+        <h1 class="display" id="title">Need a hand?</h1>
+        <p class="lede">Questions, bugs or ideas for AllTaps, the simplest golf scorecard for Apple Watch. We read every email and try to reply within two business days.</p>
         <div class="contact-card">
-            <p style="margin: 0 0 4px; font-size: 14px; color: var(--ink2);">Need a hand or have a suggestion?</p>
-            <p style="margin: 0;"><a href="mailto:hello@bytecraftco.ai" class="email">hello@bytecraftco.ai</a></p>
-            <p style="margin: 8px 0 0; font-size: 13px; color: var(--ink2);">We read every email and try to reply within 2 business days.</p>
+          <span>Email us</span>
+          <a href="mailto:hello@bytecraftco.ai?subject=AllTaps%20support">hello@bytecraftco.ai</a>
         </div>
-
-        <h2>Wait, that&rsquo;s it?</h2>
-        <p style="font-size: 17px; font-weight: 600; color: var(--coral); margin-top: 0;">Yep. On purpose.</p>
-        <p>AllTaps is small, fast, and stays out of your way. It lives on your wrist — not on a dashboard you&rsquo;ll never look at, not in a CRM of your shots, not in a feed asking how you felt about hole 7. We obsessed over what to leave out as much as what to put in.</p>
-
-        <h3>What we deliberately left out (and why)</h3>
-        <ul>
-            <li><strong>No GPS, yardage, or hole maps.</strong> Other apps do that beautifully. This isn&rsquo;t that.</li>
-            <li><strong>No swing analysis.</strong> We don&rsquo;t have an opinion about your swing.</li>
-            <li><strong>No subscriptions, no signup, no &ldquo;premium&rdquo; tier.</strong> The app you download is the app you get.</li>
-            <li><strong>No leaderboards, no social feed, no friends list.</strong> Your league has a group text. Use that.</li>
-            <li><strong>No notifications.</strong> You&rsquo;ll never get a push from AllTaps telling you to &ldquo;come back.&rdquo;</li>
-            <li><strong>No analytics, no telemetry, no tracking.</strong> We don&rsquo;t know who you are, and we&rsquo;d like to keep it that way.</li>
-        </ul>
-
-        <h3>What we obsessed over instead</h3>
-        <ul>
-            <li><strong>One tap = one shot.</strong> That&rsquo;s the whole interaction model.</li>
-            <li><strong>Big buttons.</strong> Watch screens are tiny. Thumbs aren&rsquo;t. We optimized for thumbs.</li>
-            <li><strong>Save automatically, resume anywhere.</strong> Watch dies, sun gets in your eye, you lose track mid-round — AllTaps remembers.</li>
-            <li><strong>Tiny app, tiny battery footprint.</strong> No background syncing, no pinging the cloud, no &ldquo;always on&rdquo; nonsense. Open it, count, close it.</li>
-            <li><strong>Cute, sharable scorecards.</strong> If the app&rsquo;s job is over in 30 seconds, the least we can do is leave you with something fun to text your friends.</li>
-        </ul>
-
-        <p>If you want a Swiss Army knife, the App Store is full of them. We made a tee. ⛳</p>
-
-        <h2>Frequently asked questions</h2>
-
-        <h3>How do I save my round?</h3>
-        <p>AllTaps saves automatically after every shot. There&rsquo;s also a <strong>Save &amp; Exit</strong> button at the bottom of the round screen if you want to leave the app and come back later — your progress will be waiting on the home screen as &ldquo;Resume Round.&rdquo;</p>
-
-        <h3>I tapped the counter too many times. Can I undo a shot?</h3>
-        <p>Yes — tap the coral <strong>−</strong> button below the counter to remove the last shot from the current hole. You can also use the back arrow to revisit a previous hole and edit its score.</p>
-
-        <h3>How do I share my scorecard?</h3>
-        <p>After you finish a round, tap <strong>Share Scorecard</strong> on the scorecard screen. AllTaps renders a scorecard image and hands it to Apple&rsquo;s system share sheet, where you can send it via Messages or Mail. Your Apple Watch needs to be paired and connected to your iPhone for the share sheet to complete the hand-off.</p>
-
-        <h3>Where are my past rounds?</h3>
-        <p>From the home screen, tap <strong>Previous Rounds</strong>. (The button only shows up after you&rsquo;ve completed at least one round.) Tap any round in the list to see its scorecard again or re-share the image.</p>
-
-        <h3>How do I delete a round or all my data?</h3>
-        <p>For now, the simplest way is to uninstall AllTaps — every saved round is erased instantly. There&rsquo;s nothing in the cloud to clean up because nothing was ever sent there.</p>
-        <p>Per-round delete is on our list for a future update.</p>
-
-        <h3>Why doesn&rsquo;t AllTaps have GPS / yardage / hole maps / par tracking?</h3>
-        <p>By design. AllTaps is built to be the simplest possible counter — perfect for casual rounds, league nights, and anyone who finds full-featured golf apps to be overkill. If you want GPS and shot-by-shot analytics, lots of great paid apps do that. We do one thing: count.</p>
-
-        <h3>Does AllTaps need an internet connection?</h3>
-        <p>Nope. Once installed, AllTaps works completely offline. The only feature that touches the network is &ldquo;Share Scorecard&rdquo; — and that just hands off to Apple&rsquo;s own share sheet (Messages or Mail).</p>
-
-        <h3>Is my data private?</h3>
-        <p>Yes. AllTaps collects nothing. See our <a href="privacy.html">Privacy Policy</a> for the full details.</p>
-
-        <h3>Will AllTaps come to iPhone or iPad?</h3>
-        <p>Maybe. The watchOS app is the priority. If there&rsquo;s enough demand for an iPhone companion, we&rsquo;ll consider it.</p>
-
-        <h2>Feature suggestions and bug reports</h2>
-        <p>We&rsquo;d love to hear from you. Email <a href="mailto:hello@bytecraftco.ai">hello@bytecraftco.ai</a> with:</p>
-        <ul>
-            <li>What you were trying to do</li>
-            <li>What happened instead</li>
-            <li>Your Apple Watch model and watchOS version (Settings &rarr; General &rarr; About on the watch)</li>
-        </ul>
-
-        <p class="footer">Made with ⛳ by <a href="https://bytecraftco.ai">ByteCraftCo</a><br><span style="font-size: 12px;">&copy; 2026 ByteCraftCo LLC</span></p>
+      </div>
+      <div class="watch-wrap" aria-hidden="true">
+        <div class="watch">
+          <div class="watch-screen">
+            <span class="w-hole">Hole 7</span>
+            <span class="w-strokes" id="strokes">3</span>
+            <span class="w-par">Par 4</span>
+            <div class="w-row">
+              <button class="w-btn w-minus" id="minus" type="button" tabindex="-1">−</button>
+              <button class="w-btn w-tap" id="tap" type="button" tabindex="-1">Tap</button>
+            </div>
+          </div>
+        </div>
+        <p class="try">Try it: tap to add, minus to undo</p>
+      </div>
     </div>
+  </section>
+
+  <section class="section" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display" id="why-title">Wait, that's it? <span class="accent">Yep. On purpose.</span></h2>
+        <p>AllTaps is small, fast and stays out of your way. It lives on your wrist. Not on a dashboard you'll never look at, not in a CRM of your shots, not in a feed asking how you felt about hole 7. We obsessed over what to leave out as much as what to put in.</p>
+      </div>
+      <div class="cols">
+        <div class="col out">
+          <h3>What we left out, and why</h3>
+          <ul>
+            <li><b>No GPS, yardage or hole maps.</b> Other apps do that beautifully. This isn't that.</li>
+            <li><b>No swing analysis.</b> We don't have an opinion about your swing.</li>
+            <li><b>No subscriptions, signup or premium tier.</b> The app you download is the app you get.</li>
+            <li><b>No leaderboards, social feed or friends list.</b> Your league has a group text. Use that.</li>
+            <li><b>No notifications.</b> You'll never get a push from AllTaps telling you to come back.</li>
+            <li><b>No analytics, telemetry or tracking.</b> We don't know who you are, and we'd like to keep it that way.</li>
+          </ul>
+        </div>
+        <div class="col in">
+          <h3>What we obsessed over instead</h3>
+          <ul>
+            <li><b>One tap, one shot.</b> That's the whole interaction model.</li>
+            <li><b>Big buttons.</b> Watch screens are tiny. Thumbs aren't. We designed for thumbs.</li>
+            <li><b>Saves automatically, resumes anywhere.</b> Watch dies, sun in your eyes, lost track mid-round: AllTaps remembers.</li>
+            <li><b>Tiny app, tiny battery footprint.</b> No background syncing, no pinging the cloud. Open it, count, close it.</li>
+            <li><b>Shareable scorecards.</b> If the app's job is over in 30 seconds, the least we can do is leave you something fun to text your friends.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="signoff">If you want a Swiss Army knife, the App Store is full of them. We made a tee. ⛳</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display" id="faq-title">Common questions.</h2>
+        <p>Can't find your answer? Email <a href="mailto:hello@bytecraftco.ai?subject=AllTaps%20support">hello@bytecraftco.ai</a>.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>How do I save my round?</summary>
+          <div class="answer"><p>AllTaps saves automatically after every shot. There's also a <b>Save &amp; Exit</b> button at the bottom of the round screen if you want to leave the app and come back later. Your progress will be waiting on the home screen as <b>Resume Round</b>.</p></div>
+        </details>
+        <details>
+          <summary>I tapped the counter too many times. Can I undo a shot?</summary>
+          <div class="answer"><p>Yes. Tap the coral <b>−</b> button below the counter to remove the last shot from the current hole. You can also use the back arrow to revisit a previous hole and edit its score.</p></div>
+        </details>
+        <details>
+          <summary>How do I share my scorecard?</summary>
+          <div class="answer"><p>After you finish a round, tap <b>Share Scorecard</b> on the scorecard screen. AllTaps renders a scorecard image and hands it to Apple's share sheet, where you can send it by Messages or Mail. Your Apple Watch needs to be paired and connected to your iPhone for the share to complete.</p></div>
+        </details>
+        <details>
+          <summary>Where are my past rounds?</summary>
+          <div class="answer"><p>From the home screen, tap <b>Previous Rounds</b>. The button appears after you've completed at least one round. Tap any round to see its scorecard again or share the image.</p></div>
+        </details>
+        <details>
+          <summary>How do I delete a round or all my data?</summary>
+          <div class="answer"><p>For now, the simplest way is to uninstall AllTaps. Every saved round is erased instantly. There's nothing in the cloud to clean up because nothing was ever sent there.</p><p>Deleting a single round is on our list for a future update.</p></div>
+        </details>
+        <details>
+          <summary>Why doesn't AllTaps have GPS, yardage, hole maps or par tracking?</summary>
+          <div class="answer"><p>By design. AllTaps is built to be the simplest possible counter: perfect for casual rounds, league nights, and anyone who finds full-featured golf apps to be overkill. If you want GPS and shot-by-shot analytics, lots of great apps do that. We do one thing: count.</p></div>
+        </details>
+        <details>
+          <summary>Does AllTaps need an internet connection?</summary>
+          <div class="answer"><p>No. Once installed, AllTaps works completely offline. The only feature that touches the network is <b>Share Scorecard</b>, and that just hands off to Apple's own share sheet.</p></div>
+        </details>
+        <details>
+          <summary>Is my data private?</summary>
+          <div class="answer"><p>Yes. AllTaps collects nothing. See our <a href="privacy.html">Privacy Policy</a> for the full details.</p></div>
+        </details>
+        <details>
+          <summary>Will AllTaps come to iPhone or iPad?</summary>
+          <div class="answer"><p>Maybe. The Apple Watch app is the priority. If there's enough demand for an iPhone companion, we'll consider it.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="report-title">
+    <div class="wrap">
+      <div class="report">
+        <div>
+          <h2 class="display" id="report-title">Found a bug? Have an idea?</h2>
+          <p>We'd love to hear from you. Email us and include:</p>
+          <a class="btn" href="mailto:hello@bytecraftco.ai?subject=AllTaps%20bug%20or%20idea"><span class="btn-label"><span data-label="Email hello@bytecraftco.ai">Email hello@bytecraftco.ai</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
+        </div>
+        <ol>
+          <li><span>What you were trying to do</span></li>
+          <li><span>What happened instead</span></li>
+          <li><span>Your Apple Watch model and watchOS version<small>On the watch: Settings, General, About</small></span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span><span class="footer-tag">ByteCraftCo builds consumer software and independent product standards.</span><br>© 2026 BYTECRAFTCO LLC. The Modern Recovery is a dba of BYTECRAFTCO LLC.</span>
+    <span class="footer-links"><a href="/">ByteCraftCo home</a><a href="/privacy.html">Privacy</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var n = 3, el = document.getElementById('strokes');
+  function bump() { el.animate && el.animate([{ transform: 'scale(1.2)' }, { transform: 'scale(1)' }], { duration: 300, easing: 'cubic-bezier(.2,1.6,.4,1)' }); }
+  document.getElementById('tap').addEventListener('click', function () { n = n >= 9 ? 1 : n + 1; el.textContent = n; bump(); });
+  document.getElementById('minus').addEventListener('click', function () { n = n <= 1 ? 1 : n - 1; el.textContent = n; bump(); });
+})();
+</script>
 </body>
 </html>

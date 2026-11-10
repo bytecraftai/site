@@ -1,344 +1,1240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ByteCraftCo — Bits. Crafted. Joyfully.</title>
-    <meta name="description" content="ByteCraftCo makes small, sharp digital apps and assets. Software that feels as good as it works.">
-    <style>
-        :root {
-            --coral: #FF7061;
-            --teal: #299D8F;
-            --teal-deep: #1F7A6F;
-            --ink: #1c1c1e;
-            --ink2: #555;
-            --ink3: #888;
-            --bg: #fafaf7;
-            --card: #ffffff;
-        }
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Helvetica Neue", Arial, sans-serif;
-            background: var(--bg);
-            color: var(--ink);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ByteCraftCo | Apps and standards for people who train and recover</title>
+<meta name="description" content="ByteCraftCo builds consumer software and independent product standards. Makers of sports apps for iOS and Android, including AllTaps, and publisher of The Modern Recovery, independent ratings of saunas, cold plunges, red light and recovery gear.">
+<link rel="canonical" href="https://bytecraftco.ai/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bytecraftco.ai/">
+<meta property="og:title" content="ByteCraftCo | Apps and standards for people who train and recover">
+<meta property="og:description" content="ByteCraftCo builds consumer software and independent product standards. ByteCraftCo builds the standards and the tools. The Modern Recovery publishes what they find.">
+<meta name="theme-color" content="#000000">
+<meta property="og:site_name" content="ByteCraftCo">
+<meta property="og:image" content="https://bytecraftco.ai/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ByteCraftCo: Apps and standards for people who train and recover.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ByteCraftCo | Apps and standards for people who train and recover">
+<meta name="twitter:description" content="ByteCraftCo builds consumer software and independent product standards.">
+<meta name="twitter:image" content="https://bytecraftco.ai/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&family=Newsreader:opsz,wght@6..72,400&family=Lexend:wght@300;400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://bytecraftco.ai/#organization",
+  "name": "BYTECRAFTCO LLC",
+  "alternateName": "ByteCraftCo",
+  "url": "https://bytecraftco.ai/",
+  "logo": "https://bytecraftco.ai/apple-touch-icon.png",
+  "description": "ByteCraftCo builds consumer software and independent product standards.",
+  "email": "hello@bytecraftco.ai",
+  "sameAs": ["https://themodernrecovery.com"],
+  "subOrganization": {
+    "@type": "Organization",
+    "name": "The Modern Recovery",
+    "url": "https://themodernrecovery.com",
+    "description": "Independent ratings of saunas, cold plunges, red light and recovery gear, scored against a published Standard.",
+    "parentOrganization": { "@id": "https://bytecraftco.ai/#organization" }
+  },
+  "owns": [
+    { "@type": "SoftwareApplication", "name": "AllTaps", "operatingSystem": "watchOS", "applicationCategory": "SportsApplication", "url": "https://apps.apple.com/us/app/alltaps/id6772271729" }
+  ]
+}
+</script>
+<style>
+  :root {
+    --ease: cubic-bezier(.165,.84,.44,1);
+    --black: #000000;
+    --panel: #0e0f10;
+    --panel-2: #16181a;
+    --white: #f2f3ef;
+    --dim: #9a9ea3;
+    --faint: #5d6166;
+    --line: rgba(242,243,239,0.12);
+    --heat: #ff7061;
+    --heat-2: #ffb04d;
+    --cold: #2bd9c4;
+    --cold-2: #299d8f;
+    --evergreen: #1f3a33;
+    --evergreen-deep: #142722;
+    --sage: #edf1ee;
+    --mist: #b9c9c0;
+    --amber: #d9a066;
 
-        /* Subtle gradient background */
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background:
-                radial-gradient(ellipse at 20% 0%, rgba(255, 112, 97, 0.08), transparent 50%),
-                radial-gradient(ellipse at 80% 100%, rgba(41, 157, 143, 0.10), transparent 50%);
-            z-index: -1;
-            pointer-events: none;
-        }
+    --display: "Unbounded", "Arial Black", sans-serif;
+    --body: "Geist", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+    --gutter: clamp(16px, 4vw, 48px);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--black); color: var(--white); font: 400 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  img, svg, canvas { display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--cold); outline-offset: 4px; border-radius: 4px; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 var(--gutter); }
+  .display { font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.98; margin: 0; }
+  .lede { color: var(--dim); font-size: clamp(17px, 1.5vw, 20px); max-width: 52ch; }
+  .thermal-text { background: linear-gradient(90deg, var(--heat), var(--heat-2) 40%, var(--cold) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .btn { white-space: nowrap; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 15px; padding: 15px 24px; border-radius: 999px; }
+  .btn-primary { background: var(--white); color: var(--black); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--white); }
+  .js .reveal { opacity: 0; transform: translateY(36px); }
 
-        .wrap {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 64px 24px 48px;
-        }
+  /* Nav */
+  .nav { position: fixed; inset: 0 0 auto; z-index: 50; transition: background .3s ease; }
+  .nav.scrolled { background: rgba(0,0,0,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 24px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, var(--heat), var(--cold-2)); display: grid; place-items: center; font: 800 17px/1 var(--display); color: #fff; }
+  .logo-name { font: 600 16px/1 var(--display); letter-spacing: 0.02em; }
+  .nav-links { display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 500; }
+  .nav-links a { text-decoration: none; color: var(--dim); }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links .btn { color: var(--black); padding: 10px 18px; font-size: 14px; }
 
-        /* Header */
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 60px;
-        }
-        .brand-mark {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--coral), var(--teal));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 900;
-            font-size: 22px;
-            font-family: ui-rounded, "SF Pro Rounded", -apple-system, sans-serif;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-        }
-        .brand-name {
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--ink);
-            letter-spacing: -0.3px;
-        }
+  /* Hero */
+  .hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; }
+  #field { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%); pointer-events: none; }
+  .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 1280px; margin: 0 auto; padding: 120px var(--gutter) clamp(40px, 7vh, 88px); }
+  .hero-kicker { display: flex; align-items: center; gap: 12px; color: var(--dim); font-size: 15px; margin-bottom: 24px; }
+  .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cold); animation: pulse 2s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(43,217,196,.6); } 70%, 100% { box-shadow: 0 0 0 12px rgba(43,217,196,0); } }
+  .hero h1 { font-size: clamp(36px, min(7vw, 11vh), 108px); max-width: 16ch; }
+  .hero h1 .line { display: block; overflow: hidden; padding-bottom: .04em; }
+  .hero h1 .line span { display: inline-block; }
+  .hero-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-top: 22px; flex-wrap: wrap; }
+  .hero-row .lede { margin: 0; color: #c9ccce; }
+  .tagline { font: 600 clamp(18px, 1.9vw, 26px)/1.35 var(--body); color: var(--white); margin: 22px 0 0; max-width: 40ch; }
+  .hero-row .sub-lede { font-size: 16px; color: var(--dim); max-width: 46ch; margin: 0; }
+  .tmr-small { display: inline-block; margin-top: 18px; font-size: 15px; color: #e9b48a; text-underline-offset: 4px; }
+  .data-list a { color: #cfd2d4; text-underline-offset: 4px; }
+  .data-list a:hover { color: var(--white); }
+  .footer-tag { color: var(--white); }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .readouts { position: absolute; z-index: 2; top: 104px; right: var(--gutter); display: grid; gap: 8px; font: 500 16px/1.4 var(--mono); color: var(--dim); text-align: right; }
+  .readouts b { font-weight: 500; color: var(--white); }
+  .scale { position: absolute; z-index: 2; right: var(--gutter); top: 228px; width: 10px; height: 160px; border-radius: 6px; background: linear-gradient(180deg, var(--heat), var(--heat-2), var(--cold)); }
+  .scale::before, .scale::after { position: absolute; right: 18px; font: 500 16px/1 var(--mono); color: var(--dim); white-space: nowrap; }
+  .scale::before { content: "Heat"; top: 0; }
+  .scale::after { content: "Cold"; bottom: 0; }
 
-        /* Hero */
-        .hero {
-            margin-bottom: 64px;
-        }
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-            margin: 0 0 20px;
-            color: var(--ink);
-        }
-        .hero h1 .accent-coral { color: var(--coral); }
-        .hero h1 .accent-teal { color: var(--teal); }
-        .hero p {
-            font-size: 20px;
-            color: var(--ink2);
-            max-width: 560px;
-            line-height: 1.55;
-        }
-        .hero .tagline {
-            display: inline-block;
-            background: rgba(41, 157, 143, 0.12);
-            color: var(--teal-deep);
-            padding: 6px 14px;
-            border-radius: 999px;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
+  /* Marquee */
+  .marquee { border-block: 1px solid var(--line); padding: 22px 0; overflow: hidden; display: grid; gap: 10px; }
+  .track { display: flex; width: max-content; gap: 40px; animation: slide 40s linear infinite; }
+  .track.rev { animation-direction: reverse; animation-duration: 46s; }
+  .track span { font: 800 clamp(26px, 4vw, 52px)/1.1 var(--display); text-transform: uppercase; white-space: nowrap; display: flex; align-items: center; gap: 40px; }
+  .track span::after { content: ""; width: 14px; height: 14px; border-radius: 50%; background: linear-gradient(135deg, var(--heat), var(--cold)); }
+  .track.rev span { color: transparent; -webkit-text-stroke: 1px rgba(242,243,239,0.45); }
+  @keyframes slide { to { transform: translateX(-50%); } }
 
-        /* Section */
-        section {
-            margin: 56px 0;
-        }
-        h2 {
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--teal);
-            margin: 0 0 18px;
-        }
-        p { color: var(--ink); margin: 12px 0; }
+  /* Section shell */
+  .section { padding: clamp(96px, 14vw, 180px) 0; }
+  .section.tight { padding-top: 0; }
+  .section-head { display: grid; grid-template-columns: 1fr minmax(0, 460px); gap: 48px; align-items: end; margin-bottom: clamp(48px, 7vw, 88px); }
+  .section-head h2 { font-size: clamp(34px, 5.4vw, 80px); }
+  .section-head .lede { margin: 0; }
 
-        /* What we make grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-        }
-        .grid-item {
-            background: var(--card);
-            border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 12px;
-            padding: 18px 20px;
-        }
-        .grid-item .icon {
-            font-size: 24px;
-            margin-bottom: 4px;
-        }
-        .grid-item h3 {
-            font-size: 16px;
-            font-weight: 700;
-            margin: 4px 0 4px;
-            color: var(--ink);
-        }
-        .grid-item p {
-            font-size: 14px;
-            color: var(--ink2);
-            margin: 0;
-            line-height: 1.5;
-        }
-        @media (max-width: 600px) {
-            .grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 36px; }
-            .hero p { font-size: 17px; }
-        }
+  /* Story */
+  .story-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); }
+  .step { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; padding: 24px 0; opacity: .32; transition: opacity .5s ease; }
+  .step.active { opacity: 1; }
+  .step-num { font: 500 13px/1 var(--mono); color: var(--dim); margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
+  .step-num i { display: block; width: 48px; height: 1px; background: var(--line); position: relative; overflow: hidden; }
+  .step.active .step-num i::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--heat), var(--cold)); animation: grow .8s ease forwards; transform-origin: left; }
+  @keyframes grow { from { transform: scaleX(0); } }
+  .step h3 { font: 800 clamp(28px, 3.6vw, 52px)/1 var(--display); text-transform: uppercase; margin: 0 0 18px; }
+  .step p { color: var(--dim); max-width: 44ch; margin: 0; font-size: 18px; }
+  .stage { position: sticky; top: 12vh; height: 76vh; border-radius: 28px; background: var(--panel); border: 1px solid var(--line); overflow: hidden; }
+  .stage svg.scene { position: absolute; left: 20px; right: 20px; top: 56px; bottom: 20px; width: calc(100% - 40px); height: calc(100% - 76px); }
+  .layer { opacity: 0; transition: opacity .7s ease, transform .9s cubic-bezier(.2,.7,.2,1); transform: translateY(24px) scale(.98); transform-origin: 50% 50%; }
+  .stage[data-step="1"] .l1, .stage[data-step="2"] .l2, .stage[data-step="3"] .l3 { opacity: 1; transform: none; }
+  .stage-hud { position: absolute; left: 24px; right: 24px; top: 20px; display: flex; justify-content: space-between; gap: 12px; font: 500 16px/1.2 var(--mono); color: var(--dim); z-index: 2; }
+  .stage-hud b { color: var(--white); font-weight: 500; }
+  .hl { transform-box: fill-box; transform-origin: left center; transform: scaleX(0); transition: transform .9s cubic-bezier(.2,.7,.2,1) .5s; }
+  .stage[data-step="2"] .hl { transform: scaleX(1); }
+  .note-in { opacity: 0; transition: opacity .6s ease 1.2s; }
+  .stage[data-step="2"] .note-in { opacity: 1; }
+  .dotfill { opacity: .14; transition: opacity .35s ease; }
+  .stage[data-step="1"] .dotfill.on { opacity: 1; }
+  .src-row { opacity: 0; transform: translateX(-12px); transition: opacity .5s ease, transform .5s ease; }
+  .stage[data-step="3"] .src-row { opacity: 1; transform: none; }
 
-        /* Currently building card */
-        .project-card {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 28px;
-            box-shadow: 0 6px 30px rgba(0,0,0,0.06);
-            border: 1px solid rgba(0,0,0,0.04);
-            display: flex;
-            align-items: center;
-            gap: 22px;
-        }
-        .project-icon {
-            flex-shrink: 0;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #4ABBA5, var(--teal));
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            box-shadow: 0 6px 20px rgba(41, 157, 143, 0.25);
-        }
-        .project-info {
-            flex: 1;
-            min-width: 0;
-        }
-        .project-status {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            color: var(--coral);
-            margin: 0 0 4px;
-        }
-        .project-info h3 {
-            margin: 0 0 6px;
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--ink);
-        }
-        .project-info p {
-            margin: 0;
-            color: var(--ink2);
-            font-size: 14px;
-        }
-        @media (max-width: 600px) {
-            .project-card {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
+  /* Bento */
+  .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+  .tile { position: relative; border-radius: 24px; background: var(--panel); border: 1px solid var(--line); overflow: hidden; padding: 28px; display: flex; flex-direction: column; justify-content: flex-end; min-height: 300px; }
+  .tile h3 { font: 800 clamp(20px, 2vw, 28px)/1.05 var(--display); text-transform: uppercase; margin: 0 0 10px; position: relative; z-index: 2; }
+  .tile p { color: var(--dim); margin: 0; font-size: 15.5px; max-width: 44ch; position: relative; z-index: 2; }
+  .tile .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; position: relative; z-index: 2; }
+  .chip { font-size: 14px; color: #cfd2d4; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; background: rgba(0,0,0,0.35); }
+  .tile-link { position: relative; z-index: 2; margin-top: 18px; font-size: 15px; font-weight: 600; color: var(--cold); text-underline-offset: 4px; }
+  .t-std { grid-column: span 7; grid-row: span 2; min-height: 620px; }
+  .t-war { grid-column: span 5; }
+  .t-tools { grid-column: span 5; }
+  .t-data { grid-column: span 12; min-height: 260px; }
+  .tile-visual { position: absolute; inset: 0; z-index: 0; }
+  .tile-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(14,15,16,0.94) 76%); }
 
-        /* Contact */
-        .contact {
-            background: linear-gradient(135deg, rgba(255, 112, 97, 0.10), rgba(41, 157, 143, 0.10));
-            border-radius: 16px;
-            padding: 36px 32px;
-            text-align: center;
-            margin-top: 64px;
-        }
-        .contact h2 {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .contact .email {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--coral);
-            text-decoration: none;
-            display: inline-block;
-            margin: 6px 0;
-        }
-        .contact .email:hover {
-            color: var(--teal);
-        }
-        .contact p {
-            color: var(--ink2);
-            margin: 8px 0 0;
-            font-size: 15px;
-        }
+  .std-grid { position: absolute; left: 28px; right: 28px; top: 32px; display: grid; gap: 18px; }
+  .std-row { display: grid; grid-template-columns: 120px 1fr; align-items: center; gap: 16px; font: 500 16px/1 var(--mono); color: var(--dim); }
+  .std-dots { display: flex; gap: 10px; }
+  .std-dots i { width: clamp(18px, 2.4vw, 30px); height: clamp(18px, 2.4vw, 30px); border-radius: 50%; border: 1.5px solid rgba(242,243,239,.25); }
+  .std-dots i.on { background: linear-gradient(135deg, var(--heat), var(--heat-2)); border-color: transparent; }
+  .std-row:nth-child(even) .std-dots i.on { background: linear-gradient(135deg, var(--cold-2), var(--cold)); }
+  .std-glow { position: absolute; width: 70%; height: 60%; right: -10%; top: -10%; background: radial-gradient(closest-side, rgba(255,112,97,0.28), transparent); filter: blur(20px); animation: drift 10s ease-in-out infinite alternate; }
+  @keyframes drift { to { transform: translate(-12%, 10%) scale(1.1); } }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            color: var(--ink3);
-            font-size: 13px;
-            margin-top: 56px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(0,0,0,0.06);
-        }
-        footer a {
-            color: var(--teal);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        footer a:hover { text-decoration: underline; }
-    </style>
+  .war-list { position: absolute; left: 28px; right: 28px; top: 26px; font: 500 16px/1.2 var(--mono); }
+  .war-list div { display: flex; justify-content: space-between; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); color: var(--dim); }
+  .war-list div em { font-style: normal; color: var(--heat); }
+  .war-scan { position: absolute; left: 0; right: 0; height: 38px; background: linear-gradient(180deg, transparent, rgba(255,112,97,.16), transparent); animation: scan 4s ease-in-out infinite; }
+  @keyframes scan { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(150px); } }
+
+  .calc { position: absolute; left: 28px; right: 28px; top: 30px; font: 500 16px/1.2 var(--mono); color: var(--dim); }
+  .calc-row { display: flex; justify-content: space-between; margin-bottom: 12px; }
+  .calc-track { height: 6px; border-radius: 3px; background: rgba(242,243,239,.12); position: relative; margin-bottom: 22px; }
+  .calc-track b { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 3px; background: linear-gradient(90deg, var(--cold), var(--heat-2)); animation: slider 5s ease-in-out infinite alternate; }
+  .calc-track b::after { content: ""; position: absolute; right: -9px; top: -6px; width: 18px; height: 18px; border-radius: 50%; background: var(--white); }
+  .calc-track.b2 b { animation-duration: 6.5s; animation-delay: -2s; }
+  @keyframes slider { from { width: 22%; } to { width: 78%; } }
+
+  .bars { position: absolute; right: 28px; top: 28px; bottom: 28px; width: min(52%, 620px); display: flex; align-items: flex-end; gap: 5px; }
+  .bars i { flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(180deg, var(--cold), rgba(43,217,196,0.15)); height: var(--h); transform-origin: bottom; }
+  .js .bars i { transform: scaleY(0); }
+  .t-data .content { max-width: 40%; position: relative; z-index: 2; }
+  .data-list { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 6px; font-size: 15px; color: #cfd2d4; }
+  .data-list li::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--cold); margin-right: 10px; vertical-align: middle; }
+
+  /* Synergy */
+  .synergy { display: grid; grid-template-columns: 1fr auto 1fr; gap: clamp(16px, 3vw, 40px); align-items: stretch; }
+  .side { border-radius: 24px; border: 1px solid var(--line); padding: clamp(24px, 3vw, 40px); background: var(--panel); }
+  .side h3 { font: 800 clamp(24px, 2.6vw, 36px)/1 var(--display); text-transform: uppercase; margin: 0 0 6px; }
+  .side .sub { color: var(--dim); margin: 0 0 24px; }
+  .side ul { list-style: none; margin: 0; padding: 0; }
+  .side li { padding: 16px 0; border-top: 1px solid var(--line); display: grid; gap: 2px; }
+  .side li b { font-weight: 600; }
+  .side li span { color: var(--dim); font-size: 15px; }
+  .side.software h3 { color: var(--cold); }
+  .side.standards h3 { color: var(--heat); }
+  .bridge { width: 120px; display: flex; align-items: center; justify-content: center; }
+  .bridge svg { width: 120px; height: 100%; min-height: 360px; }
+  .synergy-note { margin: 56px auto 0; text-align: center; max-width: 24ch; font: 800 clamp(24px, 3.2vw, 44px)/1.1 var(--display); text-transform: uppercase; }
+
+  /* The Modern Recovery (TMR's own palette inside the dark site) */
+  .tmr { --t-cream: #fbf9f5; --t-sage: #edf1ee; --t-forest: #1f3a33; --t-deep: #142722; --t-moss: #4e6b5f; --t-terra: #b7622f; --t-amber: #d9a066;
+    background: var(--t-cream); color: var(--t-forest); font-family: "Lexend", system-ui, sans-serif; font-weight: 300; position: relative; overflow: hidden; border-radius: 36px; margin: 0 clamp(8px, 1.5vw, 20px); }
+  .tmr .wrap { position: relative; padding-top: clamp(72px, 9vw, 120px); padding-bottom: clamp(72px, 9vw, 120px); }
+  .tmr-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 540px); gap: 48px; align-items: start; margin-bottom: 56px; }
+  .tmr-kicker { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; font-size: 16px; color: var(--t-moss); font-weight: 400; }
+  .tmr-kicker svg { width: 96px; height: auto; color: var(--t-forest); }
+  .tmr h2 { font: 400 clamp(44px, 6vw, 84px)/1 "Newsreader", Georgia, serif; letter-spacing: -0.02em; margin: 0; color: var(--t-forest); }
+  .tmr-lede { font-size: 18px; line-height: 1.75; margin: 0 0 24px; }
+  .tmr-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .tmr .btn-tmr { background: var(--t-forest); color: var(--t-cream); }
+  .tmr-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 18px; }
+  .tmr-small { font-size: 15px; font-weight: 500; color: var(--t-terra); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .tmr-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .tmr-card { border-radius: 24px; padding: clamp(28px, 3.5vw, 48px); position: relative; overflow: hidden; }
+  .tmr-card.site { background: var(--t-sage); color: var(--t-forest); }
+  .tmr-card.app-card { background: var(--t-forest); color: #e3ebe6; }
+  .tag { display: inline-flex; align-items: center; gap: 10px; font: 500 14px/1 var(--mono); margin-bottom: 18px; }
+  .tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; }
+  .tag.live { color: #2f7a5c; } .tag.live::before { background: #2f9a6f; }
+  .tag.soon { color: var(--t-amber); } .tag.soon::before { background: var(--t-amber); box-shadow: 0 0 0 6px rgba(217,160,102,.2); }
+  .tmr-card h3 { font: 400 clamp(28px, 3vw, 40px)/1.05 "Newsreader", Georgia, serif; margin: 0 0 14px; }
+  .tmr-card.app-card h3 { color: var(--t-cream); }
+  .tmr-card p { margin: 0 0 22px; line-height: 1.7; }
+  .tmr-list { list-style: none; padding: 0; margin: 0 0 26px; display: grid; gap: 10px; }
+  .tmr-list li { display: grid; grid-template-columns: 18px 1fr; gap: 12px; font-size: 16px; line-height: 1.5; }
+  .tmr-list li::before { content: ""; width: 10px; height: 10px; margin-top: 7px; border-radius: 50%; border: 1.5px solid var(--t-terra); }
+  .app-card .tmr-list li::before { border-color: var(--t-amber); }
+  .tmr-list b { font-weight: 500; }
+  .tmr-card.site .tmr-list b { color: var(--t-forest); }
+  .app-card .tmr-list b { color: var(--t-cream); }
+  .tmr-link { color: var(--t-terra); font-weight: 400; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .app-card .tmr-link { color: var(--t-amber); }
+  .app-card { display: grid; grid-template-columns: 1fr auto; gap: 24px; }
+  .mini-phone { width: 260px; align-self: end; margin-bottom: calc(-1 * clamp(28px, 3.5vw, 48px)); border-radius: 38px 38px 0 0; padding: 10px 10px 0; background: #0b1411; box-shadow: 0 0 0 1.5px rgba(255,255,255,0.1), 0 30px 60px rgba(0,0,0,.4); }
+  .mini-screen { border-radius: 30px 30px 0 0; background: var(--t-cream); color: var(--t-forest); padding: 20px 18px 24px; }
+  .ms-top { display: flex; justify-content: space-between; align-items: center; font-size: 15px; color: var(--t-moss); margin-bottom: 12px; }
+  .ms-top svg { width: 40px; height: auto; color: var(--t-forest); }
+  .ms-title { font: 400 24px/1.1 "Newsreader", Georgia, serif; margin-bottom: 6px; }
+  .ms-total { font-size: 15px; color: var(--t-moss); margin-bottom: 14px; }
+  .ms-total b { color: var(--t-forest); font-weight: 400; }
+  .week { display: flex; align-items: flex-end; gap: 6px; height: 96px; margin-bottom: 8px; }
+  .week i { flex: 1; border-radius: 4px; background: linear-gradient(180deg, var(--t-terra) var(--s), #5c8a9e var(--s)); height: var(--h); transform-origin: bottom; }
+  .js .week i { transform: scaleY(0); }
+  .days { display: flex; gap: 6px; font-size: 14px; color: var(--t-moss); margin-bottom: 14px; }
+  .days span { flex: 1; text-align: center; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; color: var(--t-moss); margin-bottom: 16px; }
+  .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; background: var(--c); }
+  .ms-btn { background: var(--t-forest); color: var(--t-cream); text-align: center; border-radius: 12px; padding: 12px; font-size: 15px; font-weight: 400; }
+  .recent { margin-top: 56px; }
+  .recent-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+  .recent-head h3 { font: 400 clamp(26px, 2.6vw, 34px)/1.1 "Newsreader", Georgia, serif; margin: 0; }
+  .recent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .recent-card { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: 200px; padding: 26px; border-radius: 20px; background: #fff; border: 1px solid #dfe6e2; text-decoration: none; color: var(--t-forest); transition: border-color .4s cubic-bezier(.165,.84,.44,1), transform .4s cubic-bezier(.165,.84,.44,1); }
+  .recent-card .rc-kind { font: 500 14px/1 var(--mono); color: var(--t-terra); }
+  .recent-card .rc-title { font: 400 clamp(21px, 1.8vw, 25px)/1.25 "Newsreader", Georgia, serif; }
+  .recent-card .rc-foot { display: flex; justify-content: space-between; align-items: center; font-size: 15px; color: var(--t-moss); }
+  .recent-card .rc-arrow { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--t-sage); color: var(--t-forest); transition: background .4s cubic-bezier(.165,.84,.44,1), color .4s cubic-bezier(.165,.84,.44,1); }
+  @media (hover: hover) and (pointer: fine) {
+    .recent-card:hover { border-color: var(--t-forest); transform: translateY(-3px); }
+    .recent-card:hover .rc-arrow { background: var(--t-forest); color: var(--t-cream); }
+  }
+  .recent-card:focus-visible { border-color: var(--t-forest); }
+  .tmr-foot { margin: 28px 0 0; font-size: 15px; color: var(--t-moss); }
+  @media (max-width: 960px) { .recent-grid { grid-template-columns: 1fr; } .recent-card { min-height: 0; } }
+
+  /* Sports apps */
+  .apps { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .app { border-radius: 28px; border: 1px solid var(--line); background: var(--panel); padding: clamp(28px, 3.5vw, 48px); display: grid; grid-template-rows: auto 1fr; gap: 32px; }
+  .app-stage { height: 360px; padding-bottom: 24px; display: grid; place-items: center; border-radius: 20px; background: radial-gradient(60% 60% at 50% 45%, rgba(43,217,196,0.18), transparent 70%), var(--panel-2); position: relative; }
+  .app.soon .app-stage { background: radial-gradient(60% 60% at 50% 45%, rgba(255,112,97,0.18), transparent 70%), var(--panel-2); }
+  .watch { width: 188px; height: 226px; border-radius: 54px; background: #111; padding: 13px; box-shadow: 0 0 0 5px #26282b, 0 30px 70px rgba(0,0,0,.6); position: relative; }
+  .watch::after { content: ""; position: absolute; right: -11px; top: 66px; width: 8px; height: 38px; border-radius: 4px; background: #26282b; }
+  .watch-screen { height: 100%; border-radius: 41px; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+  .w-hole { font: 500 16px/1 var(--mono); color: var(--dim); }
+  .w-strokes { font: 800 72px/1.05 var(--display); color: #fff; }
+  .w-par { font: 600 16px/1 var(--body); color: var(--cold); }
+  .w-tap { margin-top: 10px; width: 112px; height: 34px; border-radius: 17px; border: 0; background: var(--cold); color: #00110f; font: 700 14px/1 var(--body); cursor: pointer; transition: transform .12s ease; }
+  .w-tap:active { transform: scale(.94); }
+  .w-code { font: 500 20px/1.3 var(--mono); color: var(--heat); letter-spacing: .06em; text-align: center; padding: 0 8px; }
+  .w-code small { display: block; font-size: 15px; color: var(--dim); letter-spacing: 0; margin-top: 8px; }
+  .app-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .pill { font: 500 14px/1 var(--mono); padding: 7px 12px; border-radius: 999px; }
+  .pill.live { background: rgba(43,217,196,0.14); color: var(--cold); }
+  .pill.soon { background: rgba(255,112,97,0.14); color: var(--heat); }
+  .platform { color: var(--dim); font-size: 14px; }
+  .app h3 { font: 800 clamp(28px, 3vw, 40px)/1 var(--display); text-transform: uppercase; margin: 0 0 12px; }
+  .app p { color: var(--dim); margin: 0 0 22px; max-width: 46ch; }
+  .app-links { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 20px; font-size: 14px; }
+  .app-links a:not(.btn) { color: #cfd2d4; text-underline-offset: 4px; }
+  .classified { font-family: var(--display); min-height: 1em; white-space: nowrap; overflow: hidden; }
+  #scramble-title { color: var(--heat); }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  .ea-form { display: flex; gap: 10px; flex-wrap: wrap; max-width: 520px; }
+  .ea-input { flex: 1 1 220px; min-width: 0; background: var(--panel-2); border: 1px solid var(--line); border-radius: 999px; color: var(--white); font: 400 16px/1 var(--body); padding: 15px 20px; }
+  .ea-input::placeholder { color: #80848a; }
+  .ea-input:focus { outline: none; border-color: var(--heat); box-shadow: 0 0 0 3px rgba(255,112,97,.25); }
+  .ea-honey { position: absolute; left: -9999px; }
+  .ea-form[hidden], .ea-note[hidden] { display: none; }
+  .ea-btn { border: 0; cursor: pointer; font-family: var(--body); }
+  .ea-btn[disabled] { opacity: .6; cursor: progress; }
+  .ea-note { font-size: 14px; color: var(--dim); margin: 12px 0 0; }
+  .ea-note a { color: var(--white); text-underline-offset: 3px; }
+  .ea-note.err { color: var(--heat); }
+  .ea-done { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border-radius: 18px; background: rgba(43,217,196,.1); border: 1px solid rgba(43,217,196,.35); max-width: 520px; }
+  .ea-done[hidden] { display: none; }
+  .ea-done b { display: block; font: 800 18px/1.2 var(--display); text-transform: uppercase; color: var(--white); }
+  .ea-done span { font-size: 14px; color: var(--dim); }
+  .ea-check { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--cold); position: relative; animation: pop .5s cubic-bezier(.2,1.6,.4,1); }
+  .ea-check::after { content: ""; position: absolute; left: 14px; top: 9px; width: 9px; height: 17px; border: solid #00110f; border-width: 0 3px 3px 0; transform: rotate(45deg); }
+  @keyframes pop { from { transform: scale(0); } }
+  .try-hint { position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; font: 500 14px/1 var(--mono); color: var(--dim); }
+
+  /* Founder */
+  .founder { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .founder h2 { font-size: clamp(30px, 4vw, 56px); }
+  .founder h3 { font: 600 22px/1.2 var(--display); text-transform: uppercase; margin: 0 0 4px; }
+  .founder .role { color: var(--dim); margin: 0 0 20px; font-size: 15px; }
+  .founder p { color: #c9ccce; margin: 0 0 16px; }
+
+  /* Contact routing */
+  .contact { position: relative; border-radius: 36px; overflow: hidden; margin: 0 clamp(8px, 1.5vw, 20px); padding: clamp(72px, 10vw, 128px) 0; background: radial-gradient(70% 90% at 15% 100%, rgba(255,112,97,0.42), transparent 60%), radial-gradient(70% 90% at 85% 0%, rgba(43,217,196,0.34), transparent 60%), var(--panel); }
+  .contact h2 { font-size: clamp(36px, 6vw, 88px); margin-bottom: 20px; }
+  .contact .lede { color: #d6d8da; margin: 0 0 48px; }
+  .routes { border-top: 1px solid rgba(242,243,239,.25); }
+  .route { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 32px; align-items: center; padding: 26px 0; border-bottom: 1px solid rgba(242,243,239,.25); text-decoration: none; }
+  .route b { display: block; font: 600 clamp(18px, 1.8vw, 22px)/1.25 var(--display); text-transform: uppercase; margin-bottom: 4px; }
+  .route span { color: #cfd2d4; font-size: 15px; }
+  .route em { font: 500 clamp(15px, 1.6vw, 20px)/1.2 var(--mono); font-style: normal; color: var(--white); text-decoration: underline; text-decoration-color: rgba(242,243,239,.35); text-underline-offset: 6px; transition: text-decoration-color .2s ease; overflow-wrap: anywhere; }
+  .route:hover em { text-decoration-color: var(--white); }
+  .footer { padding: 48px 0 40px; color: var(--dim); font-size: 14px; }
+  .footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .footer a { color: var(--white); text-underline-offset: 4px; }
+  .footer-links { display: flex; gap: 20px; }
+
+
+  /* Partner form */
+  .pform-panel { border-radius: 28px; background: var(--panel); border: 1px solid var(--line); padding: clamp(24px, 4vw, 48px); }
+  .pform { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 20px; }
+  .field { display: grid; gap: 8px; align-content: start; }
+  .field.full { grid-column: 1 / -1; }
+  .field label { font-weight: 600; font-size: 16px; }
+  .field .opt { font-weight: 400; color: var(--dim); font-size: 14px; margin-left: 6px; }
+  .pform input[type="text"], .pform input[type="email"], .pform input[type="url"], .pform select, .pform textarea {
+    width: 100%; background: var(--panel-2); border: 1px solid var(--line); border-radius: 14px; color: var(--white);
+    font: 400 16px/1.4 var(--body); padding: 14px 16px; transition: border-color .4s var(--ease), box-shadow .4s var(--ease); }
+  .pform textarea { resize: vertical; min-height: 160px; }
+  .pform input::placeholder { color: #80848a; }
+  .pform input:focus, .pform select:focus, .pform textarea:focus { outline: none; border-color: var(--cold); box-shadow: 0 0 0 3px rgba(43,217,196,.25); }
+  .pform [aria-invalid="true"] { border-color: var(--heat); }
+  .pform [aria-invalid="true"]:focus { box-shadow: 0 0 0 3px rgba(255,112,97,.3); border-color: var(--heat); }
+  .select-wrap { position: relative; }
+  .select-wrap::after { content: ""; position: absolute; right: 18px; top: 50%; width: 9px; height: 9px; border-right: 2px solid var(--dim); border-bottom: 2px solid var(--dim); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+  .pform select { appearance: none; -webkit-appearance: none; padding-right: 44px; }
+  .pform select option { background: #16181a; color: var(--white); }
+  .field-err { margin: 0; color: var(--heat); font-size: 14px; }
+  .field-err[hidden], .form-err[hidden] { display: none; }
+  .field-row { display: flex; justify-content: space-between; gap: 16px; }
+  .count { margin-left: auto; font: 500 14px/1.4 var(--mono); color: var(--dim); }
+  .check { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; font-weight: 400 !important; color: #d6d8da; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--cold); }
+  .check a { color: var(--white); text-underline-offset: 3px; }
+  .submit-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .submit-row .btn { border: 0; cursor: pointer; font-family: var(--body); }
+  .submit-row .btn[disabled] { opacity: .6; cursor: progress; }
+  .form-err { margin: 0; color: var(--heat); font-size: 15px; }
+  .form-err a { color: var(--white); }
+  .pdone { display: flex; align-items: center; gap: 18px; padding: 26px; border-radius: 20px; background: rgba(43,217,196,.1); border: 1px solid rgba(43,217,196,.35); }
+  .pdone[hidden], .pform[hidden] { display: none; }
+  .pdone b { display: block; font: 800 22px/1.2 var(--display); text-transform: uppercase; }
+  .pdone span { color: #d6d8da; }
+  .pform-note { margin: 16px 0 0; color: var(--dim); font-size: 15px; max-width: 70ch; }
+  @media (max-width: 860px) { .pform { grid-template-columns: 1fr; } }
+
+  /* Buttons: rolling label and arrow swap */
+  .btn { overflow: hidden; transition: background-color .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease), translate .4s var(--ease); }
+  .btn-label { display: inline-block; position: relative; overflow: hidden; height: 1.2em; line-height: 1.2; vertical-align: top; }
+  .btn-label > span { display: block; position: relative; white-space: nowrap; transition: transform .4s var(--ease); }
+  .btn-label > span::after { content: attr(data-label); position: absolute; left: 0; top: 100%; white-space: nowrap; }
+  .btn-icon { position: relative; width: 14px; height: 14px; overflow: hidden; display: inline-block; flex: none; }
+  .btn-icon i { position: absolute; inset: 0; display: grid; place-items: center; font-style: normal; transition: transform .4s var(--ease); }
+  .btn-icon .a2 { transform: translateX(-120%); }
+  .roll { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+  .roll .btn-label { text-decoration: underline; text-underline-offset: 4px; }
+  .roll .btn-label > span::after { text-decoration: inherit; }
+  .btn:focus-visible .btn-label > span, .roll:focus-visible .btn-label > span { transform: translateY(-100%); }
+  .btn:focus-visible .btn-icon .a1, .roll:focus-visible .btn-icon .a1 { transform: translateX(120%); }
+  .btn:focus-visible .btn-icon .a2, .roll:focus-visible .btn-icon .a2 { transform: translateX(0); }
+  .btn-primary:focus-visible { background: var(--cold); color: #00110f; }
+  .btn-ghost:focus-visible { border-color: var(--white); color: var(--cold); }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover .btn-label > span, .roll:hover .btn-label > span { transform: translateY(-100%); }
+    .btn:hover .btn-icon .a1, .roll:hover .btn-icon .a1 { transform: translateX(120%); }
+    .btn:hover .btn-icon .a2, .roll:hover .btn-icon .a2 { transform: translateX(0); }
+    .btn-primary:hover { background: var(--cold); color: #00110f; }
+    .btn-ghost:hover { border-color: var(--white); color: var(--cold); }
+    .tmr .btn-tmr:hover { background: var(--t-terra); color: var(--t-cream); }
+  }
+  .tmr .btn-tmr:focus-visible { background: var(--t-terra); color: var(--t-cream); }
+  @media (prefers-reduced-motion: reduce) {
+    .btn-label > span, .btn-icon i { transition: none !important; transform: none !important; }
+    .btn-icon .a2 { display: none; }
+  }
+
+  @media (max-width: 960px) {
+    .nav-links a:not(.btn) { display: none; }
+    .section-head, .tmr-head, .founder { grid-template-columns: 1fr; gap: 24px; }
+    .story-grid { grid-template-columns: 1fr; }
+    .stage-col { order: -1; position: sticky; top: 72px; z-index: 3; height: 54vh; }
+    .stage { position: relative; top: 0; height: 100%; border-radius: 20px; }
+    .step { min-height: 64vh; }
+    .bento { grid-template-columns: 1fr; }
+    .t-std, .t-war, .t-tools, .t-data { grid-column: auto; grid-row: auto; }
+    .t-std { min-height: 560px; }
+    .t-data { min-height: 460px; }
+    .bars { left: 28px; right: 28px; top: 28px; bottom: auto; height: 160px; width: auto; }
+    .t-data .content { max-width: none; }
+    .synergy { grid-template-columns: 1fr; gap: 16px; }
+    .bridge { display: none; }
+    .tmr-cards, .apps { grid-template-columns: 1fr; }
+    .readouts, .scale { display: none; }
+    .route { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .app-card { grid-template-columns: 1fr; }
+    .mini-phone { justify-self: center; }
+    .hero-ctas, .tmr-ctas { flex-direction: column; width: 100%; }
+    .hero-ctas .btn, .tmr-ctas .btn { justify-content: center; }
+    .app-stage { height: 320px; }
+    .std-row { grid-template-columns: 100px 1fr; }
+    .hero h1 { font-size: 7.9vw; letter-spacing: -0.02em; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+</style>
 </head>
 <body>
-    <div class="wrap">
 
-        <header class="brand">
-            <div class="brand-mark">B</div>
-            <div class="brand-name">ByteCraftCo</div>
-        </header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="tmr-mark" viewBox="0 0 214.4 71.7"><path fill="currentColor" d="M 137.6 6 L 141.9 68.1 L 150.9 69.5 L 150.9 70.85 L 129.15 70.85 L 129.15 69.5 L 138.2 68.1 L 134 6.3 L 134.7 6.45 L 106.45 71.7 L 104.6 71.7 L 77.7 6.65 L 78.35 6.55 L 74.05 68.1 L 83.05 69.5 L 83.05 70.85 L 62.6 70.85 L 62.6 69.5 L 71.6 68.1 L 76 6.3 L 66.5 4.55 L 66.5 3.25 L 80.2 3.25 L 106.9 67.7 L 105.75 67.65 L 133.6 3.25 L 147.4 3.25 L 147.4 4.55 L 137.6 6 Z M 166.6 35.15 L 183 35.15 Q 190.05 35.15 194.425 31.4 Q 198.8 27.65 198.8 20.15 Q 198.8 15.6 196.775 12.375 Q 194.75 9.15 189.975 7.425 Q 185.2 5.7 176.8 5.7 L 166.2 5.7 L 164.9 3.25 L 179.45 3.25 Q 188.1 3.25 193.225 5.425 Q 198.35 7.6 200.625 11.4 Q 202.9 15.2 202.9 20.05 Q 202.9 24.15 201.1 27.55 Q 199.3 30.95 195.8 33.275 Q 192.3 35.6 187.1 36.45 L 187.1 36.1 Q 190.3 36.25 192.4 37.3 Q 194.5 38.35 196.075 40.625 Q 197.65 42.9 199.15 46.75 L 204.75 61.55 Q 206.05 64.95 207.175 66.625 Q 208.3 68.3 209.95 68.85 Q 211.6 69.4 214.4 69.35 L 214.4 70.85 Q 211.1 71.05 208.975 70.95 Q 206.85 70.85 205.475 69.95 Q 204.1 69.05 202.975 67.075 Q 201.85 65.1 200.55 61.55 L 195.5 47.75 Q 194 43.8 192.65 41.6 Q 191.3 39.4 189.55 38.5 Q 187.8 37.6 185.05 37.6 L 167.25 37.6 L 166.6 35.15 Z M 51.2 4.9 L 53.85 5.7 L 4.1 5.7 L 6.75 4.9 L 1.55 21.25 L 0 21.1 L 2.5 0 L 3.5 0 L 7 3.8 L 5.15 3.25 L 53 3.25 L 50.95 3.8 L 54.45 0 L 55.45 0 L 57.95 21.05 L 56.4 21.25 L 51.2 4.9 Z M 157.05 3.25 L 169.85 3.25 L 169.85 68.1 L 179.7 69.5 L 179.7 70.85 L 157.05 70.85 L 157.05 69.5 L 166.05 68.1 L 166.05 5.95 L 157.05 4.55 L 157.05 3.25 Z M 27.05 68.1 L 27.05 3.85 L 30.9 3.85 L 30.9 68.1 L 39.9 69.5 L 39.9 70.85 L 18.05 70.85 L 18.05 69.5 L 27.05 68.1 Z"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.4 12.7c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></symbol>
+</svg>
 
-        <section class="hero">
-            <span class="tagline">Bits. Crafted. Joyfully.</span>
-            <h1>We make small, <span class="accent-coral">sharp</span> digital things people <span class="accent-teal">actually love</span>.</h1>
-            <p>ByteCraftCo is a tiny studio building apps, sites, tools, and visual assets — software that feels as good as it works. No bloat, no dark patterns, no analytics dashboards begging for your attention.</p>
-        </section>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="ByteCraftCo home">
+      <span class="logo-mark" aria-hidden="true">B</span>
+      <span class="logo-name">ByteCraftCo</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#make">What we make</a>
+      <a href="#how">The lab</a>
+      <a href="#modern-recovery">The Modern Recovery</a>
+      <a href="#sports">Sports apps</a>
+      <a href="#partner">Partner</a>
+      <a class="btn btn-primary" href="#contact"><span class="btn-label"><span data-label="Contact">Contact</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
+    </nav>
+  </div>
+</header>
 
-        <section>
-            <h2>What we make</h2>
-            <div class="grid">
-                <div class="grid-item">
-                    <div class="icon">⌚</div>
-                    <h3>watchOS apps</h3>
-                    <p>Tiny, focused experiences for the wrist.</p>
-                </div>
-                <div class="grid-item">
-                    <div class="icon">📱</div>
-                    <h3>iOS apps</h3>
-                    <p>Friendly mobile apps that respect your time.</p>
-                </div>
-                <div class="grid-item">
-                    <div class="icon">🌐</div>
-                    <h3>Web &amp; microsites</h3>
-                    <p>Fast, hand-crafted sites and small web tools.</p>
-                </div>
-                <div class="grid-item">
-                    <div class="icon">🎨</div>
-                    <h3>Brand &amp; assets</h3>
-                    <p>Identity, illustration, and design that travels.</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Our apps</h2>
-            <div class="project-card">
-                <div class="project-icon">⛳</div>
-                <div class="project-info">
-                    <p class="project-status">Now on the App Store</p>
-                    <h3>AllTaps</h3>
-                    <p>The simplest golf scorecard for Apple Watch. Tap. Tally. Share. Made for league players, beginners, and anyone who&rsquo;d rather count their shots than wrestle with GPS.</p>
-                    <p style="margin-top: 12px; font-size: 14px;">
-                        <a href="https://apps.apple.com/us/app/alltaps/id6772271729"><strong>Download on the App Store</strong></a> &middot;
-                        <a href="/alltaps/">Learn more</a>
-                    </p>
-                    <p style="margin-top: 6px; font-size: 14px;">
-                        <a href="/alltaps/privacy.html">Privacy</a> &middot;
-                        <a href="/alltaps/support.html">Support</a> &middot;
-                        <a href="/alltaps/faq.html">FAQ</a>
-                    </p>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-icon" style="background: linear-gradient(135deg, #FF8A7D, var(--coral)); box-shadow: 0 6px 20px rgba(255, 112, 97, 0.25);">🧊</div>
-                <div class="project-info">
-                    <p class="project-status">Coming soon</p>
-                    <h3>The Modern Recovery</h3>
-                    <p>An editorial guide to modern recovery. Clear, science-minded breakdowns of cold immersion and infrared heat &mdash; the how, the why, and what actually matters &mdash; so you can choose gear worth owning. No hype, no hard sell, just honest guidance toward high-quality picks.</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Why we exist</h2>
-            <p>We believe most software is too noisy. Too many notifications, too many menus, too many features nobody asked for. ByteCraftCo is our small protest — tiny apps that do one or two things really well, and then politely get out of the way.</p>
-            <p>If you have an idea for something simple and delightful, we&rsquo;d love to hear about it.</p>
-        </section>
-
-        <section class="contact" id="contact">
-            <h2>Say hello</h2>
-            <a href="mailto:hello@bytecraftco.ai" class="email">hello@bytecraftco.ai</a>
-            <p>For projects, feedback, or just to say hi.</p>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 ByteCraftCo LLC &middot; Made with care in the USA.</p>
-        </footer>
-
+<main id="top">
+  <!-- HERO. To use footage later, add <video autoplay muted loop playsinline> in place of the canvas. -->
+  <section class="hero" aria-labelledby="hero-title">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <div class="readouts" aria-hidden="true">
+      <span>Products rated <b>60+</b></span>
+      <span>Standard <b>5 scored lines</b></span>
+      <span>Composite score <b>none</b></span>
+          </div>
+    <div class="scale" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-kicker"><span class="live-dot"></span>BYTECRAFTCO LLC</div>
+      <h1 class="display" id="hero-title">
+        <span class="line"><span>Apps and</span></span>
+        <span class="line"><span>standards</span></span>
+        <span class="line"><span class="thermal-text">for people who</span></span>
+        <span class="line"><span class="thermal-text">train and recover.</span></span>
+      </h1>
+      <p class="tagline">ByteCraftCo builds consumer software and independent product standards.</p>
+      <div class="hero-row">
+        <p class="sub-lede">Our sports apps help you train. The Modern Recovery, our publication, rates the gear you recover with.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#modern-recovery"><span class="btn-label"><span data-label="Read about The Modern Recovery">Read about The Modern Recovery</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
+          <a class="btn btn-ghost" href="#sports"><span class="btn-label"><span data-label="Our sports apps">Our sports apps</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track"><span>Running</span><span>Golf</span><span>Cycling</span><span>Strength</span><span>Skiing</span><span>Tennis</span><span>Swimming</span><span>Saunas</span><span>Cold plunges</span><span>Red light</span><span>Yoga and Pilates</span><span>Running</span><span>Golf</span><span>Cycling</span><span>Strength</span><span>Skiing</span><span>Tennis</span><span>Swimming</span><span>Saunas</span><span>Cold plunges</span><span>Red light</span><span>Yoga and Pilates</span></div>
+    <div class="track rev"><span>Published standard</span><span>Warranty Tracker</span><span>iOS</span><span>Android</span><span>Heater sizing</span><span>Running costs</span><span>Disclosed links</span><span>Published standard</span><span>Warranty Tracker</span><span>iOS</span><span>Android</span><span>Heater sizing</span><span>Running costs</span><span>Disclosed links</span></div>
+  </div>
+
+  <!-- WHAT WE MAKE -->
+  <section class="section" id="make" aria-labelledby="make-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="display" id="make-title">What we make.</h2>
+        <p class="lede">Two lines of work, equal weight. Apps for people who train, and the standards and data behind honest ratings of the gear they recover with.</p>
+      </div>
+      <div class="synergy">
+        <div class="side software reveal">
+          <h3>Apps</h3>
+          <p class="sub">Sports apps for iOS and Android</p>
+          <ul>
+            <li><b>AllTaps</b><span>The simplest golf scorecard for Apple Watch. On the App Store.</span></li>
+            <li><b>Our next sports app</b><span>In development. Name coming soon.</span></li>
+            <li><b>The Modern Recovery app</b><span>Recovery tracking, coming to iPhone</span></li>
+          </ul>
+        </div>
+        <div class="bridge" aria-hidden="true">
+          <svg viewBox="0 0 120 400" preserveAspectRatio="xMidYMid meet">
+            <path id="b1" d="M0 140 H 120" stroke="rgba(242,243,239,.18)" fill="none"/>
+            <path id="b2" d="M120 260 H 0" stroke="rgba(242,243,239,.18)" fill="none"/>
+            <circle r="5" fill="#2bd9c4"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#b1"/></animateMotion></circle>
+            <circle r="5" fill="#2bd9c4" opacity=".5"><animateMotion dur="2.2s" begin="1.1s" repeatCount="indefinite"><mpath href="#b1"/></animateMotion></circle>
+            <circle r="5" fill="#ff7061"><animateMotion dur="2.2s" begin=".5s" repeatCount="indefinite"><mpath href="#b2"/></animateMotion></circle>
+            <circle r="5" fill="#ff7061" opacity=".5"><animateMotion dur="2.2s" begin="1.6s" repeatCount="indefinite"><mpath href="#b2"/></animateMotion></circle>
+            <text x="60" y="124" text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" fill="#9a9ea3">questions</text>
+            <text x="60" y="290" text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" fill="#9a9ea3">answers</text>
+          </svg>
+        </div>
+        <div class="side standards reveal">
+          <h3>Standards and data</h3>
+          <p class="sub">The method behind The Modern Recovery</p>
+          <ul>
+            <li><b>The Standard</b><span>Five scored lines, published, with a dated changelog</span></li>
+            <li><b>Datasets</b><span>Warranty terms, specs and prices, each read on a dated page</span></li>
+            <li><b>Calculators and finders</b><span>Tools that turn the data into answers for buyers</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="synergy-note reveal">ByteCraftCo builds the standards and the tools. The Modern Recovery publishes what they find.</p>
+    </div>
+  </section>
+
+  <!-- HOW THE LAB WORKS -->
+  <section class="section tight" id="how" aria-labelledby="story-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="display" id="story-title">How the lab works.</h2>
+        <p class="lede">ByteCraftCo is a standards and data lab, with a device measurement programme opening soon. Today we turn manuals, warranties and prices into ratings you can check, scored against a written Standard.</p>
+      </div>
+      <div class="story-grid">
+        <div class="steps">
+          <article class="step active" data-step="1">
+            <div class="step-num"><i></i>01 Write</div>
+            <h3>Write the Standard.</h3>
+            <p>Five scored lines: Build, Evidence, One job, Value and Company. Published, with a dated changelog, so anyone can see how the method works and how it has changed.</p>
+          </article>
+          <article class="step" data-step="2">
+            <div class="step-num"><i></i>02 Collect</div>
+            <h3>Collect the evidence.</h3>
+            <p>Specs, warranty terms, manuals, prices and owner reviews, each with the date we read it. We read the fine print so you don't have to.</p>
+          </article>
+          <article class="step" data-step="3">
+            <div class="step-num"><i></i>03 Publish</div>
+            <h3>Publish the rating.</h3>
+            <p>On The Modern Recovery, with every source linked so readers can check the work.</p>
+          </article>
+        </div>
+        <div class="stage-col">
+          <div class="stage" id="stage" data-step="1" aria-hidden="true">
+            <div class="stage-hud"><span id="hud-l">The Standard</span><span><b id="hud-r">5 scored lines</b></span></div>
+            <svg class="scene" viewBox="0 0 440 500" preserveAspectRatio="xMidYMid meet">
+              <!-- Layer 1: the Standard -->
+              <g class="layer l1" font-family="Geist, sans-serif" font-size="22" fill="#9a9ea3">
+                <text x="24" y="44" fill="#f2f3ef" font-family="Unbounded, sans-serif" font-weight="800" font-size="24">THE STANDARD</text>
+                <text x="24" y="80">Example scores</text>
+                <g id="rate-rows"></g>
+                <rect x="24" y="420" width="392" height="64" rx="14" fill="#16181a" stroke="rgba(242,243,239,.14)"/>
+                <text x="44" y="460" fill="#f2f3ef">No composite score. Ever.</text>
+              </g>
+              <!-- Layer 2: collecting the evidence -->
+              <g class="layer l2" font-family="Geist, sans-serif" font-size="22">
+                <rect x="24" y="20" width="290" height="460" rx="16" fill="#16181a" stroke="rgba(242,243,239,.2)"/>
+                <text x="48" y="66" fill="#f2f3ef" font-family="Unbounded, sans-serif" font-weight="800" font-size="24">WARRANTY</text>
+                <text x="48" y="100" fill="#9a9ea3" font-family="Geist Mono, monospace">Read Oct 14</text>
+                <g fill="rgba(242,243,239,.16)">
+                  <rect x="48" y="128" width="240" height="10" rx="5"/><rect x="48" y="150" width="210" height="10" rx="5"/><rect x="48" y="172" width="226" height="10" rx="5"/>
+                  <rect x="48" y="310" width="236" height="10" rx="5"/><rect x="48" y="332" width="200" height="10" rx="5"/><rect x="48" y="354" width="228" height="10" rx="5"/>
+                  <rect x="48" y="398" width="218" height="10" rx="5"/><rect x="48" y="420" width="150" height="10" rx="5"/>
+                </g>
+                <rect class="hl" x="36" y="200" width="266" height="88" rx="8" fill="rgba(255,112,97,.24)"/>
+                <text x="50" y="236" fill="#f2f3ef">Void if installed</text>
+                <text x="50" y="268" fill="#f2f3ef">outdoors.</text>
+                <g class="note-in">
+                  <path d="M302 244 C 330 244, 320 214, 332 206" stroke="#ff7061" stroke-width="2" fill="none"/>
+                  <rect x="234" y="112" width="198" height="94" rx="12" fill="#0e0f10" stroke="#ff7061" stroke-width="1.5"/>
+                  <text x="250" y="150" fill="#ff7061">Voids coverage</text>
+                  <text x="250" y="184" fill="#f2f3ef">Logged, dated</text>
+                </g>
+              </g>
+              <!-- Layer 3: the published rating -->
+              <g class="layer l3" font-family="Geist, sans-serif" font-size="22">
+                <rect x="16" y="16" width="408" height="468" rx="18" fill="#fbf9f5"/>
+                <path d="M16 34 a18 18 0 0 1 18 -18 h372 a18 18 0 0 1 18 18 v30 h-408 z" fill="#e3e8e5"/>
+                <circle cx="40" cy="40" r="6" fill="#c9cfcc"/><circle cx="60" cy="40" r="6" fill="#c9cfcc"/><circle cx="80" cy="40" r="6" fill="#c9cfcc"/>
+                <text x="104" y="48" fill="#4e6b5f" font-size="20">themodernrecovery.com</text>
+                <svg x="40" y="88" width="96" height="32" viewBox="0 0 214.4 71.7" color="#1f3a33"><use href="#tmr-mark"/></svg>
+                <text x="40" y="160" fill="#1f3a33" font-family="Unbounded, sans-serif" font-weight="800" font-size="24">EXAMPLE RATING</text>
+                <text x="40" y="204" fill="#1f3a33" font-weight="600">Sources</text>
+                <g fill="#1f3a33">
+                  <g class="src-row" style="transition-delay:.3s"><rect x="40" y="222" width="360" height="44" rx="10" fill="#e3e8e5"/><text x="56" y="252">Spec sheet</text><text x="384" y="252" text-anchor="end" fill="#4e6b5f">Oct 14</text></g>
+                  <g class="src-row" style="transition-delay:.45s"><rect x="40" y="274" width="360" height="44" rx="10" fill="#e3e8e5"/><text x="56" y="304">Warranty terms</text><text x="384" y="304" text-anchor="end" fill="#4e6b5f">Oct 14</text></g>
+                  <g class="src-row" style="transition-delay:.6s"><rect x="40" y="326" width="360" height="44" rx="10" fill="#e3e8e5"/><text x="56" y="356">Manual</text><text x="384" y="356" text-anchor="end" fill="#4e6b5f">Oct 15</text></g>
+                  <g class="src-row" style="transition-delay:.75s"><rect x="40" y="378" width="360" height="44" rx="10" fill="#e3e8e5"/><text x="56" y="408">Price</text><text x="384" y="408" text-anchor="end" fill="#4e6b5f">Oct 16</text></g>
+                </g>
+                <text x="40" y="460" fill="#b7622f">Affiliate links disclosed.</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT THE LAB BUILDS -->
+  <section class="section tight" aria-labelledby="pub-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="display" id="pub-title">What the lab builds.</h2>
+        <p class="lede">The method, the datasets and the tools. All of it is public on The Modern Recovery, dated and easy to check.</p>
+      </div>
+      <div class="bento">
+        <article class="tile t-std reveal">
+          <div class="tile-visual" aria-hidden="true">
+            <div class="std-glow"></div>
+            <div class="std-grid" id="std-grid"></div>
+          </div>
+          <h3>The Standard</h3>
+          <p>The method ByteCraftCo wrote for rating saunas, cold plunges, red light and recovery tools. Five scored lines, no composite score, and a dated history of every change.</p>
+          <div class="chips"><span class="chip">Five scored lines</span><span class="chip">No composite score</span><span class="chip">Dated changelog</span></div>
+          <a class="roll tile-link" href="https://themodernrecovery.com/pages/the-standard" target="_blank" rel="noopener"><span class="btn-label"><span data-label="Read the Standard at TMR">Read the Standard at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+        </article>
+        <article class="tile t-war reveal">
+          <div class="tile-visual" aria-hidden="true">
+            <div class="war-list">
+              <span class="war-scan"></span>
+              <div><span>Installed outdoors</span><em>Voids</em></div>
+              <div><span>Commercial use</span><em>Voids</em></div>
+              <div><span>Unapproved chemicals</span><em>Voids</em></div>
+              <div><span>Registration window</span><span>30 days</span></div>
+            </div>
+          </div>
+          <h3>Warranty Tracker</h3>
+          <p>A public record of exactly what voids each product's coverage, read from the warranty documents.</p>
+          <a class="roll tile-link" href="https://themodernrecovery.com/pages/warranty-tracker" target="_blank" rel="noopener"><span class="btn-label"><span data-label="View the Warranty Tracker at TMR">View the Warranty Tracker at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+        </article>
+        <article class="tile t-tools reveal">
+          <div class="tile-visual" aria-hidden="true">
+            <div class="calc">
+              <div class="calc-row"><span>Room size</span><span>cu ft</span></div>
+              <div class="calc-track"><b></b></div>
+              <div class="calc-row"><span>Sessions per week</span><span>count</span></div>
+              <div class="calc-track b2"><b></b></div>
+            </div>
+          </div>
+          <h3>Calculators and finders</h3>
+          <p>A sauna heater size calculator, a running-cost calculator, finders and comparison pages.</p>
+          <a class="roll tile-link" href="https://themodernrecovery.com/blogs/buying-guides/what-size-sauna-heater-do-i-need" target="_blank" rel="noopener"><span class="btn-label"><span data-label="Try the heater calculator at TMR">Try the heater calculator at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+        </article>
+        <article class="tile t-data reveal">
+          <div class="tile-visual" aria-hidden="true"><div class="bars" id="bars"></div></div>
+          <div class="content">
+            <h3>Datasets</h3>
+            <p>Tables anyone can cite. View each one at The Modern Recovery:</p>
+            <ul class="data-list">
+              <li><a href="https://themodernrecovery.com/pages/warranty-tracker" target="_blank" rel="noopener">Warranty Tracker<span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://themodernrecovery.com/blogs/buying-guides/what-size-sauna-heater-do-i-need" target="_blank" rel="noopener">Sauna heater sizing table and calculator<span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://themodernrecovery.com/blogs/buying-guides/sauna-benefits-what-the-research-supports" target="_blank" rel="noopener">Sauna benefits evidence table<span class="sr-only"> (opens in a new tab)</span></a></li>
+              <li><a href="https://themodernrecovery.com/blogs/buying-guides/led-face-masks-compared" target="_blank" rel="noopener">LED face mask clearance table<span class="sr-only"> (opens in a new tab)</span></a></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MODERN RECOVERY. Shown in TMR's own colors: two brands, one owner. -->
+  <section class="tmr" id="modern-recovery" aria-labelledby="tmr-title">
+    <div class="wrap">
+      <div class="tmr-head reveal">
+        <div>
+          <div class="tmr-kicker">
+            <svg viewBox="0 0 214.4 71.7" role="img" aria-label="The Modern Recovery logo"><use href="#tmr-mark"/></svg>
+            <span>Our publication</span>
+          </div>
+          <h2 id="tmr-title">The Modern Recovery</h2>
+        </div>
+        <div>
+          <p class="tmr-lede">Our publication for recovery gear. ByteCraftCo wrote the Standard behind it: five scored lines (Build, Evidence, One job, Value, Company), applied to saunas, cold plunges, red light and recovery tools. Every rating is built from published specifications, warranty terms, manuals and prices, read on a dated page, and every score can be checked. Some links are affiliate links; they are disclosed and never change a rating.</p>
+          <div class="tmr-ctas">
+            <a class="btn btn-tmr" href="https://themodernrecovery.com" target="_blank" rel="noopener"><span class="btn-label"><span data-label="Read at The Modern Recovery">Read at The Modern Recovery</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+          <div class="tmr-links">
+            <a class="roll tmr-small" href="https://themodernrecovery.com/pages/the-standard" target="_blank" rel="noopener"><span class="btn-label"><span data-label="How the Standard works, at TMR">How the Standard works, at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+            <a class="roll tmr-small" href="https://themodernrecovery.com/pages/affiliate-disclosure" target="_blank" rel="noopener"><span class="btn-label"><span data-label="Affiliate disclosure at TMR">Affiliate disclosure at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="tmr-cards">
+        <article class="tmr-card site reveal">
+          <span class="tag live">Live now</span>
+          <h3>The website</h3>
+          <p>Ratings, comparisons and buying guides for saunas, cold plunges, red light and recovery gear.</p>
+          <ul class="tmr-list">
+            <li><span><b>Five practices.</b> Heat, cold, contrast, red light and movement.</span></li>
+            <li><span><b>Every source linked.</b> Each score can be checked.</span></li>
+            <li><span><b>Tools and finders.</b> Heater sizing, running costs and comparisons.</span></li>
+          </ul>
+          <a class="roll tmr-link" href="https://themodernrecovery.com" target="_blank" rel="noopener"><span class="btn-label"><span data-label="Read the guides at TMR">Read the guides at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+        </article>
+        <article class="tmr-card app-card reveal">
+          <div>
+            <span class="tag soon">Coming soon to iPhone</span>
+            <h3>The app</h3>
+            <p>Track your recovery after every workout. Log sauna, cold plunge, yoga and Pilates sessions, and watch your recovery time and progress build week over week.</p>
+            <ul class="tmr-list">
+              <li><span><b>Log in seconds.</b> Time and temperature for heat and cold.</span></li>
+              <li><span><b>Contrast timer.</b> Hot, then cold, round by round.</span></li>
+              <li><span><b>See your progress.</b> Weekly minutes, streaks and trends.</span></li>
+            </ul>
+            <a class="roll tmr-link" href="mailto:hello@themodernrecovery.com?subject=Notify%20me%20when%20the%20app%20launches"><span class="btn-label"><span data-label="Get notified at launch">Get notified at launch</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
+          </div>
+          <div class="mini-phone" aria-hidden="true">
+            <div class="mini-screen">
+              <div class="ms-top"><svg viewBox="0 0 214.4 71.7"><use href="#tmr-mark"/></svg><span>This week</span></div>
+              <div class="ms-title">Recovery time</div>
+              <div class="ms-total"><b>2 h 40 m</b>, up 18%</div>
+              <div class="week" id="week">
+                <i style="--h:46%;--s:40%"></i><i style="--h:70%;--s:55%"></i><i style="--h:30%;--s:100%"></i><i style="--h:88%;--s:50%"></i><i style="--h:56%;--s:60%"></i><i style="--h:96%;--s:45%"></i><i style="--h:20%;--s:100%"></i>
+              </div>
+              <div class="days"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+              <div class="legend"><span style="--c:#b7622f">Heat</span><span style="--c:#5c8a9e">Cold, movement</span></div>
+              <div class="ms-btn">Log a session</div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <!-- RECENT FROM TMR. Update these three with the latest pages (newest first). Last updated 2026-11-10. -->
+      <div class="recent reveal">
+        <div class="recent-head">
+          <h3>Recent from The Modern Recovery</h3>
+          <a class="roll tmr-small" href="https://themodernrecovery.com/blogs/buying-guides" target="_blank" rel="noopener"><span class="btn-label"><span data-label="All buying guides at TMR">All buying guides at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+        <div class="recent-grid">
+          <a class="recent-card" href="https://themodernrecovery.com/blogs/buying-guides/sauna-dos-and-donts" target="_blank" rel="noopener">
+            <span class="rc-kind">Buying guide</span>
+            <span class="rc-title">Sauna Dos and Don'ts: 24 Rules From the Research and the Manuals</span>
+            <span class="rc-foot"><span>Nov 10, 2026. Read at TMR</span><span class="rc-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+          <span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="recent-card" href="https://themodernrecovery.com/blogs/buying-guides/costco-infrared-sauna-vs-sun-home-solstice" target="_blank" rel="noopener">
+            <span class="rc-kind">Comparison</span>
+            <span class="rc-title">Costco Infrared Sauna vs Sun Home Solstice: Is the Upgrade Worth It?</span>
+            <span class="rc-foot"><span>Nov 10, 2026. Read at TMR</span><span class="rc-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+          <span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="recent-card" href="https://themodernrecovery.com/blogs/buying-guides/sauna-benefits-what-the-research-supports" target="_blank" rel="noopener">
+            <span class="rc-kind">Evidence</span>
+            <span class="rc-title">Sauna Benefits: What the Research Actually Supports, Claim by Claim</span>
+            <span class="rc-foot"><span>Nov 10, 2026. Read at TMR</span><span class="rc-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+          <span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPORTS APPS -->
+  <section class="section" id="sports" aria-labelledby="sports-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="display" id="sports-title">Sports apps.</h2>
+        <p class="lede">Sports apps for iOS and Android, built for the moment you're actually playing. One job each, no accounts, no clutter.</p>
+      </div>
+      <div class="apps">
+        <article class="app reveal">
+          <div class="app-stage">
+            <div class="watch">
+              <div class="watch-screen">
+                <span class="w-hole">Hole 7</span>
+                <span class="w-strokes" id="strokes" aria-live="polite">3</span>
+                <span class="w-par">Par 4</span>
+                <button class="w-tap" id="tap" type="button" aria-label="Add a stroke to the AllTaps demo">Tap</button>
+              </div>
+            </div>
+            <span class="try-hint">Try it: tap to count a stroke</span>
+          </div>
+          <div>
+            <div class="app-meta"><span class="pill live">On the App Store</span><span class="platform">Apple Watch, golf</span></div>
+            <h3>AllTaps</h3>
+            <p>The simplest golf scorecard for Apple Watch. Tap once per shot, see your round add up, share it when you're done. Made for league players, beginners, and anyone who'd rather count shots than wrestle with GPS.</p>
+            <div class="app-links">
+              <a class="btn btn-primary" href="https://apps.apple.com/us/app/alltaps/id6772271729"><svg width="16" height="16" aria-hidden="true"><use href="#i-apple"/></svg><span class="btn-label"><span data-label="Download on the App Store">Download on the App Store</span></span></a>
+              <a href="/alltaps/">About</a><a href="/alltaps/faq.html">FAQ</a><a href="/alltaps/support.html">Support</a><a href="/alltaps/privacy.html">Privacy</a>
+            </div>
+          </div>
+        </article>
+        <article class="app soon reveal">
+          <div class="app-stage">
+            <div class="watch">
+              <div class="watch-screen">
+                <div class="w-code"><span id="scramble">CLASSIFIED</span><small>Name coming soon</small></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="app-meta"><span class="pill soon">Coming soon</span><span class="platform">iOS and Android</span></div>
+            <h3 class="classified" aria-label="Our next sports app, name coming soon"><span id="scramble-title" aria-hidden="true">CLASSIFIED</span></h3>
+            <p>Our next sports app is in development. Same idea as AllTaps: one job, done well, wherever you play. Name and launch date coming soon.</p>
+            <form class="ea-form" id="ea-form" action="https://formsubmit.co/hello@bytecraftco.ai" method="POST">
+              <label class="sr-only" for="ea-email">Email address</label>
+              <input class="ea-input" type="email" id="ea-email" name="email" required autocomplete="email" placeholder="you@example.com">
+              <input type="hidden" name="_subject" value="Early access list: next sports app">
+              <input type="hidden" name="list" value="Next sports app, early access">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://bytecraftco.ai/?joined=1#sports">
+              <input class="ea-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <button class="btn btn-primary ea-btn" type="submit"><span class="btn-label"><span data-label="Get early access">Get early access</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></button>
+            </form>
+            <p class="ea-note" id="ea-note">One email when it launches. Nothing else. <a href="/privacy.html">Privacy notice</a>.</p>
+            <div class="ea-done" id="ea-done" role="status" hidden>
+              <span class="ea-check" aria-hidden="true"></span>
+              <div><b>You're on the list.</b><span>We'll email you when it launches.</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section tight" id="about" aria-labelledby="about-title">
+    <div class="wrap founder">
+      <h2 class="display reveal" id="about-title">About.</h2>
+      <div class="reveal">
+        <p><strong>ByteCraftCo builds consumer software and independent product standards.</strong></p>
+        <p>Built by people passionate about sport and recovery, about making products easy to compare, and about well-made, quality gear.</p>
+        <p>We have spent years building apps and connected products at large consumer brands. We hold our own work to the same bar: do one job well, show the method, and respect the people using it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER WITH THE LAB -->
+  <section class="section tight" id="partner" aria-labelledby="partner-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="display" id="partner-title">Partner with the lab.</h2>
+        <p class="lede">Brands, retailers and press: tell us what you have in mind. We read every note and reply within two business days.</p>
+      </div>
+      <div class="pform-panel reveal">
+        <form class="pform" id="pform" action="https://formsubmit.co/hello@themodernrecovery.com" method="POST">
+          <input type="hidden" name="_subject" value="ByteCraftCo partner enquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://bytecraftco.ai/?partner=1#partner">
+          <input class="ea-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="field">
+            <label for="pf-name">Name</label>
+            <input id="pf-name" name="name" type="text" required autocomplete="name" aria-describedby="pf-name-err">
+            <p class="field-err" id="pf-name-err" hidden></p>
+          </div>
+          <div class="field">
+            <label for="pf-company">Company or brand</label>
+            <input id="pf-company" name="company" type="text" required autocomplete="organization" aria-describedby="pf-company-err">
+            <p class="field-err" id="pf-company-err" hidden></p>
+          </div>
+          <div class="field">
+            <label for="pf-email">Work email</label>
+            <input id="pf-email" name="email" type="email" required autocomplete="email" aria-describedby="pf-email-err">
+            <p class="field-err" id="pf-email-err" hidden></p>
+          </div>
+          <div class="field">
+            <label for="pf-website">Website <span class="opt">Optional</span></label>
+            <input id="pf-website" name="website" type="url" autocomplete="url" placeholder="https://" aria-describedby="pf-website-err">
+            <p class="field-err" id="pf-website-err" hidden></p>
+          </div>
+          <div class="field">
+            <label for="pf-type">What would you like to do?</label>
+            <div class="select-wrap">
+              <select id="pf-type" name="enquiry_type" required aria-describedby="pf-type-err">
+                <option value="">Choose one</option>
+                <option>Send a product for testing</option>
+                <option>Invite us to an affiliate programme</option>
+                <option>Correct or add product, warranty or price information</option>
+                <option>Press or research enquiry</option>
+                <option>App partnership</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <p class="field-err" id="pf-type-err" hidden></p>
+          </div>
+          <div class="field">
+            <label for="pf-category">Category <span class="opt">Optional</span></label>
+            <div class="select-wrap">
+              <select id="pf-category" name="category">
+                <option value="">Choose one</option>
+                <option>Sauna</option>
+                <option>Cold plunge</option>
+                <option>Red light</option>
+                <option>Movement and yoga</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field full">
+            <label for="pf-message">Message</label>
+            <textarea id="pf-message" name="message" required maxlength="1000" rows="6" aria-describedby="pf-message-err pf-count"></textarea>
+            <div class="field-row"><p class="field-err" id="pf-message-err" hidden></p><span class="count" id="pf-count">0 / 1,000</span></div>
+          </div>
+          <div class="field full">
+            <label class="check" for="pf-consent">
+              <input id="pf-consent" name="consent" type="checkbox" value="yes" required aria-describedby="pf-consent-err">
+              <span>I agree that ByteCraftCo can reply to me by email about this enquiry. See our <a href="/privacy.html">privacy notice</a>.</span>
+            </label>
+            <p class="field-err" id="pf-consent-err" hidden></p>
+          </div>
+          <div class="field full submit-row">
+            <button class="btn btn-primary" type="submit"><span class="btn-label"><span data-label="Send enquiry">Send enquiry</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></button>
+            <p class="form-err" id="pf-form-err" role="alert" hidden></p>
+          </div>
+        </form>
+        <div class="pdone" id="pdone" role="status" tabindex="-1" hidden>
+          <span class="ea-check" aria-hidden="true"></span>
+          <div><b>Thanks.</b><span>We'll reply from hello@themodernrecovery.com within two business days.</span></div>
+        </div>
+      </div>
+      <p class="pform-note">Sending a product or joining an affiliate programme never changes a rating. Any product sent to us is disclosed on its rating page.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT ROUTING -->
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 class="display reveal" id="contact-title">Find the right inbox.</h2>
+      <p class="lede reveal">Prefer email? Send your note to the team that handles it.</p>
+      <div class="routes reveal">
+        <a class="route" href="mailto:hello@themodernrecovery.com">
+          <div><b>Recovery gear, brands, affiliates and press</b><span>Anything about The Modern Recovery, its ratings or partnerships</span></div>
+          <em>hello@themodernrecovery.com</em>
+        </a>
+        <a class="route" href="/alltaps/support.html">
+          <div><b>Apps</b><span>Help and feedback for AllTaps</span></div>
+          <em>AllTaps support</em>
+        </a>
+        <a class="route" href="mailto:hello@bytecraftco.ai">
+          <div><b>Everything else</b><span>General questions about ByteCraftCo</span></div>
+          <em>hello@bytecraftco.ai</em>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span><span class="footer-tag">ByteCraftCo builds consumer software and independent product standards.</span><br>© 2026 BYTECRAFTCO LLC. The Modern Recovery is a dba of BYTECRAFTCO LLC.</span>
+    <span class="footer-links"><a href="https://themodernrecovery.com" target="_blank" rel="noopener">The Modern Recovery<span class="sr-only"> (opens in a new tab)</span></a><a href="/privacy.html">Privacy</a></span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGsap = !!(window.gsap && window.ScrollTrigger);
+  if (hasGsap && !reduce) document.documentElement.classList.add('js');
+
+  var nav = document.getElementById('nav');
+  var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 40); };
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  /* Hero heat-to-cold particle field */
+  var cv = document.getElementById('field'), ctx = cv.getContext('2d');
+  var W, H, parts = [], mouse = { x: -9999, y: -9999 }, running = true, t = 0;
+  var hot = [255, 112, 97], amber = [255, 176, 77], cold = [43, 217, 196];
+  function mix(a, b, k) { return [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k, a[2] + (b[2] - a[2]) * k]; }
+  function colorFor(v) { v = Math.max(0, Math.min(1, v)); return v < .5 ? mix(cold, amber, v * 2) : mix(amber, hot, (v - .5) * 2); }
+  function size() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.round(Math.max(900, Math.min(2200, (W * H) / 650)));
+    parts = [];
+    for (var i = 0; i < n; i++) parts.push({ x: Math.random() * W, y: Math.random() * H, h: 0 });
+    ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  }
+  function field(x, y) { var s = 0.0021; return Math.sin(x * s + t * 0.25) * 1.3 + Math.cos(y * s * 1.4 - t * 0.2) * 1.1 + Math.sin((x + y) * s * 0.6 + t * 0.12); }
+  function step() {
+    t += 0.016;
+    ctx.globalCompositeOperation = 'source-over'; ctx.fillStyle = 'rgba(0,0,0,0.07)'; ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i], a = field(p.x, p.y);
+      p.x += Math.cos(a) * 1.15 + 0.35; p.y += Math.sin(a) * 1.15 - 0.15;
+      var dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
+      if (d2 < 32000) { var f = 1 - d2 / 32000; p.h = Math.min(1, p.h + f * 0.12); p.x += dx * 0.012 * f; p.y += dy * 0.012 * f - 1.2 * f; }
+      p.h += ((1 - (p.y / H) * 0.55 - (p.x / W) * 0.45) - p.h) * 0.01;
+      if (p.x > W + 5 || p.x < -5 || p.y < -5 || p.y > H + 5) { p.x = Math.random() * W * 0.3 - 5; p.y = Math.random() * H; p.h = 0.4; }
+      var c = colorFor(p.h);
+      ctx.fillStyle = 'rgba(' + (c[0] | 0) + ',' + (c[1] | 0) + ',' + (c[2] | 0) + ',0.55)';
+      ctx.fillRect(p.x, p.y, 1.6, 1.6);
+    }
+  }
+  function loop() { if (running) step(); requestAnimationFrame(loop); }
+  size(); window.addEventListener('resize', size);
+  cv.parentElement.addEventListener('pointermove', function (e) { var r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+  cv.parentElement.addEventListener('pointerleave', function () { mouse.x = mouse.y = -9999; });
+  if (reduce) { for (var k = 0; k < 160; k++) step(); }
+  else { new IntersectionObserver(function (es) { running = es[0].isIntersecting; }).observe(cv); requestAnimationFrame(loop); }
+
+  /* Example rating rows in the story stage */
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var rows = [['Build', 4], ['Evidence', 4], ['One job', 5], ['Value', 3], ['Company', 4]];
+  var rr = document.getElementById('rate-rows');
+  rows.forEach(function (r, i) {
+    var y = 140 + i * 56;
+    var label = document.createElementNS(SVGNS, 'text');
+    label.setAttribute('x', 24); label.setAttribute('y', y + 8); label.textContent = r[0];
+    label.setAttribute('fill', '#f2f3ef');
+    rr.appendChild(label);
+    for (var d = 0; d < 5; d++) {
+      var ring = document.createElementNS(SVGNS, 'circle');
+      ring.setAttribute('cx', 222 + d * 42); ring.setAttribute('cy', y); ring.setAttribute('r', 15);
+      ring.setAttribute('fill', 'none'); ring.setAttribute('stroke', 'rgba(242,243,239,.3)'); ring.setAttribute('stroke-width', '1.5');
+      rr.appendChild(ring);
+      var dot = document.createElementNS(SVGNS, 'circle');
+      dot.setAttribute('cx', 222 + d * 42); dot.setAttribute('cy', y); dot.setAttribute('r', 15);
+      dot.setAttribute('fill', i % 2 ? '#2bd9c4' : '#ff7061');
+      dot.setAttribute('class', 'dotfill' + (d < r[1] ? ' on' : ''));
+      dot.style.transitionDelay = (0.25 + i * 0.12 + d * 0.06) + 's';
+      rr.appendChild(dot);
+    }
+  });
+
+  /* Big Standard tile dots */
+  var sg = document.getElementById('std-grid');
+  rows.forEach(function (r) {
+    var row = document.createElement('div'); row.className = 'std-row';
+    var lab = document.createElement('span'); lab.textContent = r[0]; row.appendChild(lab);
+    var dots = document.createElement('div'); dots.className = 'std-dots';
+    for (var d = 0; d < 5; d++) { var i = document.createElement('i'); if (d < r[1]) i.className = 'on'; dots.appendChild(i); }
+    row.appendChild(dots); sg.appendChild(row);
+  });
+
+  /* Story steps */
+  var stage = document.getElementById('stage');
+  var hudL = document.getElementById('hud-l'), hudR = document.getElementById('hud-r');
+  var hud = { 1: ['The Standard', '5 scored lines'], 2: ['Evidence', 'Read Oct 14'], 3: ['Published', 'At TMR'] };
+  var steps = document.querySelectorAll('.step');
+  function setStep(n) {
+    stage.setAttribute('data-step', n);
+    hudL.textContent = hud[n][0]; hudR.textContent = hud[n][1];
+    steps.forEach(function (s) { s.classList.toggle('active', s.getAttribute('data-step') === String(n)); });
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) setStep(+e.target.getAttribute('data-step')); });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  steps.forEach(function (s) { io.observe(s); });
+
+  /* Open data bars */
+  var bars = document.getElementById('bars');
+  [38,52,44,61,70,48,66,74,58,80,62,72,86,64,78,90,70,84,76,92,68,88,95,82,74,90,86,97,80,93].forEach(function (h) {
+    var i = document.createElement('i'); i.style.setProperty('--h', h + '%'); bars.appendChild(i);
+  });
+
+  /* AllTaps demo */
+  var strokes = document.getElementById('strokes'), n = 3;
+  document.getElementById('tap').addEventListener('click', function () {
+    n = n >= 9 ? 1 : n + 1; strokes.textContent = n;
+    if (hasGsap && !reduce) gsap.fromTo(strokes, { scale: 1.25 }, { scale: 1, duration: .35, ease: 'back.out(3)' });
+  });
+
+  /* Coming-soon scramble */
+  var sc = document.getElementById('scramble'), words = ['CLASSIFIED', 'IN THE WORKS', 'NAME TBD', 'COMING SOON'], wi = 0;
+  var st = document.getElementById('scramble-title'), tWords = ['CLASSIFIED', 'REDACTED', 'TOP SECRET', 'NAME TBD'], ti = 0;
+  var glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&';
+  function scramble(to, el) {
+    el = el || sc;
+    var frame = 0, total = 18;
+    var id = setInterval(function () {
+      frame++;
+      el.textContent = to.split('').map(function (ch, i) {
+        if (ch === ' ') return ' ';
+        return i < (frame / total) * to.length ? ch : glyphs[(Math.random() * glyphs.length) | 0];
+      }).join('');
+      if (frame >= total) { clearInterval(id); el.textContent = to; }
+    }, 45);
+  }
+  if (!reduce) setInterval(function () { wi = (wi + 1) % words.length; scramble(words[wi]); }, 2600);
+  if (!reduce) setTimeout(function () { setInterval(function () { ti = (ti + 1) % tWords.length; scramble(tWords[ti], st); }, 2600); }, 1300);
+
+
+  /* Button helpers */
+  function setBtnText(btn, t) { var sp = btn.querySelector('.btn-label > span'); if (sp) { sp.textContent = t; sp.setAttribute('data-label', t); } else { btn.textContent = t; } }
+  if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.btn').forEach(function (b) {
+      b.addEventListener('mousemove', function (e) {
+        var r = b.getBoundingClientRect();
+        var dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2), dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+        b.style.translate = (Math.max(-1, Math.min(1, dx)) * 6).toFixed(1) + 'px ' + (Math.max(-1, Math.min(1, dy)) * 6).toFixed(1) + 'px';
+      });
+      b.addEventListener('mouseleave', function () { b.style.translate = '0px 0px'; });
+    });
+  }
+
+  /* Partner form. Plain POST without JavaScript; with it, inline errors and an in-page thank you. */
+  var pf = document.getElementById('pform'), pdone = document.getElementById('pdone'), pErr = document.getElementById('pf-form-err');
+  var pMsg = document.getElementById('pf-message'), pCount = document.getElementById('pf-count');
+  function showPDone() { pf.hidden = true; pdone.hidden = false; }
+  if (/[?&]partner=1/.test(location.search)) showPDone();
+  pf.noValidate = true;
+  var checks = {
+    'pf-name': function (el) { return el.value.trim() ? '' : 'Please enter your name.'; },
+    'pf-company': function (el) { return el.value.trim() ? '' : 'Please enter your company or brand.'; },
+    'pf-email': function (el) { return !el.value.trim() ? 'Please enter your work email.' : (el.validity.typeMismatch ? 'Please enter a valid email address.' : ''); },
+    'pf-website': function (el) { return el.value.trim() && el.validity.typeMismatch ? 'Please enter a full web address, for example https://example.com' : ''; },
+    'pf-type': function (el) { return el.value ? '' : "Please choose what you'd like to do."; },
+    'pf-message': function (el) { return !el.value.trim() ? 'Please add a short message.' : (el.value.length > 1000 ? 'Please keep your message under 1,000 characters.' : ''); },
+    'pf-consent': function (el) { return el.checked ? '' : 'Please tick the box so we can reply by email.'; }
+  };
+  function setErr(id, msg) {
+    var el = document.getElementById(id), out = document.getElementById(id + '-err');
+    if (msg) { el.setAttribute('aria-invalid', 'true'); out.textContent = msg; out.hidden = false; }
+    else { el.removeAttribute('aria-invalid'); out.textContent = ''; out.hidden = true; }
+  }
+  var site = document.getElementById('pf-website');
+  site.addEventListener('blur', function () { var v = site.value.trim(); if (v && !/^https?:\/\//i.test(v)) site.value = 'https://' + v; });
+  Object.keys(checks).forEach(function (id) {
+    var el = document.getElementById(id);
+    el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'input', function () { if (el.getAttribute('aria-invalid')) setErr(id, checks[id](el)); });
+    el.addEventListener('blur', function () { if (el.value || el.getAttribute('aria-invalid')) setErr(id, checks[id](el)); });
+  });
+  pMsg.addEventListener('input', function () { pCount.textContent = pMsg.value.length.toLocaleString('en-US') + ' / 1,000'; });
+  pf.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (pf.elements._honey.value) return;
+    var v = site.value.trim(); if (v && !/^https?:\/\//i.test(v)) site.value = 'https://' + v;
+    var first = null;
+    Object.keys(checks).forEach(function (id) { var el = document.getElementById(id), m = checks[id](el); setErr(id, m); if (m && !first) first = el; });
+    if (first) { first.focus(); return; }
+    var btn = pf.querySelector('button[type="submit"]'); btn.disabled = true; setBtnText(btn, 'Sending');
+    pErr.hidden = true;
+    var type = document.getElementById('pf-type').value;
+    fetch('https://formsubmit.co/ajax/hello@themodernrecovery.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'ByteCraftCo partner enquiry: ' + type, _template: 'table',
+        name: pf.elements.name.value.trim(), company: pf.elements.company.value.trim(), email: pf.elements.email.value.trim(),
+        website: site.value.trim(), enquiry_type: type, category: pf.elements.category.value, message: pMsg.value.trim(), consent: 'yes'
+      })
+    }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { if (d && (d.success === false || d.success === 'false')) throw new Error('rejected'); showPDone(); pdone.focus(); })
+      .catch(function () {
+        btn.disabled = false; setBtnText(btn, 'Send enquiry');
+        pErr.innerHTML = 'That did not go through. Please email <a href="mailto:hello@themodernrecovery.com">hello@themodernrecovery.com</a> instead.'; pErr.hidden = false;
+      });
+  });
+
+  /* Early access form. Sends to hello@bytecraftco.ai through FormSubmit. */
+  var form = document.getElementById('ea-form'), done = document.getElementById('ea-done'), note = document.getElementById('ea-note');
+  function showDone() { form.hidden = true; note.hidden = true; done.hidden = false; }
+  if (/[?&]joined=1/.test(location.search)) showDone();
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (form.elements._honey.value) return;
+    var btn = form.querySelector('button'); btn.disabled = true; setBtnText(btn, 'Adding you');
+    note.classList.remove('err');
+    fetch('https://formsubmit.co/ajax/hello@bytecraftco.ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email: form.elements.email.value, list: 'Next sports app, early access', _subject: 'Early access list: next sports app', _template: 'table' })
+    }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { if (d && (d.success === false || d.success === 'false')) throw new Error('rejected'); showDone(); })
+      .catch(function () {
+        btn.disabled = false; setBtnText(btn, 'Get early access');
+        note.classList.add('err'); note.innerHTML = 'That did not go through. Please email <a href="mailto:hello@bytecraftco.ai?subject=Early%20access">hello@bytecraftco.ai</a> instead.';
+      });
+  });
+
+  /* Scroll motion */
+  if (!hasGsap || reduce) return;
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from('.hero h1 .line > span', { yPercent: 110, duration: 1.1, ease: 'power4.out', stagger: 0.09, delay: 0.15 });
+  gsap.from('.hero-kicker, .tagline, .hero-row', { opacity: 0, y: 24, duration: 1, ease: 'power3.out', delay: 0.6, stagger: 0.1 });
+  gsap.to('.hero-inner', { yPercent: -18, opacity: 0.2, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.utils.toArray('.reveal').forEach(function (el) {
+    gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
+  });
+  gsap.to('.bars i', { scaleY: 1, duration: 1.2, ease: 'power3.out', stagger: 0.025, scrollTrigger: { trigger: '.t-data', start: 'top 80%' } });
+  gsap.to('.week i', { scaleY: 1, duration: 1, ease: 'power3.out', stagger: 0.06, scrollTrigger: { trigger: '#week', start: 'top 85%' } });
+  gsap.from('.std-dots i.on', { scale: 0, duration: .5, ease: 'back.out(2)', stagger: 0.05, scrollTrigger: { trigger: '.t-std', start: 'top 70%' } });
+  gsap.utils.toArray('.track').forEach(function (tr, i) {
+    gsap.to(tr, { x: i ? 160 : -160, ease: 'none', scrollTrigger: { trigger: '.marquee', start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+  gsap.fromTo('.tmr', { scale: 0.94 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.tmr', start: 'top bottom', end: 'top 30%', scrub: true } });
+  gsap.fromTo('.contact', { scale: 0.94 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.contact', start: 'top bottom', end: 'top 35%', scrub: true } });
+  gsap.from('.app-stage .watch', { rotate: -8, y: 40, ease: 'none', scrollTrigger: { trigger: '#sports', start: 'top bottom', end: 'center center', scrub: true } });
+})();
+</script>
 </body>
 </html>
