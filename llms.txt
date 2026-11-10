@@ -1,0 +1,35 @@
+# ByteCraftCo
+
+> ByteCraftCo builds consumer software and independent product standards. BYTECRAFTCO LLC is a Utah company. It makes sports apps (AllTaps for Apple Watch is live; more apps for iOS and Android are in development) and runs The Modern Recovery, its publication for recovery gear. ByteCraftCo builds the standards and the tools. The Modern Recovery publishes what they find.
+
+Key facts:
+
+- Legal name: BYTECRAFTCO LLC. Running name: ByteCraftCo. Website: https://bytecraftco.ai
+- The Modern Recovery (https://themodernrecovery.com) is a dba of BYTECRAFTCO LLC.
+- ByteCraftCo is a standards and data lab, with a device measurement programme opening soon. Today, ratings are built from published specifications, warranty terms, manuals, prices and owner reviews, each read on a dated page, and scored against a written Standard.
+- The Standard has five scored lines: Build, Evidence, One job, Value, Company. There is no composite score.
+- The Modern Recovery earns through affiliate links. They are disclosed on every page and never change a rating.
+- Contact: recovery gear, brands, affiliates and press: hello@themodernrecovery.com. Everything else: hello@bytecraftco.ai.
+
+## Pages
+
+- [Home](https://bytecraftco.ai/): what ByteCraftCo makes, how the lab works, The Modern Recovery, sports apps, partner form
+- [Privacy notice](https://bytecraftco.ai/privacy.html): what the site's forms collect and how it is used
+
+## Apps
+
+- [AllTaps](https://bytecraftco.ai/alltaps/): the simplest golf scorecard for Apple Watch
+- [AllTaps on the App Store](https://apps.apple.com/us/app/alltaps/id6772271729)
+- [AllTaps support](https://bytecraftco.ai/alltaps/support.html)
+- [AllTaps FAQ](https://bytecraftco.ai/alltaps/faq.html)
+- [AllTaps privacy policy](https://bytecraftco.ai/alltaps/privacy.html)
+
+## The Modern Recovery (publication)
+
+- [The Modern Recovery](https://themodernrecovery.com): ratings, comparisons and buying guides for saunas, cold plunges, red light and recovery gear
+- [The Standard](https://themodernrecovery.com/pages/the-standard): the rating method, with a dated changelog
+- [Warranty Tracker](https://themodernrecovery.com/pages/warranty-tracker): what voids each product's coverage
+- [Sauna heater sizing table and calculator](https://themodernrecovery.com/blogs/buying-guides/what-size-sauna-heater-do-i-need)
+- [Sauna benefits evidence table](https://themodernrecovery.com/blogs/buying-guides/sauna-benefits-what-the-research-supports)
+- [LED face mask clearance table](https://themodernrecovery.com/blogs/buying-guides/led-face-masks-compared)
+- [Affiliate disclosure](https://themodernrecovery.com/pages/affiliate-disclosure)

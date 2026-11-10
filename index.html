@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ByteCraftCo | Apps and standards for people who train and recover</title>
-<meta name="description" content="ByteCraftCo builds consumer software and independent product standards. Makers of sports apps for iOS and Android, including AllTaps, and publisher of The Modern Recovery, independent ratings of saunas, cold plunges, red light and recovery gear.">
+<meta name="description" content="ByteCraftCo builds consumer software and independent product standards: sports apps like AllTaps, and The Modern Recovery's ratings of recovery gear.">
 <link rel="canonical" href="https://bytecraftco.ai/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bytecraftco.ai/">
@@ -29,24 +29,73 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://bytecraftco.ai/#organization",
-  "name": "BYTECRAFTCO LLC",
-  "alternateName": "ByteCraftCo",
-  "url": "https://bytecraftco.ai/",
-  "logo": "https://bytecraftco.ai/apple-touch-icon.png",
-  "description": "ByteCraftCo builds consumer software and independent product standards.",
-  "email": "hello@bytecraftco.ai",
-  "sameAs": ["https://themodernrecovery.com"],
-  "subOrganization": {
-    "@type": "Organization",
-    "name": "The Modern Recovery",
-    "url": "https://themodernrecovery.com",
-    "description": "Independent ratings of saunas, cold plunges, red light and recovery gear, scored against a published Standard.",
-    "parentOrganization": { "@id": "https://bytecraftco.ai/#organization" }
-  },
-  "owns": [
-    { "@type": "SoftwareApplication", "name": "AllTaps", "operatingSystem": "watchOS", "applicationCategory": "SportsApplication", "url": "https://apps.apple.com/us/app/alltaps/id6772271729" }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bytecraftco.ai/#organization",
+      "name": "BYTECRAFTCO LLC",
+      "alternateName": "ByteCraftCo",
+      "url": "https://bytecraftco.ai/",
+      "logo": "https://bytecraftco.ai/apple-touch-icon.png",
+      "description": "ByteCraftCo builds consumer software and independent product standards.",
+      "email": "hello@bytecraftco.ai",
+      "sameAs": [
+        "https://themodernrecovery.com"
+      ],
+      "subOrganization": {
+        "@type": "Organization",
+        "@id": "https://themodernrecovery.com/#organization",
+        "name": "The Modern Recovery",
+        "url": "https://themodernrecovery.com",
+        "description": "Independent ratings of saunas, cold plunges, red light and recovery gear, scored against a published Standard.",
+        "parentOrganization": {
+          "@id": "https://bytecraftco.ai/#organization"
+        }
+      },
+      "owns": [
+        {
+          "@id": "https://bytecraftco.ai/alltaps/#app"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bytecraftco.ai/#website",
+      "url": "https://bytecraftco.ai/",
+      "name": "ByteCraftCo",
+      "description": "ByteCraftCo builds consumer software and independent product standards.",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://bytecraftco.ai/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://bytecraftco.ai/#webpage",
+      "url": "https://bytecraftco.ai/",
+      "name": "ByteCraftCo | Apps and standards for people who train and recover",
+      "isPartOf": {
+        "@id": "https://bytecraftco.ai/#website"
+      },
+      "about": {
+        "@id": "https://bytecraftco.ai/#organization"
+      },
+      "primaryImageOfPage": "https://bytecraftco.ai/og-image.png",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://bytecraftco.ai/alltaps/#app",
+      "name": "AllTaps",
+      "operatingSystem": "watchOS",
+      "applicationCategory": "SportsApplication",
+      "description": "The simplest golf scorecard for Apple Watch.",
+      "url": "https://bytecraftco.ai/alltaps/",
+      "installUrl": "https://apps.apple.com/us/app/alltaps/id6772271729",
+      "publisher": {
+        "@id": "https://bytecraftco.ai/#organization"
+      }
+    }
   ]
 }
 </script>
@@ -90,6 +139,8 @@
   .btn-ghost { border: 1px solid var(--line); color: var(--white); }
   .js .reveal { opacity: 0; transform: translateY(36px); }
 
+  .skip { position: absolute; left: 16px; top: -60px; z-index: 100; background: var(--white); color: var(--black); padding: 12px 18px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: top .2s ease; }
+  .skip:focus { top: 12px; }
   /* Nav */
   .nav { position: fixed; inset: 0 0 auto; z-index: 50; transition: background .3s ease; }
   .nav.scrolled { background: rgba(0,0,0,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
@@ -98,10 +149,19 @@
   .logo-mark { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, var(--heat), var(--cold-2)); display: grid; place-items: center; font: 800 17px/1 var(--display); color: #fff; }
   .logo-name { font: 600 16px/1 var(--display); letter-spacing: 0.02em; }
   .nav-links { display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 500; }
-  .nav-links a { text-decoration: none; color: var(--dim); }
+  .nav-links a { text-decoration: none; color: var(--dim); padding: 8px 0; }
   .nav-links a:hover { color: var(--white); }
   .nav-links .btn { color: var(--black); padding: 10px 18px; font-size: 14px; }
 
+  .menu-btn { display: none; align-items: center; gap: 10px; background: transparent; color: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 10px 16px; font: 600 14px/1 var(--body); cursor: pointer; }
+  .menu-icon { width: 14px; height: 10px; position: relative; border-top: 2px solid currentColor; border-bottom: 2px solid currentColor; }
+  .menu-icon::after { content: ""; position: absolute; left: 0; right: 0; top: 2px; border-top: 2px solid currentColor; }
+  .menu-btn[aria-expanded="true"] { border-color: var(--white); }
+  .menu-panel { position: absolute; left: 0; right: 0; top: 72px; height: calc(100svh - 72px); overflow-y: auto; background: #000; border-top: 1px solid var(--line); padding: 8px var(--gutter) 24px; }
+  .menu-panel[hidden] { display: none; }
+  .menu-panel nav { display: grid; }
+  .menu-panel a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); font: 800 20px/1.2 var(--display); text-transform: uppercase; text-decoration: none; color: var(--white); }
+  .menu-panel a:last-child { border-bottom: 0; }
   /* Hero */
   .hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; }
   #field { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -118,7 +178,7 @@
   .tagline { font: 600 clamp(18px, 1.9vw, 26px)/1.35 var(--body); color: var(--white); margin: 22px 0 0; max-width: 40ch; }
   .hero-row .sub-lede { font-size: 16px; color: var(--dim); max-width: 46ch; margin: 0; }
   .tmr-small { display: inline-block; margin-top: 18px; font-size: 15px; color: #e9b48a; text-underline-offset: 4px; }
-  .data-list a { color: #cfd2d4; text-underline-offset: 4px; }
+  .data-list a { color: #cfd2d4; text-underline-offset: 4px; display: inline-block; padding: 5px 0; }
   .data-list a:hover { color: var(--white); }
   .footer-tag { color: var(--white); }
   .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -129,6 +189,10 @@
   .scale::before { content: "Heat"; top: 0; }
   .scale::after { content: "Cold"; bottom: 0; }
 
+  .motion-btn { position: absolute; z-index: 3; right: var(--gutter); bottom: 24px; background: rgba(0,0,0,.55); color: var(--dim); border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px; font: 500 14px/1 var(--mono); cursor: pointer; }
+  .motion-btn:hover, .motion-btn:focus-visible { color: var(--white); border-color: var(--white); }
+  .paused .track, .paused .std-glow, .paused .war-scan, .paused .calc-track b, .paused .live-dot, .paused .ble span { animation-play-state: paused !important; }
+  @media (max-width: 960px) { .motion-btn { top: 84px; bottom: auto; } }
   /* Marquee */
   .marquee { border-block: 1px solid var(--line); padding: 22px 0; overflow: hidden; display: grid; gap: 10px; }
   .track { display: flex; width: max-content; gap: 40px; animation: slide 40s linear infinite; }
@@ -149,7 +213,7 @@
   .story-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); }
   .step { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; padding: 24px 0; opacity: .32; transition: opacity .5s ease; }
   .step.active { opacity: 1; }
-  .step-num { font: 500 13px/1 var(--mono); color: var(--dim); margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
+  .step-num { font: 500 15px/1 var(--mono); color: var(--dim); margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
   .step-num i { display: block; width: 48px; height: 1px; background: var(--line); position: relative; overflow: hidden; }
   .step.active .step-num i::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--heat), var(--cold)); animation: grow .8s ease forwards; transform-origin: left; }
   @keyframes grow { from { transform: scaleX(0); } }
@@ -178,9 +242,9 @@
   .tile .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; position: relative; z-index: 2; }
   .chip { font-size: 14px; color: #cfd2d4; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; background: rgba(0,0,0,0.35); }
   .tile-link { position: relative; z-index: 2; margin-top: 18px; font-size: 15px; font-weight: 600; color: var(--cold); text-underline-offset: 4px; }
-  .t-std { grid-column: span 7; grid-row: span 2; min-height: 620px; }
-  .t-war { grid-column: span 5; }
-  .t-tools { grid-column: span 5; }
+  .t-std { grid-column: span 7; grid-row: span 2; min-height: 776px; }
+  .t-war { grid-column: span 5; min-height: 380px; }
+  .t-tools { grid-column: span 5; min-height: 380px; }
   .t-data { grid-column: span 12; min-height: 260px; }
   .tile-visual { position: absolute; inset: 0; z-index: 0; }
   .tile-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(14,15,16,0.94) 76%); }
@@ -212,7 +276,7 @@
   .bars i { flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(180deg, var(--cold), rgba(43,217,196,0.15)); height: var(--h); transform-origin: bottom; }
   .js .bars i { transform: scaleY(0); }
   .t-data .content { max-width: 40%; position: relative; z-index: 2; }
-  .data-list { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 6px; font-size: 15px; color: #cfd2d4; }
+  .data-list { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 0; font-size: 15px; color: #cfd2d4; }
   .data-list li::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--cold); margin-right: 10px; vertical-align: middle; }
 
   /* Synergy */
@@ -231,7 +295,7 @@
   .synergy-note { margin: 56px auto 0; text-align: center; max-width: 24ch; font: 800 clamp(24px, 3.2vw, 44px)/1.1 var(--display); text-transform: uppercase; }
 
   /* The Modern Recovery (TMR's own palette inside the dark site) */
-  .tmr { --t-cream: #fbf9f5; --t-sage: #edf1ee; --t-forest: #1f3a33; --t-deep: #142722; --t-moss: #4e6b5f; --t-terra: #b7622f; --t-amber: #d9a066;
+  .tmr { --t-cream: #fbf9f5; --t-sage: #edf1ee; --t-forest: #1f3a33; --t-deep: #142722; --t-moss: #4e6b5f; --t-terra: #b7622f; --t-terra-text: #9a4c20; --t-amber: #d9a066;
     background: var(--t-cream); color: var(--t-forest); font-family: "Lexend", system-ui, sans-serif; font-weight: 300; position: relative; overflow: hidden; border-radius: 36px; margin: 0 clamp(8px, 1.5vw, 20px); }
   .tmr .wrap { position: relative; padding-top: clamp(72px, 9vw, 120px); padding-bottom: clamp(72px, 9vw, 120px); }
   .tmr-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 540px); gap: 48px; align-items: start; margin-bottom: 56px; }
@@ -242,7 +306,7 @@
   .tmr-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
   .tmr .btn-tmr { background: var(--t-forest); color: var(--t-cream); }
   .tmr-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 18px; }
-  .tmr-small { font-size: 15px; font-weight: 500; color: var(--t-terra); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .tmr-small { font-size: 15px; font-weight: 500; color: var(--t-terra-text); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
   .tmr-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .tmr-card { border-radius: 24px; padding: clamp(28px, 3.5vw, 48px); position: relative; overflow: hidden; }
   .tmr-card.site { background: var(--t-sage); color: var(--t-forest); }
@@ -261,7 +325,7 @@
   .tmr-list b { font-weight: 500; }
   .tmr-card.site .tmr-list b { color: var(--t-forest); }
   .app-card .tmr-list b { color: var(--t-cream); }
-  .tmr-link { color: var(--t-terra); font-weight: 400; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .tmr-link { color: var(--t-terra-text); font-weight: 400; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
   .app-card .tmr-link { color: var(--t-amber); }
   .app-card { display: grid; grid-template-columns: 1fr auto; gap: 24px; }
   .mini-phone { width: 260px; align-self: end; margin-bottom: calc(-1 * clamp(28px, 3.5vw, 48px)); border-radius: 38px 38px 0 0; padding: 10px 10px 0; background: #0b1411; box-shadow: 0 0 0 1.5px rgba(255,255,255,0.1), 0 30px 60px rgba(0,0,0,.4); }
@@ -284,7 +348,7 @@
   .recent-head h3 { font: 400 clamp(26px, 2.6vw, 34px)/1.1 "Newsreader", Georgia, serif; margin: 0; }
   .recent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .recent-card { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: 200px; padding: 26px; border-radius: 20px; background: #fff; border: 1px solid #dfe6e2; text-decoration: none; color: var(--t-forest); transition: border-color .4s cubic-bezier(.165,.84,.44,1), transform .4s cubic-bezier(.165,.84,.44,1); }
-  .recent-card .rc-kind { font: 500 14px/1 var(--mono); color: var(--t-terra); }
+  .recent-card .rc-kind { font: 500 14px/1 var(--mono); color: var(--t-terra-text); }
   .recent-card .rc-title { font: 400 clamp(21px, 1.8vw, 25px)/1.25 "Newsreader", Georgia, serif; }
   .recent-card .rc-foot { display: flex; justify-content: space-between; align-items: center; font-size: 15px; color: var(--t-moss); }
   .recent-card .rc-arrow { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--t-sage); color: var(--t-forest); transition: background .4s cubic-bezier(.165,.84,.44,1), color .4s cubic-bezier(.165,.84,.44,1); }
@@ -319,7 +383,7 @@
   .app h3 { font: 800 clamp(28px, 3vw, 40px)/1 var(--display); text-transform: uppercase; margin: 0 0 12px; }
   .app p { color: var(--dim); margin: 0 0 22px; max-width: 46ch; }
   .app-links { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 20px; font-size: 14px; }
-  .app-links a:not(.btn) { color: #cfd2d4; text-underline-offset: 4px; }
+  .app-links a:not(.btn) { color: #cfd2d4; text-underline-offset: 4px; display: inline-flex; align-items: center; min-height: 32px; padding: 0 2px; }
   .classified { font-family: var(--display); min-height: 1em; white-space: nowrap; overflow: hidden; }
   #scramble-title { color: var(--heat); }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
@@ -332,7 +396,7 @@
   .ea-btn { border: 0; cursor: pointer; font-family: var(--body); }
   .ea-btn[disabled] { opacity: .6; cursor: progress; }
   .ea-note { font-size: 14px; color: var(--dim); margin: 12px 0 0; }
-  .ea-note a { color: var(--white); text-underline-offset: 3px; }
+  .ea-note a { color: var(--white); text-underline-offset: 3px; display: inline-block; padding: 4px 0; }
   .ea-note.err { color: var(--heat); }
   .ea-done { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border-radius: 18px; background: rgba(43,217,196,.1); border: 1px solid rgba(43,217,196,.35); max-width: 520px; }
   .ea-done[hidden] { display: none; }
@@ -364,6 +428,7 @@
   .footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .footer a { color: var(--white); text-underline-offset: 4px; }
   .footer-links { display: flex; gap: 20px; }
+  .footer-links a { display: inline-block; padding: 6px 0; }
 
 
   /* Partner form */
@@ -391,7 +456,7 @@
   .count { margin-left: auto; font: 500 14px/1.4 var(--mono); color: var(--dim); }
   .check { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; font-weight: 400 !important; color: #d6d8da; cursor: pointer; }
   .check input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--cold); }
-  .check a { color: var(--white); text-underline-offset: 3px; }
+  .check a { color: var(--white); text-underline-offset: 3px; padding: 4px 0; }
   .submit-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
   .submit-row .btn { border: 0; cursor: pointer; font-family: var(--body); }
   .submit-row .btn[disabled] { opacity: .6; cursor: progress; }
@@ -408,13 +473,12 @@
   .btn { overflow: hidden; transition: background-color .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease), translate .4s var(--ease); }
   .btn-label { display: inline-block; position: relative; overflow: hidden; height: 1.2em; line-height: 1.2; vertical-align: top; }
   .btn-label > span { display: block; position: relative; white-space: nowrap; transition: transform .4s var(--ease); }
-  .btn-label > span::after { content: attr(data-label); position: absolute; left: 0; top: 100%; white-space: nowrap; }
+  .bl-copy { position: absolute; left: 0; top: 100%; white-space: nowrap; }
   .btn-icon { position: relative; width: 14px; height: 14px; overflow: hidden; display: inline-block; flex: none; }
   .btn-icon i { position: absolute; inset: 0; display: grid; place-items: center; font-style: normal; transition: transform .4s var(--ease); }
   .btn-icon .a2 { transform: translateX(-120%); }
-  .roll { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+  .roll { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; min-height: 32px; }
   .roll .btn-label { text-decoration: underline; text-underline-offset: 4px; }
-  .roll .btn-label > span::after { text-decoration: inherit; }
   .btn:focus-visible .btn-label > span, .roll:focus-visible .btn-label > span { transform: translateY(-100%); }
   .btn:focus-visible .btn-icon .a1, .roll:focus-visible .btn-icon .a1 { transform: translateX(120%); }
   .btn:focus-visible .btn-icon .a2, .roll:focus-visible .btn-icon .a2 { transform: translateX(0); }
@@ -434,8 +498,11 @@
     .btn-icon .a2 { display: none; }
   }
 
+  @media (min-width: 961px) { .menu-panel { display: none !important; } }
   @media (max-width: 960px) {
     .nav-links a:not(.btn) { display: none; }
+    .menu-btn { display: inline-flex; }
+    .nav-links { gap: 10px; }
     .section-head, .tmr-head, .founder { grid-template-columns: 1fr; gap: 24px; }
     .story-grid { grid-template-columns: 1fr; }
     .stage-col { order: -1; position: sticky; top: 72px; z-index: 3; height: 54vh; }
@@ -456,6 +523,7 @@
   @media (max-width: 560px) {
     .app-card { grid-template-columns: 1fr; }
     .mini-phone { justify-self: center; }
+    .nav-links .btn { display: none; }
     .hero-ctas, .tmr-ctas { flex-direction: column; width: 100%; }
     .hero-ctas .btn, .tmr-ctas .btn { justify-content: center; }
     .app-stage { height: 320px; }
@@ -469,6 +537,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="tmr-mark" viewBox="0 0 214.4 71.7"><path fill="currentColor" d="M 137.6 6 L 141.9 68.1 L 150.9 69.5 L 150.9 70.85 L 129.15 70.85 L 129.15 69.5 L 138.2 68.1 L 134 6.3 L 134.7 6.45 L 106.45 71.7 L 104.6 71.7 L 77.7 6.65 L 78.35 6.55 L 74.05 68.1 L 83.05 69.5 L 83.05 70.85 L 62.6 70.85 L 62.6 69.5 L 71.6 68.1 L 76 6.3 L 66.5 4.55 L 66.5 3.25 L 80.2 3.25 L 106.9 67.7 L 105.75 67.65 L 133.6 3.25 L 147.4 3.25 L 147.4 4.55 L 137.6 6 Z M 166.6 35.15 L 183 35.15 Q 190.05 35.15 194.425 31.4 Q 198.8 27.65 198.8 20.15 Q 198.8 15.6 196.775 12.375 Q 194.75 9.15 189.975 7.425 Q 185.2 5.7 176.8 5.7 L 166.2 5.7 L 164.9 3.25 L 179.45 3.25 Q 188.1 3.25 193.225 5.425 Q 198.35 7.6 200.625 11.4 Q 202.9 15.2 202.9 20.05 Q 202.9 24.15 201.1 27.55 Q 199.3 30.95 195.8 33.275 Q 192.3 35.6 187.1 36.45 L 187.1 36.1 Q 190.3 36.25 192.4 37.3 Q 194.5 38.35 196.075 40.625 Q 197.65 42.9 199.15 46.75 L 204.75 61.55 Q 206.05 64.95 207.175 66.625 Q 208.3 68.3 209.95 68.85 Q 211.6 69.4 214.4 69.35 L 214.4 70.85 Q 211.1 71.05 208.975 70.95 Q 206.85 70.85 205.475 69.95 Q 204.1 69.05 202.975 67.075 Q 201.85 65.1 200.55 61.55 L 195.5 47.75 Q 194 43.8 192.65 41.6 Q 191.3 39.4 189.55 38.5 Q 187.8 37.6 185.05 37.6 L 167.25 37.6 L 166.6 35.15 Z M 51.2 4.9 L 53.85 5.7 L 4.1 5.7 L 6.75 4.9 L 1.55 21.25 L 0 21.1 L 2.5 0 L 3.5 0 L 7 3.8 L 5.15 3.25 L 53 3.25 L 50.95 3.8 L 54.45 0 L 55.45 0 L 57.95 21.05 L 56.4 21.25 L 51.2 4.9 Z M 157.05 3.25 L 169.85 3.25 L 169.85 68.1 L 179.7 69.5 L 179.7 70.85 L 157.05 70.85 L 157.05 69.5 L 166.05 68.1 L 166.05 5.95 L 157.05 4.55 L 157.05 3.25 Z M 27.05 68.1 L 27.05 3.85 L 30.9 3.85 L 30.9 68.1 L 39.9 69.5 L 39.9 70.85 L 18.05 70.85 L 18.05 69.5 L 27.05 68.1 Z"/></symbol>
@@ -477,7 +546,7 @@
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="ByteCraftCo home">
+    <a class="logo" href="#main" aria-label="ByteCraftCo home">
       <span class="logo-mark" aria-hidden="true">B</span>
       <span class="logo-name">ByteCraftCo</span>
     </a>
@@ -487,12 +556,24 @@
       <a href="#modern-recovery">The Modern Recovery</a>
       <a href="#sports">Sports apps</a>
       <a href="#partner">Partner</a>
-      <a class="btn btn-primary" href="#contact"><span class="btn-label"><span data-label="Contact">Contact</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-panel"><span class="menu-icon" aria-hidden="true"></span>Menu</button>
+      <a class="btn btn-primary" href="#contact"><span class="btn-label"><span class="bl-in">Contact<span class="bl-copy" aria-hidden="true">Contact</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
+    </nav>
+  </div>
+  <div class="menu-panel" id="menu-panel" hidden>
+    <nav aria-label="Mobile">
+      <a href="#make">What we make</a>
+      <a href="#how">The lab</a>
+      <a href="#modern-recovery">The Modern Recovery</a>
+      <a href="#sports">Sports apps</a>
+      <a href="#partner">Partner</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<main id="top">
+<main id="main" tabindex="-1">
   <!-- HERO. To use footage later, add <video autoplay muted loop playsinline> in place of the canvas. -->
   <section class="hero" aria-labelledby="hero-title">
     <canvas id="field" aria-hidden="true"></canvas>
@@ -502,6 +583,7 @@
       <span>Composite score <b>none</b></span>
           </div>
     <div class="scale" aria-hidden="true"></div>
+    <button class="motion-btn" id="motion-btn" type="button" aria-pressed="false">Pause motion</button>
     <div class="hero-inner">
       <div class="hero-kicker"><span class="live-dot"></span>BYTECRAFTCO LLC</div>
       <h1 class="display" id="hero-title">
@@ -514,8 +596,8 @@
       <div class="hero-row">
         <p class="sub-lede">Our sports apps help you train. The Modern Recovery, our publication, rates the gear you recover with.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#modern-recovery"><span class="btn-label"><span data-label="Read about The Modern Recovery">Read about The Modern Recovery</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
-          <a class="btn btn-ghost" href="#sports"><span class="btn-label"><span data-label="Our sports apps">Our sports apps</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
+          <a class="btn btn-primary" href="#modern-recovery"><span class="btn-label"><span class="bl-in">Read about The Modern Recovery<span class="bl-copy" aria-hidden="true">Read about The Modern Recovery</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
+          <a class="btn btn-ghost" href="#sports"><span class="btn-label"><span class="bl-in">Our sports apps<span class="bl-copy" aria-hidden="true">Our sports apps</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
         </div>
       </div>
     </div>
@@ -551,8 +633,8 @@
             <circle r="5" fill="#2bd9c4" opacity=".5"><animateMotion dur="2.2s" begin="1.1s" repeatCount="indefinite"><mpath href="#b1"/></animateMotion></circle>
             <circle r="5" fill="#ff7061"><animateMotion dur="2.2s" begin=".5s" repeatCount="indefinite"><mpath href="#b2"/></animateMotion></circle>
             <circle r="5" fill="#ff7061" opacity=".5"><animateMotion dur="2.2s" begin="1.6s" repeatCount="indefinite"><mpath href="#b2"/></animateMotion></circle>
-            <text x="60" y="124" text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" fill="#9a9ea3">questions</text>
-            <text x="60" y="290" text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" fill="#9a9ea3">answers</text>
+            <text x="60" y="124" text-anchor="middle" font-family="Geist Mono, monospace" font-size="14" fill="#9a9ea3">questions</text>
+            <text x="60" y="290" text-anchor="middle" font-family="Geist Mono, monospace" font-size="14" fill="#9a9ea3">answers</text>
           </svg>
         </div>
         <div class="side standards reveal">
@@ -666,7 +748,7 @@
           <h3>The Standard</h3>
           <p>The method ByteCraftCo wrote for rating saunas, cold plunges, red light and recovery tools. Five scored lines, no composite score, and a dated history of every change.</p>
           <div class="chips"><span class="chip">Five scored lines</span><span class="chip">No composite score</span><span class="chip">Dated changelog</span></div>
-          <a class="roll tile-link" href="https://themodernrecovery.com/pages/the-standard" target="_blank" rel="noopener"><span class="btn-label"><span data-label="Read the Standard at TMR">Read the Standard at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="roll tile-link" href="https://themodernrecovery.com/pages/the-standard" target="_blank" rel="noopener"><span class="btn-label"><span class="bl-in">Read the Standard at TMR<span class="bl-copy" aria-hidden="true">Read the Standard at TMR</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
         </article>
         <article class="tile t-war reveal">
           <div class="tile-visual" aria-hidden="true">
@@ -680,7 +762,7 @@
           </div>
           <h3>Warranty Tracker</h3>
           <p>A public record of exactly what voids each product's coverage, read from the warranty documents.</p>
-          <a class="roll tile-link" href="https://themodernrecovery.com/pages/warranty-tracker" target="_blank" rel="noopener"><span class="btn-label"><span data-label="View the Warranty Tracker at TMR">View the Warranty Tracker at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="roll tile-link" href="https://themodernrecovery.com/pages/warranty-tracker" target="_blank" rel="noopener"><span class="btn-label"><span class="bl-in">View the Warranty Tracker at TMR<span class="bl-copy" aria-hidden="true">View the Warranty Tracker at TMR</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
         </article>
         <article class="tile t-tools reveal">
           <div class="tile-visual" aria-hidden="true">
@@ -693,7 +775,7 @@
           </div>
           <h3>Calculators and finders</h3>
           <p>A sauna heater size calculator, a running-cost calculator, finders and comparison pages.</p>
-          <a class="roll tile-link" href="https://themodernrecovery.com/blogs/buying-guides/what-size-sauna-heater-do-i-need" target="_blank" rel="noopener"><span class="btn-label"><span data-label="Try the heater calculator at TMR">Try the heater calculator at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="roll tile-link" href="https://themodernrecovery.com/blogs/buying-guides/what-size-sauna-heater-do-i-need" target="_blank" rel="noopener"><span class="btn-label"><span class="bl-in">Try the heater calculator at TMR<span class="bl-copy" aria-hidden="true">Try the heater calculator at TMR</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
         </article>
         <article class="tile t-data reveal">
           <div class="tile-visual" aria-hidden="true"><div class="bars" id="bars"></div></div>
@@ -726,11 +808,11 @@
         <div>
           <p class="tmr-lede">Our publication for recovery gear. ByteCraftCo wrote the Standard behind it: five scored lines (Build, Evidence, One job, Value, Company), applied to saunas, cold plunges, red light and recovery tools. Every rating is built from published specifications, warranty terms, manuals and prices, read on a dated page, and every score can be checked. Some links are affiliate links; they are disclosed and never change a rating.</p>
           <div class="tmr-ctas">
-            <a class="btn btn-tmr" href="https://themodernrecovery.com" target="_blank" rel="noopener"><span class="btn-label"><span data-label="Read at The Modern Recovery">Read at The Modern Recovery</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+            <a class="btn btn-tmr" href="https://themodernrecovery.com" target="_blank" rel="noopener"><span class="btn-label"><span class="bl-in">Read at The Modern Recovery<span class="bl-copy" aria-hidden="true">Read at The Modern Recovery</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
           </div>
           <div class="tmr-links">
-            <a class="roll tmr-small" href="https://themodernrecovery.com/pages/the-standard" target="_blank" rel="noopener"><span class="btn-label"><span data-label="How the Standard works, at TMR">How the Standard works, at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
-            <a class="roll tmr-small" href="https://themodernrecovery.com/pages/affiliate-disclosure" target="_blank" rel="noopener"><span class="btn-label"><span data-label="Affiliate disclosure at TMR">Affiliate disclosure at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+            <a class="roll tmr-small" href="https://themodernrecovery.com/pages/the-standard" target="_blank" rel="noopener"><span class="btn-label"><span class="bl-in">How the Standard works, at TMR<span class="bl-copy" aria-hidden="true">How the Standard works, at TMR</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+            <a class="roll tmr-small" href="https://themodernrecovery.com/pages/affiliate-disclosure" target="_blank" rel="noopener"><span class="btn-label"><span class="bl-in">Affiliate disclosure at TMR<span class="bl-copy" aria-hidden="true">Affiliate disclosure at TMR</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
           </div>
         </div>
       </div>
@@ -744,7 +826,7 @@
             <li><span><b>Every source linked.</b> Each score can be checked.</span></li>
             <li><span><b>Tools and finders.</b> Heater sizing, running costs and comparisons.</span></li>
           </ul>
-          <a class="roll tmr-link" href="https://themodernrecovery.com" target="_blank" rel="noopener"><span class="btn-label"><span data-label="Read the guides at TMR">Read the guides at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="roll tmr-link" href="https://themodernrecovery.com" target="_blank" rel="noopener"><span class="btn-label"><span class="bl-in">Read the guides at TMR<span class="bl-copy" aria-hidden="true">Read the guides at TMR</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
         </article>
         <article class="tmr-card app-card reveal">
           <div>
@@ -756,7 +838,7 @@
               <li><span><b>Contrast timer.</b> Hot, then cold, round by round.</span></li>
               <li><span><b>See your progress.</b> Weekly minutes, streaks and trends.</span></li>
             </ul>
-            <a class="roll tmr-link" href="mailto:hello@themodernrecovery.com?subject=Notify%20me%20when%20the%20app%20launches"><span class="btn-label"><span data-label="Get notified at launch">Get notified at launch</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
+            <a class="roll tmr-link" href="mailto:hello@themodernrecovery.com?subject=Notify%20me%20when%20the%20app%20launches"><span class="btn-label"><span class="bl-in">Get notified at launch<span class="bl-copy" aria-hidden="true">Get notified at launch</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></a>
           </div>
           <div class="mini-phone" aria-hidden="true">
             <div class="mini-screen">
@@ -777,7 +859,7 @@
       <div class="recent reveal">
         <div class="recent-head">
           <h3>Recent from The Modern Recovery</h3>
-          <a class="roll tmr-small" href="https://themodernrecovery.com/blogs/buying-guides" target="_blank" rel="noopener"><span class="btn-label"><span data-label="All buying guides at TMR">All buying guides at TMR</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="roll tmr-small" href="https://themodernrecovery.com/blogs/buying-guides" target="_blank" rel="noopener"><span class="btn-label"><span class="bl-in">All buying guides at TMR<span class="bl-copy" aria-hidden="true">All buying guides at TMR</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span><span class="sr-only"> (opens in a new tab)</span></a>
         </div>
         <div class="recent-grid">
           <a class="recent-card" href="https://themodernrecovery.com/blogs/buying-guides/sauna-dos-and-donts" target="_blank" rel="noopener">
@@ -825,13 +907,13 @@
             <h3>AllTaps</h3>
             <p>The simplest golf scorecard for Apple Watch. Tap once per shot, see your round add up, share it when you're done. Made for league players, beginners, and anyone who'd rather count shots than wrestle with GPS.</p>
             <div class="app-links">
-              <a class="btn btn-primary" href="https://apps.apple.com/us/app/alltaps/id6772271729"><svg width="16" height="16" aria-hidden="true"><use href="#i-apple"/></svg><span class="btn-label"><span data-label="Download on the App Store">Download on the App Store</span></span></a>
+              <a class="btn btn-primary" href="https://apps.apple.com/us/app/alltaps/id6772271729"><svg width="16" height="16" aria-hidden="true"><use href="#i-apple"/></svg><span class="btn-label"><span class="bl-in">Download on the App Store<span class="bl-copy" aria-hidden="true">Download on the App Store</span></span></span></a>
               <a href="/alltaps/">About</a><a href="/alltaps/faq.html">FAQ</a><a href="/alltaps/support.html">Support</a><a href="/alltaps/privacy.html">Privacy</a>
             </div>
           </div>
         </article>
         <article class="app soon reveal">
-          <div class="app-stage">
+          <div class="app-stage" aria-hidden="true">
             <div class="watch">
               <div class="watch-screen">
                 <div class="w-code"><span id="scramble">CLASSIFIED</span><small>Name coming soon</small></div>
@@ -851,7 +933,7 @@
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_next" value="https://bytecraftco.ai/?joined=1#sports">
               <input class="ea-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-              <button class="btn btn-primary ea-btn" type="submit"><span class="btn-label"><span data-label="Get early access">Get early access</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></button>
+              <button class="btn btn-primary ea-btn" type="submit"><span class="btn-label"><span class="bl-in">Get early access<span class="bl-copy" aria-hidden="true">Get early access</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></button>
             </form>
             <p class="ea-note" id="ea-note">One email when it launches. Nothing else. <a href="/privacy.html">Privacy notice</a>.</p>
             <div class="ea-done" id="ea-done" role="status" hidden>
@@ -952,7 +1034,7 @@
             <p class="field-err" id="pf-consent-err" hidden></p>
           </div>
           <div class="field full submit-row">
-            <button class="btn btn-primary" type="submit"><span class="btn-label"><span data-label="Send enquiry">Send enquiry</span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></button>
+            <button class="btn btn-primary" type="submit"><span class="btn-label"><span class="bl-in">Send enquiry<span class="bl-copy" aria-hidden="true">Send enquiry</span></span></span><span class="btn-icon" aria-hidden="true"><i class="a1"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i><i class="a2"><svg viewBox="0 0 14 14" width="14" height="14"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></button>
             <p class="form-err" id="pf-form-err" role="alert" hidden></p>
           </div>
         </form>
@@ -1003,9 +1085,29 @@
   var hasGsap = !!(window.gsap && window.ScrollTrigger);
   if (hasGsap && !reduce) document.documentElement.classList.add('js');
 
+  var userPaused = false;
   var nav = document.getElementById('nav');
   var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 40); };
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+
+  /* Pause motion */
+  var mb = document.getElementById('motion-btn');
+  function setPaused(p) {
+    userPaused = p; document.documentElement.classList.toggle('paused', p);
+    mb.setAttribute('aria-pressed', p ? 'true' : 'false'); mb.textContent = p ? 'Play motion' : 'Pause motion';
+    try { localStorage.setItem('bcc-motion', p ? 'off' : 'on'); } catch (e) {}
+  }
+  mb.addEventListener('click', function () { setPaused(!userPaused); });
+  try { if (localStorage.getItem('bcc-motion') === 'off') setPaused(true); } catch (e) {}
+  if (reduce) mb.hidden = true;
+
+  /* Mobile menu */
+  var menuBtn = document.getElementById('menu-btn'), menu = document.getElementById('menu-panel');
+  function setMenu(open) { document.body.style.overflow = open ? 'hidden' : ''; menu.hidden = !open; menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); nav.classList.toggle('scrolled', open || window.scrollY > 40); }
+  menuBtn.addEventListener('click', function () { setMenu(menu.hidden); if (!menu.hidden) menu.querySelector('a').focus(); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { setMenu(false); menuBtn.focus(); } });
 
   /* Hero heat-to-cold particle field */
   var cv = document.getElementById('field'), ctx = cv.getContext('2d');
@@ -1039,7 +1141,7 @@
       ctx.fillRect(p.x, p.y, 1.6, 1.6);
     }
   }
-  function loop() { if (running) step(); requestAnimationFrame(loop); }
+  function loop() { if (running && !userPaused) step(); requestAnimationFrame(loop); }
   size(); window.addEventListener('resize', size);
   cv.parentElement.addEventListener('pointermove', function (e) { var r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
   cv.parentElement.addEventListener('pointerleave', function () { mouse.x = mouse.y = -9999; });
@@ -1124,12 +1226,12 @@
       if (frame >= total) { clearInterval(id); el.textContent = to; }
     }, 45);
   }
-  if (!reduce) setInterval(function () { wi = (wi + 1) % words.length; scramble(words[wi]); }, 2600);
-  if (!reduce) setTimeout(function () { setInterval(function () { ti = (ti + 1) % tWords.length; scramble(tWords[ti], st); }, 2600); }, 1300);
+  if (!reduce) setInterval(function () { if (userPaused) return; wi = (wi + 1) % words.length; scramble(words[wi]); }, 2600);
+  if (!reduce) setTimeout(function () { setInterval(function () { if (userPaused) return; ti = (ti + 1) % tWords.length; scramble(tWords[ti], st); }, 2600); }, 1300);
 
 
   /* Button helpers */
-  function setBtnText(btn, t) { var sp = btn.querySelector('.btn-label > span'); if (sp) { sp.textContent = t; sp.setAttribute('data-label', t); } else { btn.textContent = t; } }
+  function setBtnText(btn, t) { var sp = btn.querySelector('.bl-in'); if (sp) { sp.innerHTML = ''; sp.appendChild(document.createTextNode(t)); var c = document.createElement('span'); c.className = 'bl-copy'; c.setAttribute('aria-hidden', 'true'); c.textContent = t; sp.appendChild(c); } else { btn.textContent = t; } }
   if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     document.querySelectorAll('.btn').forEach(function (b) {
       b.addEventListener('mousemove', function (e) {

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found | ByteCraftCo</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ease: cubic-bezier(.165,.84,.44,1);
+    --black: #000000; --panel: #0e0f10; --white: #f2f3ef; --dim: #9a9ea3; --line: rgba(242,243,239,0.12);
+    --heat: #ff7061; --cold: #2bd9c4; --cold-2: #299d8f;
+    --display: "Unbounded", "Arial Black", sans-serif;
+    --body: "Geist", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+    --gutter: clamp(16px, 4vw, 48px);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--black); color: var(--white); font: 400 17px/1.7 var(--body); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-underline-offset: 4px; }
+  :focus-visible { outline: 2px solid var(--cold); outline-offset: 4px; border-radius: 4px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
+  .nav { border-bottom: 1px solid var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-mark { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, var(--heat), var(--cold-2)); display: grid; place-items: center; font: 800 17px/1 var(--display); color: #fff; }
+  .logo-name { font: 600 16px/1 var(--display); }
+  .back { font-size: 14px; font-weight: 500; color: var(--dim); text-decoration: none; }
+  .back:hover { color: var(--white); }
+  .hero { padding: clamp(56px, 9vw, 112px) 0 clamp(32px, 5vw, 56px); }
+  .kicker { font: 500 14px/1 var(--mono); color: var(--cold); margin-bottom: 20px; }
+  h1 { font: 800 clamp(40px, 7vw, 88px)/1 var(--display); text-transform: uppercase; margin: 0 0 24px; }
+  .updated { color: var(--dim); margin: 0; }
+  .body { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: clamp(32px, 6vw, 88px); padding-bottom: clamp(64px, 9vw, 120px); }
+  .toc { position: sticky; top: 24px; align-self: start; display: grid; gap: 10px; font-size: 15px; }
+  .toc a { color: var(--dim); text-decoration: none; }
+  .toc a:hover { color: var(--white); }
+  section { padding: 28px 0; border-top: 1px solid var(--line); max-width: 68ch; }
+  h2 { font: 800 clamp(20px, 2vw, 26px)/1.2 var(--display); text-transform: uppercase; margin: 0 0 14px; }
+  p, li { color: #d6d8da; }
+  ul { padding-left: 20px; margin: 0 0 12px; }
+  li { margin-bottom: 6px; }
+  strong { color: var(--white); font-weight: 600; }
+  .footer { padding: 48px 0 40px; color: var(--dim); font-size: 14px; border-top: 1px solid var(--line); }
+  .footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .footer a { color: var(--white); }
+  .footer-tag { color: var(--white); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { display: inline-block; padding: 6px 0; }
+  @media (max-width: 860px) { .body { grid-template-columns: 1fr; } .toc { position: static; } }
+  .skip { position: absolute; left: 16px; top: -60px; z-index: 100; background: var(--white); color: var(--black); padding: 12px 18px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: top .2s ease; }
+  .skip:focus { top: 12px; }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="ByteCraftCo home"><span class="logo-mark" aria-hidden="true">B</span><span class="logo-name">ByteCraftCo</span></a>
+    <a class="back" href="/">Back to ByteCraftCo</a>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap hero" style="min-height:60vh">
+    <div class="kicker">404</div>
+    <h1>Page not found.</h1>
+    <p class="updated">That page has moved or never existed. Try one of these:</p>
+    <p><a href="/">ByteCraftCo home</a><span aria-hidden="true"> · </span><a href="/alltaps/">AllTaps</a><span aria-hidden="true"> · </span><a href="/alltaps/support.html">AllTaps support</a><span aria-hidden="true"> · </span><a href="https://themodernrecovery.com" target="_blank" rel="noopener">The Modern Recovery</a></p>
+  </div>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <span><span class="footer-tag">ByteCraftCo builds consumer software and independent product standards.</span><br>© 2026 BYTECRAFTCO LLC. The Modern Recovery is a dba of BYTECRAFTCO LLC.</span>
+    <span class="footer-links"><a href="/privacy.html">Privacy</a></span>
+  </div>
+</footer>
+</body>
+</html>
